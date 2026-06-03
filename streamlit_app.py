@@ -1,151 +1,398 @@
-import streamlit as st
-import pandas as pd
-import math
-from pathlib import Path
+# =========================
+# STUDI KASUS
+# =========================
+elif menu == "Studi Kasus":
+    
+    pilihan = st.selectbox(
+        "Pilih Studi Kasus",
+        ["Analisis Gas Ideal","Simulasi Massa Jenis Gas"]
+    )
+    
+    if pilihan == "Analisis Gas Ideal":
+        
+        st.subheader("🧪 Studi Kasus Gas Ideal")
+        
+        P = st.number_input("Tekanan (atm)", value=1.0)
+        V = st.number_input("Volume (L)", value=10.0)
+        n = st.number_input("Mol gas", value=1.0)
+        T = st.number_input("Suhu (K)", value=300.0)
+        
+        R = 0.0821
+        
+        if st.button("Analisis"):
+            
+            PV = P * V
+            nRT = n * R * T
+            
+            st.write(f"PV = {PV:.3f}")
+            st.write(f"nRT = {nRT:.3f}")
 
-# Set the title and favicon that appear in the Browser's tab bar.
-st.set_page_config(
-    page_title='GDP dashboard',
-    page_icon=':earth_americas:', # This is an emoji shortcode. Could be a URL too.
-)
+        if abs(PV - nRT) < 1:
+            st.success("Sistem sesuai Gas Ideal ✅")
+        else:
+            st.warning("Ada deviasi dari gas ideal ⚠️")
 
-# -----------------------------------------------------------------------------
-# Declare some useful functions.
+# ====================================
+# SIMULASI MASSA JENIS GAS
+# ====================================
+elif pilihan == "Simulasi Massa Jenis Gas":
 
-@st.cache_data
-def get_gdp_data():
-    """Grab GDP data from a CSV file.
+    st.title("Simulasi Gas Ideal Interaktif")
+    
+    st.write("""
+    Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
 
-    This uses caching to avoid having to read the file every time. If we were
-    reading from an HTTP endpoint instead of a file, it's a good idea to set
-    a maximum age to the cache with the TTL argument: @st.cache_data(ttl='1d')
-    """
+    Pengguna dapat mengubah:
+    - tekanan (atm)
+    - suhu (K)
+    - Bobot Molekul gas (g/mol)
+    """)
 
-    # Instead of a CSV on disk, you could read from an HTTP endpoint here too.
-    DATA_FILENAME = Path(__file__).parent/'data/gdp_data.csv'
-    raw_gdp_df = pd.read_csv(DATA_FILENAME)
+# ====================================
+# INPUT PENGGUNA
+# ====================================
 
-    MIN_YEAR = 1960
-    MAX_YEAR = 2022
+    st.subheader("Input Variabel")
 
-    # The data above has columns like:
-    # - Country Name
-    # - Country Code
-    # - [Stuff I don't care about]
-    # - GDP for 1960
-    # - GDP for 1961
-    # - GDP for 1962
-    # - ...
-    # - GDP for 2022
-    #
-    # ...but I want this instead:
-    # - Country Name
-    # - Country Code
-    # - Year
-    # - GDP
-    #
-    # So let's pivot all those year-columns into two: Year and GDP
-    gdp_df = raw_gdp_df.melt(
-        ['Country Code'],
-        [str(x) for x in range(MIN_YEAR, MAX_YEAR + 1)],
-        'Year',
-        'GDP',
+    P = st.slider(
+    "Tekanan Gas (atm)",
+        0.1,
+        10.0,
+        2.0,
+        0.1
     )
 
-    # Convert years from string to integers
-    gdp_df['Year'] = pd.to_numeric(gdp_df['Year'])
+    T = st.slider(
+        "Suhu Gas (K)",
+        100,
+        1000,
+        298
+    )
 
-    return gdp_df
+    M = st.number_input(
+        "Bobot Molekul Gas (g/mol)",
+        value=32.0
+    )
 
-gdp_df = get_gdp_data()
+    R = 0.082
 
-# -----------------------------------------------------------------------------
-# Draw the actual page
+# ====================================
+# KECEPATAN ANIMASI
+# ====================================
 
-# Set the title that appears at the top of the page.
-'''
-# :earth_americas: GDP dashboard
+    kecepatan = max(1, 12 - (T / 100))
 
-Browse GDP data from the [World Bank Open Data](https://data.worldbank.org/) website. As you'll
-notice, the data only goes to 2022 right now, and datapoints for certain years are often missing.
-But it's otherwise a great (and did I mention _free_?) source of data.
-'''
+# ====================================
+# PENJELASAN
+# ====================================
 
-# Add some spacing
-''
-''
+    st.info(
+        f"""
+        Tekanan = {P} atm
+        
+        Suhu = {T} K
+        
+        Bobot Molekul = {M} g/mol
+        
+        Semakin tinggi suhu, partikel bergerak semakin cepat.
+        """
+    )
 
-min_value = gdp_df['Year'].min()
-max_value = gdp_df['Year'].max()
+# ====================================
+# HTML + CSS ANIMASI
+# ====================================
 
-from_year, to_year = st.slider(
-    'Which years are you interested in?',
-    min_value=min_value,
-    max_value=max_value,
-    value=[min_value, max_value])
+    html_code = f"""
+    <!DOCTYPE html>
+    <html>
+    
+    <head>
+    
+    <style>
+    
+    body {{
+    margin:0;
+    overflow:hidden;
+    background-color:transparent;
+    }}
 
-countries = gdp_df['Country Code'].unique()
+    .kotak {{
+    width:100%;
+    height:420px;
 
-if not len(countries):
-    st.warning("Select at least one country")
+    position:relative;
+    overflow:hidden;
 
-selected_countries = st.multiselect(
-    'Which countries would you like to view?',
-    countries,
-    ['DEU', 'FRA', 'GBR', 'BRA', 'MEX', 'JPN'])
+    border-radius:20px;
 
-''
-''
-''
+    background:
+    radial-gradient(circle,
+    #1e3a8a,
+    #020617);
 
-# Filter the data
-filtered_gdp_df = gdp_df[
-    (gdp_df['Country Code'].isin(selected_countries))
-    & (gdp_df['Year'] <= to_year)
-    & (from_year <= gdp_df['Year'])
-]
+    border:2px solid cyan;
 
-st.header('GDP over time', divider='gray')
+    box-shadow:
+    0px 0px 25px rgba(0,255,255,0.4);
+    }}
 
-''
+    .bola {{
 
-st.line_chart(
-    filtered_gdp_df,
-    x='Year',
-    y='GDP',
-    color='Country Code',
-)
+    width:18px;
+    height:18px;
 
-''
-''
+    position:absolute;
 
+    border-radius:50%;
 
-first_year = gdp_df[gdp_df['Year'] == from_year]
-last_year = gdp_df[gdp_df['Year'] == to_year]
+    background:cyan;
 
-st.header(f'GDP in {to_year}', divider='gray')
+    box-shadow:
+    0 0 15px cyan,
+    0 0 30px cyan;
+    }}
 
-''
+    .b1 {{
+    animation: gerak1 {kecepatan}s linear infinite alternate;
+    }}
 
-cols = st.columns(4)
+    .b2 {{
+    animation: gerak2 {kecepatan*0.8}s linear infinite alternate;
+    }}
 
-for i, country in enumerate(selected_countries):
-    col = cols[i % len(cols)]
+    .b3 {{
+    animation: gerak3 {kecepatan*1.2}s linear infinite alternate;
+    }}
 
-    with col:
-        first_gdp = first_year[first_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
-        last_gdp = last_year[last_year['Country Code'] == country]['GDP'].iat[0] / 1000000000
+    .b4 {{
+    animation: gerak4 {kecepatan*0.6}s linear infinite alternate;
+    }}
 
-        if math.isnan(first_gdp):
-            growth = 'n/a'
-            delta_color = 'off'
-        else:
-            growth = f'{last_gdp / first_gdp:,.2f}x'
-            delta_color = 'normal'
+    @keyframes gerak1 {{
+    
+    from {{
+        transform: translate(0px,0px);
+        }}
 
-        st.metric(
-            label=f'{country} GDP',
-            value=f'{last_gdp:,.0f}B',
-            delta=growth,
-            delta_color=delta_color
+    to {{
+        transform: translate(320px,240px);
+        }}
+        }}
+
+    @keyframes gerak2 {{
+    
+    from {{
+        transform: translate(0px,200px);
+        }}
+
+    to {{
+        transform: translate(280px,-60px);
+        }}
+        }}
+
+    @keyframes gerak3 {{
+    
+    from {{
+        transform: translate(150px,0px);
+        }}
+        
+        to {{
+        transform: translate(-120px,250px);
+        }}
+        }}
+
+    @keyframes gerak4 {{
+    
+    0% {{
+        transform: translate(0px,0px);
+        }}
+        
+    25% {{
+        transform: translate(220px,50px);
+        }}
+
+    50% {{
+        transform: translate(100px,220px);
+        }}
+
+    75% {{
+        transform: translate(260px,130px);
+        }}
+
+    100% {{
+        transform: translate(50px,260px);
+        }}
+        }}
+
+    </style>
+
+    </head>
+
+    <body>
+
+    <div class="kotak">
+
+    <div class="bola b1"
+    style="left:20px; top:20px;">
+    </div>
+
+    <div class="bola b2"
+    style="left:80px; top:100px;">
+    </div>
+
+    <div class="bola b3"
+    style="left:180px; top:150px;">
+    </div>
+
+    <div class="bola b4"
+    style="left:300px; top:80px;">
+    </div>
+
+    <div class="bola b1"
+    style="left:400px; top:200px;">
+    </div>
+
+    <div class="bola b2"
+    style="left:520px; top:140px;">
+    </div>
+
+    <div class="bola b3"
+    style="left:620px; top:240px;">
+    </div>
+
+    <div class="bola b4"
+    style="left:700px; top:100px;">
+    </div>
+
+    </div>
+
+    </body>
+    </html>
+    """
+
+# ====================================
+# TAMPILKAN ANIMASI
+# ====================================
+
+    st.subheader("🌌 Simulasi Pergerakan Partikel")
+
+    components.html(
+        html_code,
+        height=430
+    )
+
+# ====================================
+# PERSAMAAN GAS IDEAL
+# ====================================
+
+    st.subheader("Persamaan Gas Ideal")
+
+    st.latex(r"PV = nRT")
+
+    st.write(
+        "Untuk mencari massa jenis gas:"
+    )
+
+    st.latex(r"\rho = \frac{PM}{RT}")
+
+# ====================================
+# PERHITUNGAN OTOMATIS
+# ====================================
+
+    hasil = (P * M) / (R * T)
+
+# ====================================
+# LANGKAH PERHITUNGAN
+# ====================================
+
+    st.subheader("Langkah Perhitungan")
+
+    st.latex(
+        rf"\rho = \frac{{({P})({M})}}{{({R})({T})}}"
+    )
+
+    st.latex(
+        rf"\rho = {hasil:.2f}\ g/L"
+    )
+
+# ====================================
+# TOMBOL HASIL + kesimpulan
+# ====================================
+
+    if st.button("✨ Tampilkan Hasil"):
+        # Efek loading
+        with st.spinner("Menghitung massa jenis gas..."):
+            
+            progress = st.progress(0)
+            
+            for i in range(100):
+                time.sleep(0.01)
+                progress.progress(i + 1)
+     # Efek sukses
+        st.success("Perhitungan berhasil✨!")
+        st.balloons()
+        
+        st.markdown(
+            f"""
+            <div style="
+            background:linear-gradient(to right,#BFEFFF,#87CEFA);
+            padding:30px;
+            border-radius:20px;
+            color:black;
+            box-shadow:0px 0px 25px rgba(137,207,240,0.6);
+            animation: fadein 1s;
+            ">
+            
+            <h1 style="
+            text-align:center;
+            font-size:40px;
+            ">
+            Massa Jenis Gas
+            </h1>
+            
+            <hr>
+            
+            <h2 style="
+            text-align:center;
+            font-size:35px;
+            ">
+            {hasil:.2f} g/L
+            </h2>
+            
+            <br>
+            
+            <h3> Kesimpulan</h3>
+            
+            <p style="font-size:20px; line-height:1.8;">
+            
+            Dengan:
+            <br>
+            • tekanan = {P} atm
+            <br>
+            • suhu = {T} K
+            <br>
+            • Bobot Molekul = {M} g/mol
+            <br><br>
+            
+            maka massa jenis gas adalah:
+            
+            <b>{hasil:.2f} g/L</b>
+            
+            </p>
+            
+            </div>
+            """,
+            
+            unsafe_allow_html=True
         )
+
+# ====================================
+# TEST
+# ====================================
+
+    assert hasil > 0, "Hasil tidak boleh negatif"
+# AKHIR BLOK:
+# elif pilihan == "Simulasi Massa Jenis Gas"
+# dan juga akhir blok:
+# elif menu == "Studi Kasus"
+
