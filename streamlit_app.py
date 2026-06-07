@@ -23,38 +23,38 @@ st.markdown("---")
 # =========================
 st.components.v1.html(
     """
-    <div id="tsparticles" style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: -1;"></div>
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-links@2/tsparticles.preset.links.bundle.min.js"></script>
+    <div id="tsparticles"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
     <script>
-        tsParticles.load("tsparticles", {
-            preset: "links",
-            background: {
-                color: {
-                    value: "#0e1117" # Warna dasar background (bisa diganti)
-                }
-            },
-            particles: {
-                color: { value: "#00acee" }, # Warna partikel
-                links: { color: "#00acee", distance: 150, enable: true, opacity: 0.4 },
-                move: { enable: true, speed: 1.5 }, # Kecepatan gerak
-                number: { value: 80 } # Jumlah partikel
+    tsParticles.load("tsparticles", {
+        background: {
+            color: {
+                value: "#0e1117"
             }
-        });
+        },
+        particles: {
+            color: {
+                value: "#00acee"
+            },
+            links: {
+                enable: true,
+                color: "#00acee",
+                distance: 150
+            },
+            move: {
+                enable: true,
+                speed: 1.5
+            },
+            number: {
+                value: 80
+            }
+        }
+    });
     </script>
     """,
-    height=0,
-)
-
-# --- CSS untuk membuat background Streamlit bawaan menjadi transparan ---
-st.markdown(
-    """
-    <style>
-    .stApp {
-        background: transparent;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
+    height=0
 )
 
 # =========================
