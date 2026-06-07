@@ -66,7 +66,7 @@ menu = st.sidebar.radio(
 # =========================
 # HOME
 # =========================
-if menu == "Home":
+if menu == "🏠 Home":
 
     st.subheader("👋 Selamat Datang")
 
@@ -87,7 +87,7 @@ if menu == "Home":
 # =========================
 # STUDI KASUS
 # =========================
-elif menu == "Studi Kasus":
+elif menu == "🧪 Studi Kasus":
 
     pilihan = st.selectbox(
         "Pilih Studi Kasus",
@@ -468,7 +468,7 @@ elif menu == "Studi Kasus":
 # =========================
 # BOYLE
 # =========================
-elif menu == "Hukum Boyle":
+elif menu == "📘 Hukum Boyle":
 
     st.subheader("📘 Hukum Boyle")
 
@@ -486,7 +486,7 @@ elif menu == "Hukum Boyle":
 # =========================
 # CHARLES
 # =========================
-elif menu == "Hukum Charles":
+elif menu == "📘 Hukum Charles":
 
     st.subheader("📘 Hukum Charles")
 
@@ -503,7 +503,7 @@ elif menu == "Hukum Charles":
 # =========================
 # GAY LUSSAC
 # =========================
-elif menu == "Hukum Gay-Lussac":
+elif menu == "📘 Hukum Gay-Lussac":
 
     st.subheader("📘 Hukum Gay-Lussac")
 
@@ -520,7 +520,7 @@ elif menu == "Hukum Gay-Lussac":
 # =========================
 # GAS IDEAL
 # =========================
-elif menu == "Gas Ideal":
+elif menu == "⚗️ Gas Ideal":
 
     st.subheader("📘 Persamaan Gas Ideal")
 
@@ -539,7 +539,7 @@ elif menu == "Gas Ideal":
 # =========================
 # REGRESI LINEAR (LINE CHART)
 # =========================
-elif menu == "Regresi Linear":
+elif menu == "📈 Regresi Linear":
 
     st.subheader("📈 Regresi Linear (LINE CHART Streamlit)")
 
@@ -580,7 +580,7 @@ elif menu == "Regresi Linear":
 #=========================
 # LATAR BELAKANG APK
 #=========================
-elif menu == "Tentang Aplikasi":
+elif menu == "ℹ️ Tentang Aplikasi":
 
     st.title("✨Tentang Aplikasi ini")
     
@@ -603,7 +603,7 @@ elif menu == "Tentang Aplikasi":
 #========================
 # Kotak Saran
 #========================
-elif menu == "Kotak Saran":
+elif menu == "📬Kotak Saran":
 
     st.link_button(
         "📬Isi kotak saran",
