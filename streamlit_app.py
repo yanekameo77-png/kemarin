@@ -631,7 +631,7 @@ elif menu == "📬 Kotak Saran":
     )
 
     st.write("""
-        ✨ Terima Kasih Telah Berkunjung
+        Terima Kasih Telah Berkunjung
         Semoga setiap perhitungan yang dilakukan dapat membantu anda memahami
         dunia gas ideal dengan lebih mudah dan menyenangkan.
         Terimakasih telah mencoba web aplikasi ini. Dukungan, kritik dan saran 
