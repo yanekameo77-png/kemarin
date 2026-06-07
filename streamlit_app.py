@@ -31,7 +31,7 @@ st.markdown(
     }
 
     .stApp {
-        background: linear-gradient(-45deg,#dbeafe,#bfdbfe,#c7d2fe,#e0e7ff);
+        background: linear-gradient(-45deg,#0f172a, #1e293b, #334155, #475569);
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;
     }
