@@ -14,7 +14,7 @@ st.set_page_config(
 )
 
 st.title("🧪 Kalkulator Gas Ideal")
-st.caption("Hukum Gas + Studi Kasus + Regresi Linear (Full Streamlit)")
+st.caption("Hukum Gas + Studi Kasus + Regresi Linear")
 
 st.markdown("---")
 
@@ -472,6 +472,12 @@ elif menu == "📘 Hukum Boyle":
 
     st.subheader("📘 Hukum Boyle")
 
+    st.write("""
+    Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
+
+    PV = konstan
+    """)
+
     st.latex(r"P_1V_1=P_2V_2")
 
     P1 = st.number_input("P1", value=1.0)
@@ -514,6 +520,12 @@ elif menu == "📘 Hukum Charles":
 elif menu == "📘 Hukum Gay-Lussac":
 
     st.subheader("📘 Hukum Gay-Lussac")
+
+    st.write("""
+    Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
+
+    P ∝  T
+    
 
     st.latex(r"\frac{P_1}{T_1}=\frac{P_2}{T_2}")
 
