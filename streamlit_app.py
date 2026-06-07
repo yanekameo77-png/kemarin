@@ -525,7 +525,7 @@ elif menu == "📘 Hukum Gay-Lussac":
     Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
 
     P ∝  T
-    
+    """)
 
     st.latex(r"\frac{P_1}{T_1}=\frac{P_2}{T_2}")
 
