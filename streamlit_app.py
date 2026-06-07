@@ -21,9 +21,21 @@ st.markdown("---")
 # =========================
 # BACKGROUND ANIMASI
 # =========================
+# =========================
+# BACKGROUND PARTIKEL
+# =========================
+
 st.components.v1.html(
     """
-    <div id="tsparticles"></div>
+    <div id="tsparticles"
+         style="
+         position:fixed;
+         width:100vw;
+         height:100vh;
+         top:0;
+         left:0;
+         z-index:-1;">
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
@@ -31,24 +43,37 @@ st.components.v1.html(
     tsParticles.load("tsparticles", {
         background: {
             color: {
-                value: "#0e1117"
+                value: "#020617"
             }
         },
+
         particles: {
-            color: {
-                value: "#00acee"
+            number: {
+                value: 80
             },
+
+            color: {
+                value: "#00ffff"
+            },
+
             links: {
                 enable: true,
-                color: "#00acee",
-                distance: 150
+                color: "#00ffff",
+                distance: 150,
+                opacity: 0.4
             },
+
             move: {
                 enable: true,
                 speed: 1.5
             },
-            number: {
-                value: 80
+
+            size: {
+                value: 3
+            },
+
+            opacity: {
+                value: 0.7
             }
         }
     });
@@ -57,6 +82,30 @@ st.components.v1.html(
     height=0
 )
 
+# =========================
+# MEMBUAT BACKGROUND STREAMLIT TRANSPARAN
+# =========================
+
+st.markdown(
+    """
+    <style>
+
+    .stApp{
+        background: transparent;
+    }
+
+    [data-testid="stHeader"]{
+        background: transparent;
+    }
+
+    [data-testid="stToolbar"]{
+        background: transparent;
+    }
+
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 # =========================
 # SIDEBAR
 # =========================
