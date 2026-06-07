@@ -44,17 +44,18 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-     .stButton>button {
+    /* Tombol */
+    .stButton > button {
         color: #121824 !important;
         background-color: #38bdf8 !important;
         font-weight: bold;
-    }
+}
 
-    /* HILANGKAN PANAH DROPDOWN */
+    /* Hilangkan panah dropdown */
     div[data-baseweb="select"] svg {
         display: none !important;
-    }
-    
+}
+
     </style>
     """,
     unsafe_allow_html=True
