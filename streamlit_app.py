@@ -623,7 +623,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
 #========================
 # Kotak Saran
 #========================
-elif menu == "📬Kotak Saran":
+elif menu == "📬 Kotak Saran":
 
     st.link_button(
         "📬Isi kotak saran",
