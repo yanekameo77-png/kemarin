@@ -24,25 +24,29 @@ st.markdown("---")
 st.markdown(
     """
     <style>
-    @keyframes gradientAnimation {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+    .stApp {
+        background-color: #0a0a16;
+        background-image: 
+            radial-gradient(at 20% 20%, rgba(31, 58, 138, 0.5) 0, transparent 50%), 
+            radial-gradient(at 80% 40%, rgba(139, 92, 246, 0.4) 0, transparent 50%),
+            radial-gradient(at 40% 80%, rgba(236, 72, 153, 0.3) 0, transparent 50%);
+        background-size: 200% 200%;
+        animation: pulseBg 10s ease-in-out infinite alternate;
     }
 
-    .stApp {
-        background: linear-gradient(-45deg, #dbeafe,
-    #bfdbfe,
-    #c7d2fe,
-    #e0e7ff);
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s ease infinite;
+    @keyframes pulseBg {
+        0% { background-position: 0% 0%; }
+        100% { background-position: 100% 100%; }
+    }
+
+    /* Menyesuaikan warna teks Streamlit */
+    .stMarkdown, th, td, div {
+        color: #e2e8f0 !important;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
-
 
 # =========================
 # SIDEBAR
