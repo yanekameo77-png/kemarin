@@ -45,11 +45,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-    /* Tombol */
-    .stButton > button {
-        color: #121824 !important;
-        background-color: #38bdf8 !important;
-        font-weight: bold;
+/* Tombol */
+.stButton > button {
+    color: #121824 !important;
+    background-color: #38bdf8 !important;
+    font-weight: bold;
 }
 
     </style>
