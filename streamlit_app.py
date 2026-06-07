@@ -88,7 +88,7 @@ if menu == "Home":
     - Hukum Charles
     - Hukum Gay-Lussac
     - Gas Ideal (PV = nRT)
-    - 📈 Regresi Linear (LINE CHART)
+    - Regresi Linear (LINE CHART)
     -Tentang aplikasi
     -Kotak saran
     """)
