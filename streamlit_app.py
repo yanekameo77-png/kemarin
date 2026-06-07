@@ -53,7 +53,7 @@ st.markdown(
 
     /* Hilangkan panah dropdown */
     div[data-baseweb="select"] svg {
-        display: none !important;
+      display: none !important;
 }
 
     </style>
