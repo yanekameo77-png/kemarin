@@ -639,7 +639,7 @@ elif menu == "📬 Kotak Saran":
 
         "Tetaplah kuat
         Walau kadang yang merusak mental justru
-        nilai mata uang rupiah yang semakin lemah" izin🫷
+        nilai mata uang rupiah yang semakin lemah" 
 
         
 
