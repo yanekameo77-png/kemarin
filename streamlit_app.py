@@ -491,7 +491,7 @@ elif menu == "📘 Hukum Charles":
     st.subheader("📘 Hukum Charles")
 
     st.write("""
-    ukum Charles menyatakan bahwa volume gas berbanding lurus dengan suhu mutlaknya
+    Hukum Charles menyatakan bahwa volume gas berbanding lurus dengan suhu mutlaknya
     (Kelvin), jika tekanan dan jumlah mol gas tetap konstan.
 
     Artinya, semakin tinggi suhu gas maka volumenya akan semakin besar.
