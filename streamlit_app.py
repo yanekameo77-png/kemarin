@@ -636,16 +636,20 @@ elif menu == "📬 Kotak Saran":
         dunia gas ideal dengan lebih mudah dan menyenangkan.
         Terimakasih telah mencoba web aplikasi ini. Dukungan, kritik dan saran 
         dari anda menjadi motivasi bagi kami untuk terus menghadirkan fitur yang lebih baik.
-
-        "Tetaplah kuat
-        Walau kadang yang merusak mental justru
-        nilai mata uang rupiah yang semakin lemah" 
-
-        
-
-        Dibuat oleh kelompok 3: Achmad Rifa`i (2560552), Bianca Titanya Wibowo (2560597),
-        Maulida Fathiyyah Khansa (2560666),Naila Safha Azzahra (2560702), Sandra Amelia Lian (2560772)
         """)
+
+    st.markdown("""
+    Tetaplah kuat
+    Walau kadang yang merusak mental justru
+    nilai mata uang rupiah yang semakin lemah
+    """) 
+
+    st.write("""
+    Dibuat oleh kelompok 3:
+    Achmad Rifa`i (2560552), Bianca Titanya Wibowo (2560597),
+    Maulida Fathiyyah Khansa (2560666),Naila Safha Azzahra (2560702),
+    Sandra Amelia Lian (2560772)
+    """)
 
 # =========================
 # FOOTER
