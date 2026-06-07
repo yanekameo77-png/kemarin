@@ -21,37 +21,80 @@ st.markdown("---")
 # =========================
 # BACKGROUND PARTIKEL
 # =========================
+st.set_page_config(
+    page_title="Kalkulator Gas Ideal",
+    page_icon="🧪",
+    layout="wide"
+)
+
+# 2. SCRIPT JAVASCRIPT & HTML UNTUK ANIMASI PARTIKEL GAS BERGERAK
+# Menggunakan tsParticles agar ringan dan smooth
+st.components.v1.html(
+    """
+    <div id="tsparticles" style="position: fixed; width: 100vw; height: 100vh; top: 0; left: 0; z-index: -1;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-particles@2/tsparticles.preset.particles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            preset: "particles",
+            background: {
+                color: {
+                    value: "#121824" // Warna background dasar (Gelap estetik agar partikel gas menyala)
+                }
+            },
+            particles: {
+                color: { value: "#38bdf8" }, // Warna partikel gas (Biru muda kimia)
+                number: { 
+                    value: 80, // Jumlah partikel gas di layar
+                    density: { enable: true, area: 800 }
+                },
+                size: { value: { min: 2, max: 5 } }, // Ukuran acak partikel gas
+                move: { 
+                    enable: true, 
+                    speed: 3, // Kecepatan gerak molekul gas
+                    direction: "none",
+                    outModes: { default: "bounce" } // Efek memantul layaknya sifat gas ideal!
+                },
+                opacity: { value: 0.7 }
+            }
+        });
+    </script>
+    """,
+    height=0,
+)
+
+# 3. CSS KUNCI (WAJIB): Menembus lapisan putih Streamlit agar animasi partikel terlihat
 st.markdown(
     """
     <style>
-    .stApp {
-        background: linear-gradient(
-            -45deg,
-            #dbeafe,
-            #bfdbfe,
-            #c7d2fe,
-            #e0e7ff
-        );
-
-        background-size: 400% 400%;
-        animation: pulseBg 15s ease infinite;
+    /* Membuat semua container utama Streamlit menjadi transparan */
+    .stApp, .main, block-container {
+        background: transparent !important;
     }
-
-    @keyframes pulseBg {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
+    
+    /* Mengubah warna teks utama menjadi putih/terang agar kontras dengan background gelap */
+    h1, h2, h3, p, span, label, li {
+        color: #f8fafc !important;
     }
-
-    /* Warna teks */
-    .stMarkdown, th, td, div {
-        color: #1e293b !important;
+    
+    /* Membuat box/container teks kalian (kotak saran dll) menjadi transparan blur yang estetik */
+    div[data-testid="stVerticalBlock"] > div {
+        background-color: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        border-radius: 12px;
+        padding: 10px;
     }
-
+    
+    /* Menjaga tombol tetap berwarna normal */
+    .stButton>button {
+        color: #121824 !important;
+        background-color: #38bdf8 !important;
+        font-weight: bold;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
+
 
 # =========================
 # SIDEBAR
