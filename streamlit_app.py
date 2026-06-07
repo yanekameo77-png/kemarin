@@ -35,7 +35,7 @@ st.markdown(
          #dbeafe,
          #bfdbfe,
          #c7d2fe,
-         #e0e7ff;
+         #e0e7ff):
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;
     }
