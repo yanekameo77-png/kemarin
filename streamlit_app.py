@@ -40,12 +40,6 @@ st.markdown(
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;
     }
-
-    .stButton > button {
-        color: #121824 !important;
-        background-color: #38bdf8 !important;
-        font-weight: bold;
-    }
     
     </style>
     """,
