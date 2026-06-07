@@ -544,6 +544,10 @@ elif menu == "⚗️ Gas Ideal":
 
     st.subheader("📘 Persamaan Gas Ideal")
 
+    st.write("""
+    Teori gas ideal menjelaskan perilaku gas berdasarkan model partikel yang disederhanakan. Teori ini mengasumsikan bahwa gas terdiri dari partikel-partikel kecil yang bergerak bebas dan mengikuti hukum mekanika klasik.
+    """)
+
     st.latex(r"PV=nRT")
 
     P = st.number_input("P (atm)", value=1.0)
