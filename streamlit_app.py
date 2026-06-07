@@ -605,19 +605,19 @@ elif menu == "ℹ️ Tentang Aplikasi":
     st.title("✨Tentang Aplikasi ini")
     
     st.write("""
-    🧪 Kalkulator Gas Ideal
-    Kalkulator gas ideal merupakan aplikasi berbasis web yang dirancang untuk 
-    membantu mahasiswa dan pengguna dalam melakukan perhitungan hukum
-    gas ideal secara cepat, akurat dan interaktif. Aplikasi ini mempermudah 
-    analisis hubungan antara tekanan (P), volume (V), suhu (T) dan jumlah mol (n) tanpa
-    perlu melakukan perhitungan manual yang kompleks.
+             Kalkulator Gas Ideal
+             Kalkulator gas ideal merupakan aplikasi berbasis web yang dirancang untuk 
+             membantu mahasiswa dan pengguna dalam melakukan perhitungan hukum
+             gas ideal secara cepat, akurat dan interaktif. Aplikasi ini mempermudah 
+             analisis hubungan antara tekanan (P), volume (V), suhu (T) dan jumlah mol (n) tanpa
+             perlu melakukan perhitungan manual yang kompleks.
 
-    Dengan antarmuka yang sederhana dan mudah digunakan, apllikasi ini
-    mendukung proses pembelajaran serta kegiatan laboratorium sehingga
-    pengguna dapat memahami konsep hukum gas ideal dengan lebih efektif.
-    Selain sebagai alat bantu hitungan, aplikasi ini juga menjadi media 
-    pembelajaran digital yang mendukung efisiensi dan pemanfaatan teknologi
-    dalam bidang kimia analisis.
+             Dengan antarmuka yang sederhana dan mudah digunakan, apllikasi ini
+             mendukung proses pembelajaran serta kegiatan laboratorium sehingga
+             pengguna dapat memahami konsep hukum gas ideal dengan lebih efektif.
+             Selain sebagai alat bantu hitungan, aplikasi ini juga menjadi media 
+             pembelajaran digital yang mendukung efisiensi dan pemanfaatan teknologi
+             dalam bidang kimia analisis.
     """)
 
 #========================
