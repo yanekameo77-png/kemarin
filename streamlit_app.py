@@ -370,7 +370,7 @@ elif menu == "🧪 Studi Kasus":
 
         st.write("Untuk mencari massa jenis gas:")
 
-        st.latex(r"\rho=\frac{PM}{RT}")
+        st.latex(r"\rho=\frac{Pn}{RT}")
 
         #=======================
         # PERHITUNGAN OTOMATIS
