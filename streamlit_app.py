@@ -655,4 +655,4 @@ elif menu == "📬 Kotak Saran":
 # FOOTER
 # =========================
 st.markdown("---")
-st.caption("🚀 Kelompok 3 kelas 1A")
+st.caption("Kelompok 3 kelas 1A")
