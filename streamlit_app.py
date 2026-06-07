@@ -32,10 +32,11 @@ st.markdown(
 
     .stApp {
         background: linear-gradient(-45deg,
-         #dbeafe,
-         #bfdbfe,
-         #c7d2fe,
-         #e0e7ff):
+             #dbeafe,
+             #bfdbfe,
+             #c7d2fe,
+             #e0e7ff
+         );
         background-size: 400% 400%;
         animation: gradientAnimation 15s ease infinite;
     }
@@ -49,11 +50,6 @@ st.markdown(
         color: #121824 !important;
         background-color: #38bdf8 !important;
         font-weight: bold;
-}
-
-    /* Hilangkan panah dropdown */
-    div[data-baseweb="select"] svg {
-      display: none !important;
 }
 
     </style>
