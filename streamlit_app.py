@@ -490,6 +490,14 @@ elif menu == "📘 Hukum Charles":
 
     st.subheader("📘 Hukum Charles")
 
+    st.write("""
+    ukum Charles menyatakan bahwa volume gas berbanding lurus dengan suhu mutlaknya
+    (Kelvin), jika tekanan dan jumlah mol gas tetap konstan.
+
+    Artinya, semakin tinggi suhu gas maka volumenya akan semakin besar.
+    Sebaliknya, jika suhu menurun maka volume gas juga akan menurun.
+    """)
+
     st.latex(r"\frac{V_1}{T_1}=\frac{V_2}{T_2}")
 
     V1 = st.number_input("V1", value=1.0)
