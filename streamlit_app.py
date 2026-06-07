@@ -84,12 +84,17 @@ st.markdown(
         padding: 10px;
     }
     
-    /* Menjaga tombol tetap berwarna normal */
-    .stButton>button {
+     .stButton>button {
         color: #121824 !important;
         background-color: #38bdf8 !important;
         font-weight: bold;
     }
+
+    /* HILANGKAN PANAH DROPDOWN */
+    div[data-baseweb="select"] svg {
+        display: none !important;
+    }
+    
     </style>
     """,
     unsafe_allow_html=True
@@ -99,9 +104,17 @@ st.markdown(
 # =========================
 # SIDEBAR
 # =========================
-menu = st.sidebar.selectbox(
-    "📌 Pilih Menu",
-    ["Home", "Studi Kasus", "Hukum Boyle", "Hukum Charles", "Hukum Gay-Lussac", "Gas Ideal", "Regresi Linear","Tentang Aplikasi","Kotak Saran"]
+menu = st.sidebar.radio(
+    "📌 Silakan Pilih Halaman",
+    ["🏠 Home",
+     "🧪 Studi Kasus",
+     "📘 Hukum Boyle",
+     "📘 Hukum Charles",
+     "📘 Hukum Gay-Lussac",
+     "⚗️ Gas Ideal",
+     "📈 Regresi Linear",
+     "ℹ️ Tentang Aplikasi",
+     "📬 Kotak Saran"]
 )
 
 # =========================
