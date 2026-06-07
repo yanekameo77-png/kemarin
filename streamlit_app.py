@@ -19,12 +19,8 @@ st.caption("Hukum Gas + Studi Kasus + Regresi Linear (Full Streamlit)")
 st.markdown("---")
 
 # =========================
-# BACKGROUND ANIMASI
-# =========================
-# =========================
 # BACKGROUND PARTIKEL
 # =========================
-
 st.components.v1.html(
     """
     <div id="tsparticles"
@@ -85,7 +81,6 @@ st.components.v1.html(
 # =========================
 # MEMBUAT BACKGROUND STREAMLIT TRANSPARAN
 # =========================
-
 st.markdown(
     """
     <style>
