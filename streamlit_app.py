@@ -430,7 +430,7 @@ elif menu == "🧪 Studi Kasus":
                 text-align:center;
                 font-size:35px;
                 ">
-                {hasil:.2f} g/L
+                {hasil:.2f} g/mL
                 </h2>
 
                 <br>
@@ -450,7 +450,7 @@ elif menu == "🧪 Studi Kasus":
 
                 Maka massa jenis gas adalah:
 
-                <b>{hasil:.2f} g/L</b>
+                <b>{hasil:.2f} g/mL</b>
 
                 </p>
 
