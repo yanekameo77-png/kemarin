@@ -472,9 +472,9 @@ elif menu == "📘 Hukum Boyle":
 
     st.subheader("📘 Hukum Boyle")
 
-    st.write("""
-    Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas,
-    saat temperatur dan jumlah mol gas tetap.
+    st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
+            
+    PV = konstan
     """)
 
     st.latex(r"P_1V_1=P_2V_2")
@@ -487,18 +487,18 @@ elif menu == "📘 Hukum Boyle":
     col1, col2 = st.columns(2)
 
     with col1:
-        P1 = st.number_input(
+        Tekanan 1 = st.number_input(
             "P1", value=0.0, disabled=(dicari == "P1")
         )
-        V1 = st.number_input(
+        Volume 1 = st.number_input(
             "V1", value=0.0, disabled=(dicari == "V1")
         )
 
     with col2:
-        P2 = st.number_input(
+        Tekanan 2 = st.number_input(
             "P2", value=0.0, disabled=(dicari == "P2")
         )
-        V2 = st.number_input(
+        Volume 2 = st.number_input(
             "V2", value=0.0, disabled=(dicari == "V2")
         )
 
@@ -564,9 +564,9 @@ elif menu == "📘 Hukum Charles":
 
     st.subheader("📘 Hukum Charles")
 
-    st.write("""
-    Hukum Charles menyatakan bahwa volume gas berbanding lurus dengan suhu mutlaknya
-    (Kelvin), jika tekanan dan jumlah mol gas tetap konstan.
+    st.write("""Hukum Charles menyatakan apabila gas dalam sebuah ruang tertutup dengan tekanan yang dijaga konstan, membuat volume pada gas dalam jumlah tertentu akan berbanding lurus dengan temperatur mutlaknya.hal tersebut bisa dituliskan seperti ini:
+
+    V ∝ T 
     """)
 
     st.latex(r"\frac{V_1}{T_1}=\frac{V_2}{T_2}")
@@ -579,23 +579,23 @@ elif menu == "📘 Hukum Charles":
     col1, col2 = st.columns(2)
 
     with col1:
-        V1 = st.number_input(
+        Volume 1 = st.number_input(
             "V1 (L)", value=0.0,
             disabled=(dicari == "V1")
         )
 
-        T1 = st.number_input(
+        Suhu 1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        V2 = st.number_input(
+        Volume 2 = st.number_input(
             "V2 (L)", value=0.0,
             disabled=(dicari == "V2")
         )
 
-        T2 = st.number_input(
+        Suhu 2 = st.number_input(
             "T2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
@@ -662,10 +662,10 @@ elif menu == "📘 Hukum Gay-Lussac":
 
     st.subheader("📘 Hukum Gay-Lussac")
 
-    st.write("""
-    Hukum Gay-Lussac menyatakan bahwa tekanan gas berbanding lurus
-    dengan suhu mutlaknya (Kelvin), jika volume dan jumlah mol gas
-    tetap konstan.
+    st.write("""3. Hukum Gay-Lussac
+     Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
+
+    P ∝  T
     """)
 
     st.latex(r"\frac{P_1}{T_1}=\frac{P_2}{T_2}")
@@ -678,24 +678,24 @@ elif menu == "📘 Hukum Gay-Lussac":
     col1, col2 = st.columns(2)
 
     with col1:
-        P1 = st.number_input(
+        Tekanan 1 = st.number_input(
             "P1 (atm)", value=0.0,
             disabled=(dicari == "P1")
         )
 
-        T1 = st.number_input(
+        Suhu 1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        P2 = st.number_input(
+        Tekanan 2 = st.number_input(
             "P2 (atm)", value=0.0,
             disabled=(dicari == "P2")
         )
 
         T2 = st.number_input(
-            "T2 (K)", value=0.0,
+            "Suhu 2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
 
@@ -781,23 +781,23 @@ elif menu == "⚗️ Gas Ideal":
 
     with col1:
         P = st.number_input(
-            "P (atm)", value=0.0,
+            "Tekanan (atm)", value=0.0,
             disabled=(dicari == "P")
         )
 
         V = st.number_input(
-            "V (L)", value=0.0,
+            "Volume (L)", value=0.0,
             disabled=(dicari == "V")
         )
 
     with col2:
         n = st.number_input(
-            "n (mol)", value=0.0,
+            "Jumlah mol (mol)", value=0.0,
             disabled=(dicari == "n")
         )
 
         T = st.number_input(
-            "T (K)", value=0.0,
+            "Suhu (K)", value=0.0,
             disabled=(dicari == "T")
         )
 
@@ -864,39 +864,71 @@ elif menu == "📈 Regresi Linear":
 
     st.subheader("📈 Regresi Linear (LINE CHART Streamlit)")
 
-    x_input = st.text_input("Data P (pisahkan koma)", "1,2,3,4,5")
-    y_input = st.text_input("Data V (pisahkan koma)", "10,8,6,4,2")
+    x_input = st.text_input(
+        "Data x (pisahkan koma)",
+        "1,2,3,4,5"
+    )
+
+    y_input = st.text_input(
+        "Data y (pisahkan koma)",
+        "10,8,6,4,2"
+    )
 
     if st.button("Hitung & Grafik"):
 
-        # convert data
-        x = np.array([float(i) for i in x_input.split(",")])
-        y = np.array([float(i) for i in y_input.split(",")])
+        try:
+            # Convert data
+            x = np.array([float(i.strip()) for i in x_input.split(",")])
+            y = np.array([float(i.strip()) for i in y_input.split(",")])
 
-        # regresi linear
-        m, b = np.polyfit(x, y, 1)
-        y_pred = m * x + b
+            # Cek jumlah data
+            if len(x) != len(y):
+                st.error(
+                    f"Jumlah data P ({len(x)}) dan V ({len(y)}) tidak sama!"
+                )
 
-        st.success(f"Persamaan: V = {m:.3f}P + {b:.3f}")
+            elif len(x) < 2:
+                st.error(
+                    "Minimal diperlukan 2 pasang data untuk regresi linear."
+                )
 
-        # =========================
-        # DATAFRAME
-        # =========================
-        df = pd.DataFrame({
-            "P": x,
-            "V (data asli)": y,
-            "V (regresi)": y_pred
-        })
+            else:
 
-        # urutkan biar grafik rapi
-        df = df.sort_values("P")
+                # Regresi linear
+                m, b = np.polyfit(x, y, 1)
+                y_pred = m * x + b
 
-        # =========================
-        # 📈 LINE CHART (STREAMLIT NATIF)
-        # =========================
-        st.line_chart(df.set_index("P"))
+                # Hitung R²
+                ss_res = np.sum((y - y_pred) ** 2)
+                ss_tot = np.sum((y - np.mean(y)) ** 2)
+                r2 = 1 - (ss_res / ss_tot)
 
-        st.dataframe(df)
+                st.success(
+                    f"Persamaan: y = {m:.3f}x + {b:.3f}"
+                )
+
+                st.info(
+                    f"Koefisien Determinasi (R²) = {r2:.4f}"
+                )
+
+                # DataFrame
+                df = pd.DataFrame({
+                    "P": x,
+                    "V (data asli)": y,
+                    "V (regresi)": y_pred
+                })
+
+                df = df.sort_values("P")
+
+                # Grafik
+                st.line_chart(df.set_index("P"))
+
+                st.dataframe(df)
+
+        except ValueError:
+            st.error(
+                "Pastikan semua data berupa angka dan dipisahkan dengan koma."
+            )
 
 #=========================
 # LATAR BELAKANG APK
