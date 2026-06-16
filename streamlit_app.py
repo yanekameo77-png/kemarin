@@ -51,27 +51,57 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
     color:white !important;
 }
 
-/* Semua input box */
-.stTextInput input,
-.stNumberInput input,
-.stTextArea textarea {
-    background-color: white !important;
-    color: black !important;
+/* Input angka */
+.stNumberInput input{
+    background:white !important;
+    color:black !important;
+}
+
+/* Input teks */
+.stTextInput input{
+    background:white !important;
+    color:black !important;
+}
+
+/* Text Area */
+.stTextArea textarea{
+    background:white !important;
+    color:black !important;
 }
 
 /* Selectbox */
-[data-baseweb="select"] > div {
-    background-color: white !important;
-    color: black !important;
+[data-baseweb="select"]{
+    color:black !important;
 }
 
-/* Dropdown option */
-div[role="listbox"] {
-    background-color: white !important;
+[data-baseweb="select"] *{
+    color:black !important;
 }
 
-div[role="listbox"] * {
-    color: black !important;
+/* Dropdown menu */
+div[role="listbox"]{
+    background:white !important;
+}
+
+div[role="option"]{
+    color:black !important;
+}
+
+/* Button */
+.stButton button{
+    background:white !important;
+    color:black !important;
+    font-weight:bold;
+}
+
+/* Radio */
+.stRadio label{
+    color:white !important;
+}
+
+/* Checkbox */
+.stCheckbox label{
+    color:white !important;
 }
 
 </style>
