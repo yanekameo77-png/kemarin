@@ -24,46 +24,83 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-st.components.v1.html(
-    """
-    <div id="tsparticles"
-        style="position: fixed; width: 1200vw; height: 1200vh;
-        top: 0; left: 0; z-index: -1;"></div>
+particles_html = """
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+function createParticles() {
+    const parentDoc = window.parent.document;
 
-    <script>
-    tsParticles.load("tsparticles", {
-        fullScreen: { enable: true, zIndex: -1 },
+    if (parentDoc.getElementById("tsparticles-bg")) return;
 
+    const bg = parentDoc.createElement("div");
+    bg.id = "tsparticles-bg";
+
+    bg.style.position = "fixed";
+    bg.style.top = "0";
+    bg.style.left = "0";
+    bg.style.width = "100vw";
+    bg.style.height = "100vh";
+    bg.style.zIndex = "-1";
+
+    parentDoc.body.prepend(bg);
+
+    tsParticles.load("tsparticles-bg", {
         background: {
-            color: "#0e1117"
+            color: {
+                value: "#0e1117"
+            }
         },
 
         particles: {
-            color: { value: "#00acee" },
+            number: {
+                value: 80
+            },
+
+            color: {
+                value: "#00acee"
+            },
+
             links: {
+                enable: true,
                 color: "#00acee",
                 distance: 150,
-                enable: true,
                 opacity: 0.4
             },
+
             move: {
                 enable: true,
                 speed: 1.5
             },
-            number: {
-                value: 80
-            },
+
             size: {
                 value: 2
             }
         }
     });
-    </script>
-    """,
-    height=1200,
-)
+}
+
+createParticles();
+</script>
+"""
+
+st.components.v1.html(particles_html, height=0)
+
+st.markdown("""
+<style>
+.stApp {
+    background: transparent !important;
+}
+
+[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+h1, h2, h3, p, label {
+    color: white !important;
+}
+</style>
+""", unsafe_allow_html=True)
 # =========================
 # KALKULATOR CEPAT
 # =========================
