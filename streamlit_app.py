@@ -1185,7 +1185,7 @@ elif menu == "⚗️ Gas Ideal":
 # =========================
 elif menu == "📈 Regresi Linear":
 
-    st.subheader("📈 Regresi Linear (LINE CHART Streamlit)")
+    st.subheader("📈 Regresi Linear")
 
     x_input = st.text_input(
         "Data x (pisahkan koma)",
