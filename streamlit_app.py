@@ -76,8 +76,8 @@ if menu == "🏠 Home":
     - Hukum Boyle
     - Hukum Charles
     - Hukum Gay-Lussac
-    - Gas Ideal (PV = nRT)
-    - Regresi Linear (LINE CHART)
+    - Gas Ideal 
+    - Regresi Linear
     -Tentang aplikasi
     -Kotak saran
     """)
@@ -473,21 +473,89 @@ elif menu == "📘 Hukum Boyle":
     st.subheader("📘 Hukum Boyle")
 
     st.write("""
-    Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
-
-    PV = konstan
+    Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas,
+    saat temperatur dan jumlah mol gas tetap.
     """)
 
     st.latex(r"P_1V_1=P_2V_2")
 
-    P1 = st.number_input("P1", value=1.0)
-    V1 = st.number_input("V1", value=1.0)
-    P2 = st.number_input("P2", value=2.0)
+    dicari = st.selectbox(
+        "Pilih variabel yang dicari:",
+        ["P1", "V1", "P2", "V2"]
+    )
 
-    if st.button("Hitung V2"):
-        if P2 != 0:
-            V2 = (P1 * V1) / P2
-            st.success(f"V2 = {V2:.3f} L")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        P1 = st.number_input(
+            "P1", value=0.0, disabled=(dicari == "P1")
+        )
+        V1 = st.number_input(
+            "V1", value=0.0, disabled=(dicari == "V1")
+        )
+
+    with col2:
+        P2 = st.number_input(
+            "P2", value=0.0, disabled=(dicari == "P2")
+        )
+        V2 = st.number_input(
+            "V2", value=0.0, disabled=(dicari == "V2")
+        )
+
+    if st.button("Hitung"):
+
+        try:
+
+            if dicari == "P1":
+                hasil = (P2 * V2) / V1
+
+                st.success(f"P1 = {hasil:.3f}")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"P_1=\frac{P_2V_2}{V_1}")
+                st.latex(
+                    fr"P_1=\frac{{({P2})({V2})}}{{{V1}}}"
+                )
+                st.latex(fr"P_1={hasil:.3f}")
+
+            elif dicari == "V1":
+                hasil = (P2 * V2) / P1
+
+                st.success(f"V1 = {hasil:.3f}")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"V_1=\frac{P_2V_2}{P_1}")
+                st.latex(
+                    fr"V_1=\frac{{({P2})({V2})}}{{{P1}}}"
+                )
+                st.latex(fr"V_1={hasil:.3f}")
+
+            elif dicari == "P2":
+                hasil = (P1 * V1) / V2
+
+                st.success(f"P2 = {hasil:.3f}")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"P_2=\frac{P_1V_1}{V_2}")
+                st.latex(
+                    fr"P_2=\frac{{({P1})({V1})}}{{{V2}}}"
+                )
+                st.latex(fr"P_2={hasil:.3f}")
+
+            elif dicari == "V2":
+                hasil = (P1 * V1) / P2
+
+                st.success(f"V2 = {hasil:.3f}")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"V_2=\frac{P_1V_1}{P_2}")
+                st.latex(
+                    fr"V_2=\frac{{({P1})({V1})}}{{{P2}}}"
+                )
+                st.latex(fr"V_2={hasil:.3f}")
+
+        except ZeroDivisionError:
+            st.error("Tidak boleh ada pembagi bernilai 0.")
 
 # =========================
 # CHARLES
