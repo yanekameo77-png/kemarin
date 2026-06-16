@@ -445,267 +445,270 @@ elif menu == "🧪 Studi Kasus":
     elif pilihan == "Quiz Hukum Gas":
 
         st.markdown("## 📝 Quiz Hukum Gas")
-    st.write("Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas.")
+        
+st.write(
+    "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas.
+    ")
 
-    st.subheader("📝 Quiz Hukum Gas")
+st.subheader("📝 Quiz Hukum Gas")
 
-    # =========================
-    # SESSION STATE
-    # =========================
-    if "soal" not in st.session_state:
-        st.session_state.soal = 1
+# =========================
+# SESSION STATE
+# =========================
+if "soal" not in st.session_state:
+    st.session_state.soal = 1
 
-    if "skor" not in st.session_state:
-        st.session_state.skor = 0
+if "skor" not in st.session_state:
+    st.session_state.skor = 0
 
-    st.progress((st.session_state.soal-1)/10)
+st.progress((st.session_state.soal-1)/10)
 
-    # =========================
-    # SOAL 1
-    # =========================
-    if st.session_state.soal == 1:
+# =========================
+# SOAL 1
+# =========================
+if st.session_state.soal == 1:
 
-        jawaban = st.radio(
-            "1. Hukum Boyle menyatakan hubungan antara...",
-            [
-                "Tekanan dan Volume",
-                "Volume dan Suhu",
-                "Tekanan dan Suhu",
-                "Mol dan Volume"
-            ],
-            index=None
-        )
+    jawaban = st.radio(
+        "1. Hukum Boyle menyatakan hubungan antara...",
+        [
+            "Tekanan dan Volume",
+            "Volume dan Suhu",
+            "Tekanan dan Suhu",
+            "Mol dan Volume"
+        ],
+        index=None
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban == "Tekanan dan Volume":
-                st.session_state.skor += 10
+        if jawaban == "Tekanan dan Volume":
+            st.session_state.skor += 10
 
-            st.session_state.soal = 2
-            st.rerun()
+        st.session_state.soal = 2
+        st.rerun()
 
-    # =========================
-    # SOAL 2
-    # =========================
-    elif st.session_state.soal == 2:
+# =========================
+# SOAL 2
+# =========================
+elif st.session_state.soal == 2:
 
-        jawaban = st.radio(
-            "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
-            [
-                "Tetap",
-                "Menurun",
-                "Meningkat",
-                "Menjadi nol"
-            ],
-            index=None
-        )
+    jawaban = st.radio(
+        "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
+        [
+            "Tetap",
+            "Menurun",
+            "Meningkat",
+            "Menjadi nol"
+        ],
+        index=None
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban == "Meningkat":
-                st.session_state.skor += 10
+        if jawaban == "Meningkat":
+            st.session_state.skor += 10
 
-            st.session_state.soal = 3
-            st.rerun()
+        st.session_state.soal = 3
+        st.rerun()
 
-    # =========================
-    # SOAL 3
-    # =========================
-    elif st.session_state.soal == 3:
+# =========================
+# SOAL 3
+# =========================
+elif st.session_state.soal == 3:
 
-        jawaban = st.radio(
-            "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
-            [
-                "Tekanan dan Suhu",
-                "Volume dan Suhu",
-                "Volume dan Mol",
-                "Massa dan Volume"
-            ],
-            index=None
-        )
+    jawaban = st.radio(
+        "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
+        [
+            "Tekanan dan Suhu",
+            "Volume dan Suhu",
+            "Volume dan Mol",
+            "Massa dan Volume"
+        ],
+        index=None
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban == "Tekanan dan Suhu":
-                st.session_state.skor += 10
+        if jawaban == "Tekanan dan Suhu":
+            st.session_state.skor += 10
 
-            st.session_state.soal = 4
-            st.rerun()
+        st.session_state.soal = 4
+        st.rerun()
 
-    # =========================
-    # SOAL 4
-    # =========================
-    elif st.session_state.soal == 4:
+# =========================
+# SOAL 4
+# =========================
+elif st.session_state.soal == 4:
 
-        jawaban = st.radio(
-            "4. Satuan suhu dalam hukum gas adalah...",
-            [
-                "Celcius",
-                "Kelvin",
-                "Fahrenheit",
-                "Rankine"
-            ],
-            index=None
-        )
+    jawaban = st.radio(
+        "4. Satuan suhu dalam hukum gas adalah...",
+        [
+            "Celcius",
+            "Kelvin",
+            "Fahrenheit",
+            "Rankine"
+        ],
+        index=None
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban == "Kelvin":
-                st.session_state.skor += 10
+        if jawaban == "Kelvin":
+            st.session_state.skor += 10
 
-            st.session_state.soal = 5
-            st.rerun()
+        st.session_state.soal = 5
+        st.rerun()
 
-    # =========================
-    # SOAL 5
-    # =========================
-    elif st.session_state.soal == 5:
+# =========================
+# SOAL 5
+# =========================
+elif st.session_state.soal == 5:
 
-        jawaban = st.radio(
-            "5. Persamaan gas ideal adalah...",
-            [
-                "PV = nRT",
-                "P = m/V",
-                "F = ma",
-                "V = IR"
-            ],
-            index=None
-        )
+    jawaban = st.radio(
+        "5. Persamaan gas ideal adalah...",
+        [
+            "PV = nRT",
+            "P = m/V",
+            "F = ma",
+            "V = IR"
+        ],
+        index=None
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban == "PV = nRT":
-                st.session_state.skor += 10
+        if jawaban == "PV = nRT":
+            st.session_state.skor += 10
 
-            st.session_state.soal = 6
-            st.rerun()
+        st.session_state.soal = 6
+        st.rerun()
 
-    # =========================
-    # SOAL 6
-    # =========================
-    elif st.session_state.soal == 6:
+# =========================
+# SOAL 6
+# =========================
+elif st.session_state.soal == 6:
 
-        jawaban = st.number_input(
-            "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
+    jawaban = st.number_input(
+        "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
+        value=None,
+        placeholder="Masukkan jawaban"
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban is not None and abs(jawaban - 2) < 0.01:
-                st.session_state.skor += 10
+        if jawaban is not None and abs(jawaban - 2) < 0.01:
+            st.session_state.skor += 10
 
-            st.session_state.soal = 7
-            st.rerun()
+        st.session_state.soal = 7
+        st.rerun()
 
-    # =========================
-    # SOAL 7
-    # =========================
-    elif st.session_state.soal == 7:
+# =========================
+# SOAL 7
+# =========================
+elif st.session_state.soal == 7:
 
-        jawaban = st.number_input(
-            "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
+    jawaban = st.number_input(
+        "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
+        value=None,
+        placeholder="Masukkan jawaban"
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban is not None and abs(jawaban - 3) < 0.01:
-                st.session_state.skor += 10
+        if jawaban is not None and abs(jawaban - 3) < 0.01:
+            st.session_state.skor += 10
 
-            st.session_state.soal = 8
-            st.rerun()
+        st.session_state.soal = 8
+        st.rerun()
 
-    # =========================
-    # SOAL 8
-    # =========================
-    elif st.session_state.soal == 8:
+# =========================
+# SOAL 8
+# =========================
+elif st.session_state.soal == 8:
 
-       jawaban = st.number_input(
-            "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
+     jawaban = st.number_input(
+        "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
+        value=None,
+        placeholder="Masukkan jawaban"
+    )
 
-        if st.button("➡️ Berikutnya"):
+     if st.button("➡️ Berikutnya"):
 
-            if jawaban is not None and abs(jawaban - 2) < 0.01:
-                st.session_state.skor += 10
+        if jawaban is not None and abs(jawaban - 2) < 0.01:
+            st.session_state.skor += 10
 
-            st.session_state.soal = 9
-            st.rerun()
+        st.session_state.soal = 9
+        st.rerun()
 
-    # =========================
-    # SOAL 9
-    # =========================
-    elif st.session_state.soal == 9:
+# =========================
+# SOAL 9
+# =========================
+elif st.session_state.soal == 9:
 
-        jawaban = st.number_input(
-            "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
+    jawaban = st.number_input(
+        "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
+        value=None,
+        placeholder="Masukkan jawaban"
+    )
 
-        if st.button("➡️ Berikutnya"):
+    if st.button("➡️ Berikutnya"):
 
-            if jawaban is not None and abs(jawaban - 1) < 0.05:
-                st.session_state.skor += 10
+        if jawaban is not None and abs(jawaban - 1) < 0.05:
+            st.session_state.skor += 10
 
-            st.session_state.soal = 10
-            st.rerun()
+        st.session_state.soal = 10
+        st.rerun()
 
-    # =========================
-    # SOAL 10
-    # =========================
-    elif st.session_state.soal == 10:
+# =========================
+# SOAL 10
+# =========================
+elif st.session_state.soal == 10:
 
-        jawaban = st.number_input(
-            "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
+    jawaban = st.number_input(
+        "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
+        value=None,
+        placeholder="Masukkan jawaban"
+    )
 
-        if st.button("🏁 Selesai"):
+    if st.button("🏁 Selesai"):
 
-            if jawaban is not None and abs(jawaban - 243.61) < 0.1:
-                st.session_state.skor += 10
+        if jawaban is not None and abs(jawaban - 243.61) < 0.1:
+            st.session_state.skor += 10
 
-            st.session_state.soal = 11
-            st.rerun()
+        st.session_state.soal = 11
+        st.rerun()
 
-    # =========================
-    # HASIL AKHIR
-    # =========================
-    elif st.session_state.soal == 11:
+# =========================
+# HASIL AKHIR
+# =========================
+elif st.session_state.soal == 11:
 
-        st.balloons()
+    st.balloons()
 
-        st.subheader("🏆 Hasil Quiz")
+    st.subheader("🏆 Hasil Quiz")
 
-        st.success(
-            f"Skor Akhir Anda = {st.session_state.skor}/100"
-        )
+    st.success(
+        f"Skor Akhir Anda = {st.session_state.skor}/100"
+    )
 
-        if st.session_state.skor == 100:
-            st.success("🎉 Luar biasa! Semua jawaban benar.")
+    if st.session_state.skor == 100:
+        st.success("🎉 Luar biasa! Semua jawaban benar.")
 
-        elif st.session_state.skor >= 80:
-            st.info("👍 Sangat baik.")
+    elif st.session_state.skor >= 80:
+        st.info("👍 Sangat baik.")
 
-        elif st.session_state.skor >= 60:
-            st.warning("🙂 Cukup baik.")
+    elif st.session_state.skor >= 60:
+        st.warning("🙂 Cukup baik.")
 
-        else:
-            st.error("📚 Pelajari kembali materi hukum gas.")
+    else:
+        st.error("📚 Pelajari kembali materi hukum gas.")
 
         if st.button("🔄 Ulangi Quiz"):
 
             st.session_state.soal = 1
             st.session_state.skor = 0
             st.rerun()
-   
+
 # =========================
 # BOYLE
 # =========================
