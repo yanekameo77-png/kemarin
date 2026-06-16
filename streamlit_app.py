@@ -7,40 +7,52 @@ import time
 # =========================
 # CONFIG
 # =========================
-st.set_page_config(
-    page_title="Kalkulator Gas Ideal",
-    page_icon="🧪",
-    layout="centered"
-)
-
-st.title("🧪 Kalkulator Gas Ideal")
-st.caption("Hukum Gas + Studi Kasus + Regresi Linear")
-
-st.markdown("---")
-
-# =========================
-# BACKGROUND 
-# =========================
 import streamlit as st
 
 st.set_page_config(layout="wide")
 
+# Tambahkan CSS ini untuk memaksa iframe komponen menjadi full screen di latar belakang
+st.markdown("""
+<style>
+/* Membuat background utama Streamlit transparan agar partikel terlihat */
+.stApp {
+    background: transparent !important;
+}
+
+/* Memaksa iframe pembungkus tsParticles menjadi fixed full screen di paling bawah */
+iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    border: none;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# Panggil komponen HTML tsParticles
 st.components.v1.html(
     """
-    <div id="tsparticles"
-        style="position: fixed; width: 100vw; height: 100vh;
-        top: 0; left: 0; z-index: -1;"></div>
+    <div id="tsparticles"></div>
+
+    <style>
+    html, body, #tsparticles {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: #0e1117;
+        overflow: hidden;
+    }
+    </style>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
     <script>
     tsParticles.load("tsparticles", {
         fullScreen: { enable: true, zIndex: -1 },
-
-        background: {
-            color: "#0e1117"
-        },
-
         particles: {
             color: { value: "#00acee" },
             links: {
@@ -63,7 +75,6 @@ st.components.v1.html(
     });
     </script>
     """,
-    height=600,
 )
 # =========================
 # KALKULATOR CEPAT
