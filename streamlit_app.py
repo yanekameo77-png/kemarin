@@ -51,13 +51,21 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
     color:white !important;
 }
 
-/* Tombol */
-.stButton button{
-    background-color:#60a5fa;
-    color:black !important;
-    border-radius:10px;
-    border:none;
+/* Teks selectbox yang dipilih */
+div[data-baseweb="select"] > div {
+    color: black !important;
 }
+
+/* Dropdown option */
+div[role="listbox"] div {
+    color: black !important;
+}
+
+/* Placeholder selectbox */
+div[data-baseweb="select"] span {
+    color: black !important;
+}
+
 
 /* Tombol saat mouse diarahkan */
 .stButton button:hover{
