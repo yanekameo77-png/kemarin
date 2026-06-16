@@ -773,8 +773,7 @@ elif menu == "📘 Hukum Boyle":
         st.subheader("📘 Hukum Boyle")
     
         st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
-                
-        PV = konstan
+                PV = konstan
         """)
     
         st.latex(r"P_1V_1=P_2V_2")
