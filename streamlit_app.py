@@ -46,6 +46,77 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# =========================
+# KALKULATOR CEPAT
+# =========================
+def kalkulator_samping():
+
+    st.markdown("### 🧮 Kalkulator Cepat")
+
+    angka1 = st.number_input("Angka 1", key="k1")
+    operasi = st.selectbox(
+        "Operasi",
+        ["+", "-", "×", "÷"],
+        key="op"
+    )
+    angka2 = st.number_input("Angka 2", key="k2")
+
+    if operasi == "+":
+        hasil = angka1 + angka2
+    elif operasi == "-":
+        hasil = angka1 - angka2
+    elif operasi == "×":
+        hasil = angka1 * angka2
+    else:
+        hasil = angka1 / angka2 if angka2 != 0 else "Error"
+
+    st.success(f"Hasil = {hasil}")
+
+    st.markdown("---")
+
+    st.markdown("### 🌡️ Konverter Suhu")
+
+    suhu = st.number_input(
+        "Nilai Suhu",
+        key="suhu"
+    )
+
+    dari = st.selectbox(
+        "Dari",
+        ["Celsius", "Kelvin", "Fahrenheit"],
+        key="dari"
+    )
+
+    ke = st.selectbox(
+        "Ke",
+        ["Celsius", "Kelvin", "Fahrenheit"],
+        key="ke"
+    )
+
+    hasil = suhu
+
+    # Celsius
+    if dari == "Celsius":
+        if ke == "Kelvin":
+            hasil = suhu + 273.15
+        elif ke == "Fahrenheit":
+            hasil = (suhu * 9/5) + 32
+
+    # Kelvin
+    elif dari == "Kelvin":
+        if ke == "Celsius":
+            hasil = suhu - 273.15
+        elif ke == "Fahrenheit":
+            hasil = (suhu - 273.15) * 9/5 + 32
+
+    # Fahrenheit
+    elif dari == "Fahrenheit":
+        if ke == "Celsius":
+            hasil = (suhu - 32) * 5/9
+        elif ke == "Kelvin":
+            hasil = (suhu - 32) * 5/9 + 273.15
+
+    st.info(f"Hasil = {hasil:.2f} {ke}")
 
 # =========================
 # SIDEBAR
@@ -89,6 +160,10 @@ if menu == "🏠 Home":
 # STUDI KASUS
 # =========================
 elif menu == "🧪 Studi Kasus":
+
+    kiri, kanan = st.columns([3,1])
+
+    with kiri:
 
     pilihan = st.selectbox(
         "Pilih Studi Kasus",
@@ -707,11 +782,16 @@ elif menu == "🧪 Studi Kasus":
                     st.session_state.soal = 1
                     st.session_state.skor = 0
                     st.rerun()
+
+    with kanan:
+        kalkulator_samping()
     
 # =========================
 # BOYLE
 # =========================
 elif menu == "📘 Hukum Boyle":
+
+    kiri, kanan = st.columns([3,1])
 
     st.subheader("📘 Hukum Boyle")
 
@@ -800,10 +880,17 @@ elif menu == "📘 Hukum Boyle":
         except ZeroDivisionError:
             st.error("Tidak boleh ada pembagi bernilai 0.")
 
+    with kanan:
+        kalkulator_samping()
+
 # =========================
 # CHARLES
 # =========================
 elif menu == "📘 Hukum Charles":
+
+    kiri, kanan = st.columns([3,1])
+
+    with kiri:
 
     st.subheader("📘 Hukum Charles")
 
@@ -898,10 +985,17 @@ elif menu == "📘 Hukum Charles":
         except ZeroDivisionError:
             st.error("Tidak boleh ada pembagi bernilai 0.")
 
+    with kanan:
+        kalkulator_samping()
+
 # =========================
 # GAY LUSSAC
 # =========================
 elif menu == "📘 Hukum Gay-Lussac":
+
+    kiri, kanan = st.columns([3,1])
+
+    with kiri:
 
     st.subheader("📘 Hukum Gay-Lussac")
 
@@ -997,10 +1091,16 @@ elif menu == "📘 Hukum Gay-Lussac":
         except ZeroDivisionError:
             st.error("Tidak boleh ada pembagi bernilai 0.")
 
+    with kanan:
+        kalkulator_samping()
+
 # =========================
 # GAS IDEAL
 # =========================
 elif menu == "⚗️ Gas Ideal":
+
+    kiri, kanan = st.columns([3,1])
+    with kiri:
 
     st.subheader("📘 Persamaan Gas Ideal")
 
@@ -1100,6 +1200,10 @@ elif menu == "⚗️ Gas Ideal":
 
         except ZeroDivisionError:
             st.error("Tidak boleh ada pembagi bernilai 0.")
+
+    with kanan:
+        kalkulator_samping()
+        
 # =========================
 # REGRESI LINEAR (LINE CHART)
 # =========================
