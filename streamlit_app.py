@@ -447,8 +447,8 @@ elif menu == "🧪 Studi Kasus":
             st.markdown("## 📝 Quiz Hukum Gas")
             
     st.write(
-        "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas.
-        ")
+        "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
+    )
     
     st.subheader("📝 Quiz Hukum Gas")
     
