@@ -447,358 +447,358 @@ elif menu == "🧪 Studi Kasus":
     
             st.markdown("## 📝 Quiz Hukum Gas")
             
-    st.write(
-        "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
-    )
-    
-    # =========================
-    # SESSION STATE
-    # =========================
-    if "soal" not in st.session_state:
-        st.session_state.soal = 1
-    
-    if "skor" not in st.session_state:
-        st.session_state.skor = 0
-    
-    st.progress((st.session_state.soal-1)/10)
-    
-    # =========================
-    # SOAL 1
-    # =========================
-    if st.session_state.soal == 1:
-    
-        jawaban = st.radio(
-            "1. Hukum Boyle menyatakan hubungan antara...",
-            [
-                "Tekanan dan Volume",
-                "Volume dan Suhu",
-                "Tekanan dan Suhu",
-                "Mol dan Volume"
-            ],
-            index=None
+        st.write(
+            "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
         )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban == "Tekanan dan Volume":
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 2
-            st.rerun()
-    
-    # =========================
-    # SOAL 2
-    # =========================
-    elif st.session_state.soal == 2:
-    
-        jawaban = st.radio(
-            "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
-            [
-                "Tetap",
-                "Menurun",
-                "Meningkat",
-                "Menjadi nol"
-            ],
-            index=None
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban == "Meningkat":
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 3
-            st.rerun()
-    
-    # =========================
-    # SOAL 3
-    # =========================
-    elif st.session_state.soal == 3:
-    
-        jawaban = st.radio(
-            "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
-            [
-                "Tekanan dan Suhu",
-                "Volume dan Suhu",
-                "Volume dan Mol",
-                "Massa dan Volume"
-            ],
-            index=None
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban == "Tekanan dan Suhu":
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 4
-            st.rerun()
-    
-    # =========================
-    # SOAL 4
-    # =========================
-    elif st.session_state.soal == 4:
-    
-        jawaban = st.radio(
-            "4. Satuan suhu dalam hukum gas adalah...",
-            [
-                "Celcius",
-                "Kelvin",
-                "Fahrenheit",
-                "Rankine"
-            ],
-            index=None
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban == "Kelvin":
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 5
-            st.rerun()
-    
-    # =========================
-    # SOAL 5
-    # =========================
-    elif st.session_state.soal == 5:
-    
-        jawaban = st.radio(
-            "5. Persamaan gas ideal adalah...",
-            [
-                "PV = nRT",
-                "P = m/V",
-                "F = ma",
-                "V = IR"
-            ],
-            index=None
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban == "PV = nRT":
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 6
-            st.rerun()
-    
-    # =========================
-    # SOAL 6
-    # =========================
-    elif st.session_state.soal == 6:
-    
-        jawaban = st.number_input(
-            "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban is not None and abs(jawaban - 2) < 0.01:
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 7
-            st.rerun()
-    
-    # =========================
-    # SOAL 7
-    # =========================
-    elif st.session_state.soal == 7:
-    
-        jawaban = st.number_input(
-            "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban is not None and abs(jawaban - 3) < 0.01:
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 8
-            st.rerun()
-    
-    # =========================
-    # SOAL 8
-    # =========================
-    elif st.session_state.soal == 8:
-    
-         jawaban = st.number_input(
-            "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
-    
-         if st.button("➡️ Berikutnya"):
-    
-            if jawaban is not None and abs(jawaban - 2) < 0.01:
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 9
-            st.rerun()
-    
-    # =========================
-    # SOAL 9
-    # =========================
-    elif st.session_state.soal == 9:
-    
-        jawaban = st.number_input(
-            "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
-    
-        if st.button("➡️ Berikutnya"):
-    
-            if jawaban is not None and abs(jawaban - 1) < 0.05:
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 10
-            st.rerun()
-    
-    # =========================
-    # SOAL 10
-    # =========================
-    elif st.session_state.soal == 10:
-    
-        jawaban = st.number_input(
-            "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
-            value=None,
-            placeholder="Masukkan jawaban"
-        )
-    
-        if st.button("🏁 Selesai"):
-    
-            if jawaban is not None and abs(jawaban - 243.61) < 0.1:
-                st.session_state.skor += 10
-    
-            st.session_state.soal = 11
-            st.rerun()
-    
-    # =========================
-    # HASIL AKHIR
-    # =========================
-    elif st.session_state.soal == 11:
-    
-        st.balloons()
-    
-        st.subheader("🏆 Hasil Quiz")
-    
-        st.success(
-            f"Skor Akhir Anda = {st.session_state.skor}/100"
-        )
-    
-        if st.session_state.skor == 100:
-            st.success("🎉 Luar biasa! Semua jawaban benar.")
-    
-        elif st.session_state.skor >= 80:
-            st.info("👍 Sangat baik.")
-    
-        elif st.session_state.skor >= 60:
-            st.warning("🙂 Cukup baik.")
-    
-        else:
-            st.error("📚 Pelajari kembali materi hukum gas.")
-    
-            if st.button("🔄 Ulangi Quiz"):
-    
-                st.session_state.soal = 1
-                st.session_state.skor = 0
+        
+        # =========================
+        # SESSION STATE
+        # =========================
+        if "soal" not in st.session_state:
+            st.session_state.soal = 1
+        
+        if "skor" not in st.session_state:
+            st.session_state.skor = 0
+        
+        st.progress((st.session_state.soal-1)/10)
+        
+        # =========================
+        # SOAL 1
+        # =========================
+        if st.session_state.soal == 1:
+        
+            jawaban = st.radio(
+                "1. Hukum Boyle menyatakan hubungan antara...",
+                [
+                    "Tekanan dan Volume",
+                    "Volume dan Suhu",
+                    "Tekanan dan Suhu",
+                    "Mol dan Volume"
+                ],
+                index=None
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban == "Tekanan dan Volume":
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 2
                 st.rerun()
-
-# =========================
-# BOYLE
-# =========================
-elif menu == "📘 Hukum Boyle":
-
-    st.subheader("📘 Hukum Boyle")
-
-    st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
-            
-    PV = konstan
-    """)
-
-    st.latex(r"P_1V_1=P_2V_2")
-
-    dicari = st.selectbox(
-        "Pilih variabel yang dicari:",
-        ["P1", "V1", "P2", "V2"]
-    )
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        P1 = st.number_input(
-            "P1", value=0.0, disabled=(dicari == "P1")
+        
+        # =========================
+        # SOAL 2
+        # =========================
+        elif st.session_state.soal == 2:
+        
+            jawaban = st.radio(
+                "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
+                [
+                    "Tetap",
+                    "Menurun",
+                    "Meningkat",
+                    "Menjadi nol"
+                ],
+                index=None
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban == "Meningkat":
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 3
+                st.rerun()
+        
+        # =========================
+        # SOAL 3
+        # =========================
+        elif st.session_state.soal == 3:
+        
+            jawaban = st.radio(
+                "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
+                [
+                    "Tekanan dan Suhu",
+                    "Volume dan Suhu",
+                    "Volume dan Mol",
+                    "Massa dan Volume"
+                ],
+                index=None
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban == "Tekanan dan Suhu":
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 4
+                st.rerun()
+        
+        # =========================
+        # SOAL 4
+        # =========================
+        elif st.session_state.soal == 4:
+        
+            jawaban = st.radio(
+                "4. Satuan suhu dalam hukum gas adalah...",
+                [
+                    "Celcius",
+                    "Kelvin",
+                    "Fahrenheit",
+                    "Rankine"
+                ],
+                index=None
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban == "Kelvin":
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 5
+                st.rerun()
+        
+        # =========================
+        # SOAL 5
+        # =========================
+        elif st.session_state.soal == 5:
+        
+            jawaban = st.radio(
+                "5. Persamaan gas ideal adalah...",
+                [
+                    "PV = nRT",
+                    "P = m/V",
+                    "F = ma",
+                    "V = IR"
+                ],
+                index=None
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban == "PV = nRT":
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 6
+                st.rerun()
+        
+        # =========================
+        # SOAL 6
+        # =========================
+        elif st.session_state.soal == 6:
+        
+            jawaban = st.number_input(
+                "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
+                value=None,
+                placeholder="Masukkan jawaban"
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban is not None and abs(jawaban - 2) < 0.01:
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 7
+                st.rerun()
+        
+        # =========================
+        # SOAL 7
+        # =========================
+        elif st.session_state.soal == 7:
+        
+            jawaban = st.number_input(
+                "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
+                value=None,
+                placeholder="Masukkan jawaban"
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban is not None and abs(jawaban - 3) < 0.01:
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 8
+                st.rerun()
+        
+        # =========================
+        # SOAL 8
+        # =========================
+        elif st.session_state.soal == 8:
+        
+             jawaban = st.number_input(
+                "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
+                value=None,
+                placeholder="Masukkan jawaban"
+            )
+        
+             if st.button("➡️ Berikutnya"):
+        
+                if jawaban is not None and abs(jawaban - 2) < 0.01:
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 9
+                st.rerun()
+        
+        # =========================
+        # SOAL 9
+        # =========================
+        elif st.session_state.soal == 9:
+        
+            jawaban = st.number_input(
+                "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
+                value=None,
+                placeholder="Masukkan jawaban"
+            )
+        
+            if st.button("➡️ Berikutnya"):
+        
+                if jawaban is not None and abs(jawaban - 1) < 0.05:
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 10
+                st.rerun()
+        
+        # =========================
+        # SOAL 10
+        # =========================
+        elif st.session_state.soal == 10:
+        
+            jawaban = st.number_input(
+                "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
+                value=None,
+                placeholder="Masukkan jawaban"
+            )
+        
+            if st.button("🏁 Selesai"):
+        
+                if jawaban is not None and abs(jawaban - 243.61) < 0.1:
+                    st.session_state.skor += 10
+        
+                st.session_state.soal = 11
+                st.rerun()
+        
+        # =========================
+        # HASIL AKHIR
+        # =========================
+        elif st.session_state.soal == 11:
+        
+            st.balloons()
+        
+            st.subheader("🏆 Hasil Quiz")
+        
+            st.success(
+                f"Skor Akhir Anda = {st.session_state.skor}/100"
+            )
+        
+            if st.session_state.skor == 100:
+                st.success("🎉 Luar biasa! Semua jawaban benar.")
+        
+            elif st.session_state.skor >= 80:
+                st.info("👍 Sangat baik.")
+        
+            elif st.session_state.skor >= 60:
+                st.warning("🙂 Cukup baik.")
+        
+            else:
+                st.error("📚 Pelajari kembali materi hukum gas.")
+        
+                if st.button("🔄 Ulangi Quiz"):
+        
+                    st.session_state.soal = 1
+                    st.session_state.skor = 0
+                    st.rerun()
+    
+    # =========================
+    # BOYLE
+    # =========================
+    elif menu == "📘 Hukum Boyle":
+    
+        st.subheader("📘 Hukum Boyle")
+    
+        st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
+                
+        PV = konstan
+        """)
+    
+        st.latex(r"P_1V_1=P_2V_2")
+    
+        dicari = st.selectbox(
+            "Pilih variabel yang dicari:",
+            ["P1", "V1", "P2", "V2"]
         )
-        V1 = st.number_input(
-            "V1", value=0.0, disabled=(dicari == "V1")
-        )
-
-    with col2:
-        P2 = st.number_input(
-            "P2", value=0.0, disabled=(dicari == "P2")
-        )
-        V2 = st.number_input(
-            "V2", value=0.0, disabled=(dicari == "V2")
-        )
-
-    if st.button("Hitung"):
-
-        try:
-
-            if dicari == "P1":
-                hasil = (P2 * V2) / V1
-
-                st.success(f"P1 = {hasil:.3f}")
-
-                st.markdown("### Cara Kerja")
-                st.latex(r"P_1=\frac{P_2V_2}{V_1}")
-                st.latex(
-                    fr"P_1=\frac{{({P2})({V2})}}{{{V1}}}"
-                )
-                st.latex(fr"P_1={hasil:.3f}")
-
-            elif dicari == "V1":
-                hasil = (P2 * V2) / P1
-
-                st.success(f"V1 = {hasil:.3f}")
-
-                st.markdown("### Cara Kerja")
-                st.latex(r"V_1=\frac{P_2V_2}{P_1}")
-                st.latex(
-                    fr"V_1=\frac{{({P2})({V2})}}{{{P1}}}"
-                )
-                st.latex(fr"V_1={hasil:.3f}")
-
-            elif dicari == "P2":
-                hasil = (P1 * V1) / V2
-
-                st.success(f"P2 = {hasil:.3f}")
-
-                st.markdown("### Cara Kerja")
-                st.latex(r"P_2=\frac{P_1V_1}{V_2}")
-                st.latex(
-                    fr"P_2=\frac{{({P1})({V1})}}{{{V2}}}"
-                )
-                st.latex(fr"P_2={hasil:.3f}")
-
-            elif dicari == "V2":
-                hasil = (P1 * V1) / P2
-
-                st.success(f"V2 = {hasil:.3f}")
-
-                st.markdown("### Cara Kerja")
-                st.latex(r"V_2=\frac{P_1V_1}{P_2}")
-                st.latex(
-                    fr"V_2=\frac{{({P1})({V1})}}{{{P2}}}"
-                )
-                st.latex(fr"V_2={hasil:.3f}")
-
-        except ZeroDivisionError:
-            st.error("Tidak boleh ada pembagi bernilai 0.")
+    
+        col1, col2 = st.columns(2)
+    
+        with col1:
+            P1 = st.number_input(
+                "P1", value=0.0, disabled=(dicari == "P1")
+            )
+            V1 = st.number_input(
+                "V1", value=0.0, disabled=(dicari == "V1")
+            )
+    
+        with col2:
+            P2 = st.number_input(
+                "P2", value=0.0, disabled=(dicari == "P2")
+            )
+            V2 = st.number_input(
+                "V2", value=0.0, disabled=(dicari == "V2")
+            )
+    
+        if st.button("Hitung"):
+    
+            try:
+    
+                if dicari == "P1":
+                    hasil = (P2 * V2) / V1
+    
+                    st.success(f"P1 = {hasil:.3f}")
+    
+                    st.markdown("### Cara Kerja")
+                    st.latex(r"P_1=\frac{P_2V_2}{V_1}")
+                    st.latex(
+                        fr"P_1=\frac{{({P2})({V2})}}{{{V1}}}"
+                    )
+                    st.latex(fr"P_1={hasil:.3f}")
+    
+                elif dicari == "V1":
+                    hasil = (P2 * V2) / P1
+    
+                    st.success(f"V1 = {hasil:.3f}")
+    
+                    st.markdown("### Cara Kerja")
+                    st.latex(r"V_1=\frac{P_2V_2}{P_1}")
+                    st.latex(
+                        fr"V_1=\frac{{({P2})({V2})}}{{{P1}}}"
+                    )
+                    st.latex(fr"V_1={hasil:.3f}")
+    
+                elif dicari == "P2":
+                    hasil = (P1 * V1) / V2
+    
+                    st.success(f"P2 = {hasil:.3f}")
+    
+                    st.markdown("### Cara Kerja")
+                    st.latex(r"P_2=\frac{P_1V_1}{V_2}")
+                    st.latex(
+                        fr"P_2=\frac{{({P1})({V1})}}{{{V2}}}"
+                    )
+                    st.latex(fr"P_2={hasil:.3f}")
+    
+                elif dicari == "V2":
+                    hasil = (P1 * V1) / P2
+    
+                    st.success(f"V2 = {hasil:.3f}")
+    
+                    st.markdown("### Cara Kerja")
+                    st.latex(r"V_2=\frac{P_1V_1}{P_2}")
+                    st.latex(
+                        fr"V_2=\frac{{({P1})({V1})}}{{{P2}}}"
+                    )
+                    st.latex(fr"V_2={hasil:.3f}")
+    
+            except ZeroDivisionError:
+                st.error("Tidak boleh ada pembagi bernilai 0.")
 
 # =========================
 # CHARLES
