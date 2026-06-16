@@ -36,9 +36,13 @@ st.components.v1.html(
     tsParticles.load("tsparticles", {
         fullScreen: { enable: true, zIndex: -1 },
 
-        background: {
+        background: {{
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
             color: "#0e1117"
-        },
+        }},
 
         particles: {
             color: { value: "#00acee" },
