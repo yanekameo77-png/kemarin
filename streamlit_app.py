@@ -24,83 +24,45 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# Hilangkan padding default Streamlit
-st.markdown("""
-<style>
-[data-testid="stAppViewContainer"] {
-    background-color: #0e1117;
-}
-
-.block-container {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-}
-
-iframe {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: -1;
-}
-</style>
-""", unsafe_allow_html=True)
-
-# Particle background
 st.components.v1.html(
     """
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    </head>
-    <body style="margin:0; overflow:hidden; background:#0e1117;">
-        <div id="tsparticles"
-             style="position:fixed;
-                    top:0;
-                    left:0;
-                    width:100vw;
-                    height:100vh;">
-        </div>
+    <div id="tsparticles"
+        style="position: fixed; width: 100vw; height: 100vh;
+        top: 0; left: 0; z-index: -1;"></div>
 
-        <script>
-        tsParticles.load("tsparticles", {
-            background: {
-                color: "#0e1117"
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+    <script>
+    tsParticles.load("tsparticles", {
+        fullScreen: { enable: true, zIndex: -1 },
+
+        background: {
+            color: "#0e1117"
+        },
+
+        particles: {
+            color: { value: "#00acee" },
+            links: {
+                color: "#00acee",
+                distance: 150,
+                enable: true,
+                opacity: 0.4
             },
-
-            particles: {
-                color: {
-                    value: "#00acee"
-                },
-
-                links: {
-                    color: "#00acee",
-                    enable: true,
-                    distance: 150,
-                    opacity: 0.4
-                },
-
-                move: {
-                    enable: true,
-                    speed: 1.5
-                },
-
-                number: {
-                    value: 80
-                },
-
-                size: {
-                    value: 2
-                }
+            move: {
+                enable: true,
+                speed: 1.5
+            },
+            number: {
+                value: 80
+            },
+            size: {
+                value: 2
             }
-        });
-        </script>
-    </body>
-    </html>
+        }
+    });
+    </script>
     """,
-    height=0,
+    height=600,
 )
 # =========================
 # KALKULATOR CEPAT
