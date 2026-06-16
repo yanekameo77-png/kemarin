@@ -450,8 +450,6 @@ elif menu == "🧪 Studi Kasus":
         "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
     )
     
-    st.subheader("📝 Quiz Hukum Gas")
-    
     # =========================
     # SESSION STATE
     # =========================
