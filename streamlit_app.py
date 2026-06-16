@@ -872,7 +872,6 @@ elif menu == "📘 Hukum Charles":
         st.subheader("📘 Hukum Charles")
     
         st.write("""Hukum Charles menyatakan apabila gas dalam sebuah ruang tertutup dengan tekanan yang dijaga konstan, membuat volume pada gas dalam jumlah tertentu akan berbanding lurus dengan temperatur mutlaknya.hal tersebut bisa dituliskan seperti ini:
-    
         V ∝ T 
         """)
     
