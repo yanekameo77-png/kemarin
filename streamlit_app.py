@@ -23,36 +23,13 @@ st.markdown("---")
 # =========================
 st.markdown("""
 <style>
-
 .stApp {
-    background: #020617;
+    background-image: url("https://w7.pngwing.com/pngs/1018/494/png-transparent-laptop-desktop-blue-desktop-computers-space-blue-atmosphere-computer.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
-
-.stApp::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-
-    background-image:
-        radial-gradient(circle at 20% 20%, #00ffff 2px, transparent 2px),
-        radial-gradient(circle at 70% 60%, #ffffff 1px, transparent 1px),
-        radial-gradient(circle at 40% 80%, #00ffff 2px, transparent 2px);
-
-    background-size: 150px 150px;
-
-    animation: gerak 20s linear infinite;
-}
-
-@keyframes gerak {
-    from {
-        transform: translateY(0px);
-    }
-    to {
-        transform: translateY(-150px);
-    }
-}
-
 </style>
 """, unsafe_allow_html=True)
 
