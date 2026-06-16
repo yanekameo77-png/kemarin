@@ -73,6 +73,7 @@ if menu == "🏠 Home":
     st.markdown("""
     ### 🔬 Fitur:
     - Studi Kasus
+    - Quiz Hukum Gas
     - Hukum Boyle
     - Hukum Charles
     - Hukum Gay-Lussac
