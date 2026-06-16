@@ -33,7 +33,7 @@ st.markdown("---")
       padding: 0;
 
       /* background dari GitHub repo */
-      background-image: url("images/background.jpg");
+      background-image: url("data/WhatsApp Image 2026-06-16 at 13.22.14.jpeg");
 
       background-size: cover;
       background-position: center;
