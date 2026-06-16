@@ -97,7 +97,7 @@ elif menu == "🧪 Studi Kasus":
     # ===================================
     # SIMULASI MASSA JENIS GAS
     # ===================================
-    elif pilihan == "Simulasi Massa Jenis Gas":
+    if pilihan == "Simulasi Massa Jenis Gas":
 
         st.title("Simulasi Gas Ideal Interaktif")
 
