@@ -78,8 +78,8 @@ if menu == "🏠 Home":
     - Hukum Gay-Lussac
     - Gas Ideal 
     - Regresi Linear
-    -Tentang aplikasi
-    -Kotak saran
+    - Tentang aplikasi
+    - Kotak saran
     """)
 
     st.balloons()
