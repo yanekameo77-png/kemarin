@@ -913,8 +913,8 @@ elif menu == "📈 Regresi Linear":
 
                 # DataFrame
                 df = pd.DataFrame({
-                    "x": x,
-                    "y (data asli)": y,
+                    "P": x,
+                    "V (data asli)": y,
                     "V (regresi)": y_pred
                 })
 
