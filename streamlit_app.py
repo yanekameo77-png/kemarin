@@ -1295,9 +1295,11 @@ elif menu == "📬 Kotak Saran":
         """)
 
     st.markdown("""
+    
     Tetaplah kuat
     Walau kadang yang merusak mental justru
     nilai mata uang rupiah yang semakin lemah
+    
     """) 
 
     st.write("""
