@@ -21,91 +21,47 @@ st.markdown("---")
 # =========================
 # BACKGROUND 
 # =========================
-st.markdown("""
-<style>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>My Website</title>
 
-.stApp {
-    background-image: url("https://p4.wallpaperbetter.com/wallpaper/268/183/581/stars-galaxies-wallpaper-preview.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
 
-/* Hilangkan background putih Streamlit */
-[data-testid="stAppViewContainer"]{
-    background: transparent;
-}
+      /* background dari GitHub repo */
+      background-image: url("images/background.jpg");
 
-[data-testid="stHeader"]{
-    background: rgba(0,0,0,0);
-}
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-[data-testid="stSidebar"]{
-    background: rgba(0,0,0,0.5);
-}
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
 
-/* Semua tulisan putih */
-h1,h2,h3,h4,h5,h6,p,label,span,div{
-    color:white !important;
-}
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
+</head>
 
-/* Input angka */
-.stNumberInput input{
-    background:white !important;
-    color:black !important;
-}
-
-/* Input teks */
-.stTextInput input{
-    background:white !important;
-    color:black !important;
-}
-
-/* Text Area */
-.stTextArea textarea{
-    background:white !important;
-    color:black !important;
-}
-
-/* Selectbox */
-[data-baseweb="select"]{
-    color:black !important;
-}
-
-[data-baseweb="select"] *{
-    color:black !important;
-}
-
-/* Dropdown menu */
-div[role="listbox"]{
-    background:white !important;
-}
-
-div[role="option"]{
-    color:black !important;
-}
-
-/* Button */
-.stButton button{
-    background:white !important;
-    color:black !important;
-    font-weight:bold;
-}
-
-/* Radio */
-.stRadio label{
-    color:white !important;
-}
-
-/* Checkbox */
-.stCheckbox label{
-    color:white !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
+<body>
+  <div class="overlay">
+    <h1>Halo GitHub Pages</h1>
+    <p>Background sudah dari file di GitHub repo</p>
+  </div>
+</body>
+</html>
 
 # =========================
 # KALKULATOR CEPAT
