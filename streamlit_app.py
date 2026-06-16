@@ -21,74 +21,74 @@ st.markdown("---")
 # =========================
 # BACKGROUND 
 # =========================
-import streamlit as st
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background tsParticles</title>
+    <style>
+        html, body, #tsparticles {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #0e1117;
+            overflow: hidden;
+        }
+        /* Gaya untuk konten di atas partikel */
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-family: sans-serif;
+            text-align: center;
+            z-index: 1; /* Di atas partikel */
+        }
+    </style>
+</head>
+<body>
 
-st.set_page_config(layout="wide")
+    <div id="tsparticles"></div>
 
-st.markdown("""
-<style>
-.stApp {
-    background: transparent;
-}
+    <div class="content">
+        <h1>✨ Latar Belakang tsParticles</h1>
+        <p>Berhasil dijalankan di GitHub Pages!</p>
+    </div>
 
-html, body, .stApp {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-#tsparticles {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown("""
-<div id="tsparticles"></div>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script>
-// Tunggu DOM selesai
-window.addEventListener("load", function() {
-    tsParticles.load("tsparticles", {
-        fullScreen: { enable: true },  // Aktifkan fullscreen
-        background: {
-            color: "#0e1117"
-        },
-        particles: {
-            color: { value: "#00acee" },
-            links: {
-                color: "#00acee",
-                distance: 150,
-                enable: true,
-                opacity: 0.4
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script>
+        tsParticles.load("tsparticles", {
+            fullScreen: { enable: true },
+            particles: {
+                color: { value: "#00acee" },
+                links: {
+                    color: "#00acee",
+                    distance: 150,
+                    enable: true,
+                    opacity: 0.4
+                },
+                move: {
+                    enable: true,
+                    speed: 1.5
+                },
+                number: {
+                    value: 80
+                },
+                size: {
+                    value: 2
+                },
+                shape: {
+                    type: "circle"
+                }
             },
-            move: {
-                enable: true,
-                speed: 1.5
-            },
-            number: {
-                value: 80
-            },
-            size: {
-                value: 2
-            },
-            shape: {
-                type: "circle"
-            }
-        },
-        detectRetina: true
-    });
-});
-</script>
-""", unsafe_allow_html=True)
+            detectRetina: true
+        });
+    </script>
+</body>
+</html>
 # =========================
 # KALKULATOR CEPAT
 # =========================
