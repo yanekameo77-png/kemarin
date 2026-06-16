@@ -98,23 +98,23 @@ def kalkulator_samping():
     # Celsius
     if dari == "Celsius":
         if ke == "Kelvin":
-            hasil = suhu + 273.15
+            hasil = suhu + 273
         elif ke == "Fahrenheit":
             hasil = (suhu * 9/5) + 32
 
     # Kelvin
     elif dari == "Kelvin":
         if ke == "Celsius":
-            hasil = suhu - 273.15
+            hasil = suhu - 273
         elif ke == "Fahrenheit":
-            hasil = (suhu - 273.15) * 9/5 + 32
+            hasil = (suhu - 273) * 9/5 + 32
 
     # Fahrenheit
     elif dari == "Fahrenheit":
         if ke == "Celsius":
             hasil = (suhu - 32) * 5/9
         elif ke == "Kelvin":
-            hasil = (suhu - 32) * 5/9 + 273.15
+            hasil = (suhu - 32) * 5/9 + 273
 
     st.info(f"Hasil = {hasil:.2f} {ke}")
 
