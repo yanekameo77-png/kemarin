@@ -21,40 +21,40 @@ st.markdown("---")
 # =========================
 # BACKGROUND PARTIKEL
 # =========================
-components.html("""
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+st.markdown("""
 <style>
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-background:#020617;
+
+.stApp {
+    background: #020617;
 }
+
+.stApp::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-image:
+        radial-gradient(circle at 20% 20%, #00ffff 2px, transparent 2px),
+        radial-gradient(circle at 70% 60%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 40% 80%, #00ffff 2px, transparent 2px);
+
+    background-size: 150px 150px;
+
+    animation: gerak 20s linear infinite;
+}
+
+@keyframes gerak {
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-150px);
+    }
+}
+
 </style>
-</head>
-<body>
-<div id="particles-js"></div>
-
-<script>
-particlesJS("particles-js",{
-  particles:{
-    number:{value:80},
-    color:{value:"#00ffff"},
-    shape:{type:"circle"},
-    move:{speed:2}
-  }
-});
-</script>
-
-</body>
-</html>
-""", height=0)
+""", unsafe_allow_html=True)
 
 # =========================
 # KALKULATOR CEPAT
