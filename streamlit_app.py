@@ -23,45 +23,24 @@ st.markdown("---")
 # =========================
 import streamlit as st
 
-st.set_page_config(layout="wide", page_title="App dengan Background Partikel")
+st.set_page_config(layout="wide")
 
-st.markdown("""
-<style>
-/* Membuat background Streamlit transparan agar partikel di bawahnya terlihat */
-.stApp {
-    background: transparent !important;
-}
+st.components.v1.html(
+    """
+    <div id="tsparticles"
+        style="position: fixed; width: 100vw; height: 100vh;
+        top: 0; left: 0; z-index: -1;"></div>
 
-iframe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-    border: none;
-}
-</style>
-""", unsafe_allow_html=True)
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-particle_html = """
-<div id="tsparticles"></div>
-
-<style>
-html, body, #tsparticles {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: #0e1117; /* Warna dasar background (Gelap) */
-    overflow: hidden;
-}
-</style>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-<script>
+    <script>
     tsParticles.load("tsparticles", {
         fullScreen: { enable: true, zIndex: -1 },
+
+        background: {
+            color: "#0e1117"
+        },
+
         particles: {
             color: { value: "#00acee" },
             links: {
@@ -79,17 +58,13 @@ html, body, #tsparticles {
             },
             size: {
                 value: 2
-            },
-            shape: {
-                type: "circle"
             }
-        },
-        detectRetina: true
+        }
     });
-</script>
-"""
-
-components.html(particle_html, width=None, height=None, scrolling=False)
+    </script>
+    """,
+    height=600,
+)
 # =========================
 # KALKULATOR CEPAT
 # =========================
