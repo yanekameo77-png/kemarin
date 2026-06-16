@@ -567,20 +567,93 @@ elif menu == "📘 Hukum Charles":
     st.write("""
     Hukum Charles menyatakan bahwa volume gas berbanding lurus dengan suhu mutlaknya
     (Kelvin), jika tekanan dan jumlah mol gas tetap konstan.
-
-    Artinya, semakin tinggi suhu gas maka volumenya akan semakin besar.
-    Sebaliknya, jika suhu menurun maka volume gas juga akan menurun.
     """)
 
     st.latex(r"\frac{V_1}{T_1}=\frac{V_2}{T_2}")
 
-    V1 = st.number_input("V1", value=1.0)
-    T1 = st.number_input("T1 (K)", value=273.0)
-    T2 = st.number_input("T2 (K)", value=300.0)
+    dicari = st.selectbox(
+        "Pilih variabel yang dicari:",
+        ["V1", "T1", "V2", "T2"]
+    )
 
-    if st.button("Hitung V2"):
-        V2 = (V1 * T2) / T1
-        st.success(f"V2 = {V2:.3f} L")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        V1 = st.number_input(
+            "V1 (L)", value=0.0,
+            disabled=(dicari == "V1")
+        )
+
+        T1 = st.number_input(
+            "T1 (K)", value=0.0,
+            disabled=(dicari == "T1")
+        )
+
+    with col2:
+        V2 = st.number_input(
+            "V2 (L)", value=0.0,
+            disabled=(dicari == "V2")
+        )
+
+        T2 = st.number_input(
+            "T2 (K)", value=0.0,
+            disabled=(dicari == "T2")
+        )
+
+    if st.button("Hitung"):
+
+        try:
+
+            if dicari == "V1":
+                hasil = (V2 * T1) / T2
+
+                st.success(f"V1 = {hasil:.3f} L")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"V_1=\frac{V_2T_1}{T_2}")
+                st.latex(
+                    fr"V_1=\frac{{({V2})({T1})}}{{{T2}}}"
+                )
+                st.latex(fr"V_1={hasil:.3f}\,L")
+
+            elif dicari == "T1":
+                hasil = (V1 * T2) / V2
+
+                st.success(f"T1 = {hasil:.3f} K")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"T_1=\frac{V_1T_2}{V_2}")
+                st.latex(
+                    fr"T_1=\frac{{({V1})({T2})}}{{{V2}}}"
+                )
+                st.latex(fr"T_1={hasil:.3f}\,K")
+
+            elif dicari == "V2":
+                hasil = (V1 * T2) / T1
+
+                st.success(f"V2 = {hasil:.3f} L")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"V_2=\frac{V_1T_2}{T_1}")
+                st.latex(
+                    fr"V_2=\frac{{({V1})({T2})}}{{{T1}}}"
+                )
+                st.latex(fr"V_2={hasil:.3f}\,L")
+
+            elif dicari == "T2":
+                hasil = (V2 * T1) / V1
+
+                st.success(f"T2 = {hasil:.3f} K")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"T_2=\frac{V_2T_1}{V_1}")
+                st.latex(
+                    fr"T_2=\frac{{({V2})({T1})}}{{{V1}}}"
+                )
+                st.latex(fr"T_2={hasil:.3f}\,K")
+
+        except ZeroDivisionError:
+            st.error("Tidak boleh ada pembagi bernilai 0.")
 
 # =========================
 # GAY LUSSAC
@@ -590,20 +663,96 @@ elif menu == "📘 Hukum Gay-Lussac":
     st.subheader("📘 Hukum Gay-Lussac")
 
     st.write("""
-    Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
-
-    P ∝  T
+    Hukum Gay-Lussac menyatakan bahwa tekanan gas berbanding lurus
+    dengan suhu mutlaknya (Kelvin), jika volume dan jumlah mol gas
+    tetap konstan.
     """)
 
     st.latex(r"\frac{P_1}{T_1}=\frac{P_2}{T_2}")
 
-    P1 = st.number_input("P1", value=1.0)
-    T1 = st.number_input("T1 (K)", value=273.0)
-    T2 = st.number_input("T2 (K)", value=300.0)
+    dicari = st.selectbox(
+        "Pilih variabel yang dicari:",
+        ["P1", "T1", "P2", "T2"]
+    )
 
-    if st.button("Hitung P2"):
-        P2 = (P1 * T2) / T1
-        st.success(f"P2 = {P2:.3f} atm")
+    col1, col2 = st.columns(2)
+
+    with col1:
+        P1 = st.number_input(
+            "P1 (atm)", value=0.0,
+            disabled=(dicari == "P1")
+        )
+
+        T1 = st.number_input(
+            "T1 (K)", value=0.0,
+            disabled=(dicari == "T1")
+        )
+
+    with col2:
+        P2 = st.number_input(
+            "P2 (atm)", value=0.0,
+            disabled=(dicari == "P2")
+        )
+
+        T2 = st.number_input(
+            "T2 (K)", value=0.0,
+            disabled=(dicari == "T2")
+        )
+
+    if st.button("Hitung"):
+
+        try:
+
+            if dicari == "P1":
+                hasil = (P2 * T1) / T2
+
+                st.success(f"P1 = {hasil:.3f} atm")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"P_1=\frac{P_2T_1}{T_2}")
+                st.latex(
+                    fr"P_1=\frac{{({P2})({T1})}}{{{T2}}}"
+                )
+                st.latex(fr"P_1={hasil:.3f}\,\text{{atm}}")
+
+            elif dicari == "T1":
+                hasil = (P1 * T2) / P2
+
+                st.success(f"T1 = {hasil:.3f} K")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"T_1=\frac{P_1T_2}{P_2}")
+                st.latex(
+                    fr"T_1=\frac{{({P1})({T2})}}{{{P2}}}"
+                )
+                st.latex(fr"T_1={hasil:.3f}\,\text{{K}}")
+
+            elif dicari == "P2":
+                hasil = (P1 * T2) / T1
+
+                st.success(f"P2 = {hasil:.3f} atm")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"P_2=\frac{P_1T_2}{T_1}")
+                st.latex(
+                    fr"P_2=\frac{{({P1})({T2})}}{{{T1}}}"
+                )
+                st.latex(fr"P_2={hasil:.3f}\,\text{{atm}}")
+
+            elif dicari == "T2":
+                hasil = (P2 * T1) / P1
+
+                st.success(f"T2 = {hasil:.3f} K")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"T_2=\frac{P_2T_1}{P_1}")
+                st.latex(
+                    fr"T_2=\frac{{({P2})({T1})}}{{{P1}}}"
+                )
+                st.latex(fr"T_2={hasil:.3f}\,\text{{K}}")
+
+        except ZeroDivisionError:
+            st.error("Tidak boleh ada pembagi bernilai 0.")
 
 # =========================
 # GAS IDEAL
@@ -613,22 +762,101 @@ elif menu == "⚗️ Gas Ideal":
     st.subheader("📘 Persamaan Gas Ideal")
 
     st.write("""
-    Gas ideal menjelaskan perilaku gas berdasarkan model partikel yang disederhanakan. Teori ini mengasumsikan bahwa gas terdiri dari partikel-partikel kecil yang bergerak bebas dan mengikuti hukum mekanika klasik.
-    Persamaan gas ideal adalah model matematika yang menyatakan hubungan antara tekanan (P),volume (V), jumlah mol (n)dan suhu (T)suatu gas. Persamaan dasarnya adalah (PV = nRT)
+    Gas ideal menjelaskan hubungan antara tekanan (P), volume (V),
+    jumlah mol (n), dan suhu (T).
+
+    Persamaan gas ideal:
     """)
 
     st.latex(r"PV=nRT")
 
-    P = st.number_input("P (atm)", value=1.0)
-    V = st.number_input("V (L)", value=1.0)
-    n = st.number_input("n (mol)", value=1.0)
+    R = 0.0821  # L·atm/mol·K
 
-    R = 0.0821
+    dicari = st.selectbox(
+        "Pilih variabel yang dicari:",
+        ["P", "V", "n", "T"]
+    )
 
-    if st.button("Hitung T"):
-        T = (P * V) / (n * R)
-        st.success(f"Suhu = {T:.2f} K")
+    col1, col2 = st.columns(2)
 
+    with col1:
+        P = st.number_input(
+            "P (atm)", value=0.0,
+            disabled=(dicari == "P")
+        )
+
+        V = st.number_input(
+            "V (L)", value=0.0,
+            disabled=(dicari == "V")
+        )
+
+    with col2:
+        n = st.number_input(
+            "n (mol)", value=0.0,
+            disabled=(dicari == "n")
+        )
+
+        T = st.number_input(
+            "T (K)", value=0.0,
+            disabled=(dicari == "T")
+        )
+
+    st.info(f"Konstanta gas (R) = {R} L·atm/mol·K")
+
+    if st.button("Hitung"):
+
+        try:
+
+            if dicari == "P":
+                hasil = (n * R * T) / V
+
+                st.success(f"P = {hasil:.3f} atm")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"P=\frac{nRT}{V}")
+                st.latex(
+                    fr"P=\frac{{({n})({R})({T})}}{{{V}}}"
+                )
+                st.latex(fr"P={hasil:.3f}\,\text{{atm}}")
+
+            elif dicari == "V":
+                hasil = (n * R * T) / P
+
+                st.success(f"V = {hasil:.3f} L")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"V=\frac{nRT}{P}")
+                st.latex(
+                    fr"V=\frac{{({n})({R})({T})}}{{{P}}}"
+                )
+                st.latex(fr"V={hasil:.3f}\,\text{{L}}")
+
+            elif dicari == "n":
+                hasil = (P * V) / (R * T)
+
+                st.success(f"n = {hasil:.3f} mol")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"n=\frac{PV}{RT}")
+                st.latex(
+                    fr"n=\frac{{({P})({V})}}{{({R})({T})}}"
+                )
+                st.latex(fr"n={hasil:.3f}\,\text{{mol}}")
+
+            elif dicari == "T":
+                hasil = (P * V) / (n * R)
+
+                st.success(f"T = {hasil:.3f} K")
+
+                st.markdown("### Cara Kerja")
+                st.latex(r"T=\frac{PV}{nR}")
+                st.latex(
+                    fr"T=\frac{{({P})({V})}}{{({n})({R})}}"
+                )
+                st.latex(fr"T={hasil:.3f}\,\text{{K}}")
+
+        except ZeroDivisionError:
+            st.error("Tidak boleh ada pembagi bernilai 0.")
 # =========================
 # REGRESI LINEAR (LINE CHART)
 # =========================
