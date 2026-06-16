@@ -19,17 +19,33 @@ st.caption("Hukum Gas + Studi Kasus + Regresi Linear")
 st.markdown("---")
 
 # =========================
-# BACKGROUND PARTIKEL
+# BACKGROUND 
 # =========================
 st.markdown("""
 <style>
+
 .stApp {
-    background-image: url("https://w7.pngwing.com/pngs/1018/494/png-transparent-laptop-desktop-blue-desktop-computers-space-blue-atmosphere-computer.png");
+    background-image: url("https://p4.wallpaperbetter.com/wallpaper/268/183/581/stars-galaxies-wallpaper-preview.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    min-height: 100vh;
 }
+
+/* Hilangkan background putih Streamlit */
+[data-testid="stAppViewContainer"]{
+    background: transparent;
+}
+
+[data-testid="stHeader"]{
+    background: rgba(0,0,0,0);
+}
+
+[data-testid="stSidebar"]{
+    background: rgba(0,0,0,0.5);
+}
+
 </style>
 """, unsafe_allow_html=True)
 
