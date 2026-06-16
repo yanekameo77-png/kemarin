@@ -27,16 +27,28 @@ st.set_page_config(layout="wide")
 
 st.components.v1.html(
     """
-    <div id="tsparticles"
-        style="position: fixed; width: 100vw; height: 100vh;
-        top: 0; left: 0; z-index: -1;"></div>
+    <div id="tsparticles"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
+    <style>
+        #tsparticles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        /* biar konten Streamlit tetap di atas */
+        .stApp {
+            background: transparent;
+        }
+    </style>
+
     <script>
     tsParticles.load("tsparticles", {
-        fullScreen: { enable: true, zIndex: -1 },
-
         background: {
             color: "#0e1117"
         },
@@ -59,11 +71,13 @@ st.components.v1.html(
             size: {
                 value: 2
             }
-        }
+        },
+
+        detectRetina: true
     });
     </script>
     """,
-    height=600,
+    height=0,
 )
 # =========================
 # KALKULATOR CEPAT
