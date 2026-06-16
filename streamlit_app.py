@@ -27,7 +27,7 @@ st.set_page_config(layout="wide")
 st.components.v1.html(
     """
     <div id="tsparticles"
-        style="position: fixed; width: 100vw; height: 100vh;
+        style="position: fixed; width: 1200vw; height: 1200vh;
         top: 0; left: 0; z-index: -1;"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
@@ -62,7 +62,7 @@ st.components.v1.html(
     });
     </script>
     """,
-    height=600,
+    height=1200,
 )
 # =========================
 # KALKULATOR CEPAT
