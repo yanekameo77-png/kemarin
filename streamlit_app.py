@@ -25,59 +25,61 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+st.markdown("""
+<style>
+.stApp {
+    background: transparent;
+}
+
+/* background canvas */
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+</style>
+""", unsafe_allow_html=True)
+
 st.components.v1.html(
-    """
-    <div id="tsparticles"></div>
+"""
+<div id="tsparticles"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-    <style>
-        #tsparticles {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }
+<script>
+tsParticles.load("tsparticles", {
+    fullScreen: { enable: false },  // PENTING: matikan fullscreen
 
-        /* biar konten Streamlit tetap di atas */
-        .stApp {
-            background: transparent;
-        }
-    </style>
+    background: {
+        color: "#0e1117"
+    },
 
-    <script>
-    tsParticles.load("tsparticles", {
-        background: {
-            color: "#0e1117"
+    particles: {
+        color: { value: "#00acee" },
+        links: {
+            color: "#00acee",
+            distance: 150,
+            enable: true,
+            opacity: 0.4
         },
-
-        particles: {
-            color: { value: "#00acee" },
-            links: {
-                color: "#00acee",
-                distance: 150,
-                enable: true,
-                opacity: 0.4
-            },
-            move: {
-                enable: true,
-                speed: 1.5
-            },
-            number: {
-                value: 80
-            },
-            size: {
-                value: 2
-            }
+        move: {
+            enable: true,
+            speed: 1.5
         },
-
-        detectRetina: true
-    });
-    </script>
-    """,
-    height=0,
+        number: {
+            value: 80
+        },
+        size: {
+            value: 2
+        }
+    }
+});
+</script>
+""",
+height=600
 )
 # =========================
 # KALKULATOR CEPAT
