@@ -21,74 +21,75 @@ st.markdown("---")
 # =========================
 # BACKGROUND 
 # =========================
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Background tsParticles</title>
-    <style>
-        html, body, #tsparticles {
-            width: 100%;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            background-color: #0e1117;
-            overflow: hidden;
-        }
-        /* Gaya untuk konten di atas partikel */
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-family: sans-serif;
-            text-align: center;
-            z-index: 1; /* Di atas partikel */
-        }
-    </style>
-</head>
-<body>
+import streamlit as st
 
-    <div id="tsparticles"></div>
+st.set_page_config(layout="wide", page_title="App dengan Background Partikel")
 
-    <div class="content">
-        <h1>✨ Latar Belakang tsParticles</h1>
-        <p>Berhasil dijalankan di GitHub Pages!</p>
-    </div>
+st.markdown("""
+<style>
+/* Membuat background Streamlit transparan agar partikel di bawahnya terlihat */
+.stApp {
+    background: transparent !important;
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-    <script>
-        tsParticles.load("tsparticles", {
-            fullScreen: { enable: true },
-            particles: {
-                color: { value: "#00acee" },
-                links: {
-                    color: "#00acee",
-                    distance: 150,
-                    enable: true,
-                    opacity: 0.4
-                },
-                move: {
-                    enable: true,
-                    speed: 1.5
-                },
-                number: {
-                    value: 80
-                },
-                size: {
-                    value: 2
-                },
-                shape: {
-                    type: "circle"
-                }
+iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    border: none;
+}
+</style>
+""", unsafe_allow_html=True)
+
+particle_html = """
+<div id="tsparticles"></div>
+
+<style>
+html, body, #tsparticles {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #0e1117; /* Warna dasar background (Gelap) */
+    overflow: hidden;
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+<script>
+    tsParticles.load("tsparticles", {
+        fullScreen: { enable: true, zIndex: -1 },
+        particles: {
+            color: { value: "#00acee" },
+            links: {
+                color: "#00acee",
+                distance: 150,
+                enable: true,
+                opacity: 0.4
             },
-            detectRetina: true
-        });
-    </script>
-</body>
-</html>
+            move: {
+                enable: true,
+                speed: 1.5
+            },
+            number: {
+                value: 80
+            },
+            size: {
+                value: 2
+            },
+            shape: {
+                type: "circle"
+            }
+        },
+        detectRetina: true
+    });
+</script>
+"""
+
+components.html(particle_html, width=None, height=None, scrolling=False)
 # =========================
 # KALKULATOR CEPAT
 # =========================
