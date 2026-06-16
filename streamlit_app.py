@@ -793,6 +793,8 @@ elif menu == "📘 Hukum Boyle":
 
     kiri, kanan = st.columns([3,1])
 
+    with kiri: 
+
         st.subheader("📘 Hukum Boyle")
     
         st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
