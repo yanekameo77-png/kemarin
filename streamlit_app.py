@@ -773,7 +773,8 @@ elif menu == "📘 Hukum Boyle":
         st.subheader("📘 Hukum Boyle")
     
         st.write(""" Hukum Boyle menyatakan bahwa tekanan gas berbanding terbalik dengan volume gas, saat temperatur dan jumlah zat gas dijaga tetap konstan. Secara matematis, hal tersebut dapat dituliskan seperti berikut:
-                PV = konstan
+                
+        PV = nRT
         """)
     
         st.latex(r"P_1V_1=P_2V_2")
@@ -871,6 +872,7 @@ elif menu == "📘 Hukum Charles":
         st.subheader("📘 Hukum Charles")
     
         st.write("""Hukum Charles menyatakan apabila gas dalam sebuah ruang tertutup dengan tekanan yang dijaga konstan, membuat volume pada gas dalam jumlah tertentu akan berbanding lurus dengan temperatur mutlaknya.hal tersebut bisa dituliskan seperti ini:
+        
         V ∝ T 
         """)
     
@@ -974,8 +976,7 @@ elif menu == "📘 Hukum Gay-Lussac":
 
         st.subheader("📘 Hukum Gay-Lussac")
     
-        st.write("""3. Hukum Gay-Lussac
-         Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
+        st.write("""Hukum Gay-Lussac menyatakan bahwa tekanan pada gas berbanding lurus dengan temperatur mutlaknya, saat gas dijaga dalam volume dan jumlah zat yang tetap. Secara matematis, hal tersebut dapat dituliskan seperti ini:
     
         P ∝  T
         """)
