@@ -1231,7 +1231,7 @@ elif menu == "📈 Regresi Linear":
                 )
 
                 st.info(
-                    f"Koefisien Determinasi (R²) = {r2:.4f}"
+                    f"Koefisien Determinasi (r²) = {r2:.4f}"
                 )
 
                 # DataFrame
