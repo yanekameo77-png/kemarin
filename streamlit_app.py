@@ -53,8 +53,8 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
 
 /* Tombol */
 .stButton button{
-    background-color:#2563eb;
-    color:white !important;
+    background-color:#60a5fa;
+    color:black !important;
     border-radius:10px;
     border:none;
 }
