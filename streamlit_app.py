@@ -442,7 +442,7 @@ elif menu == "🧪 Studi Kasus":
     # Quiz
     #==================
     
-        elif pilihan == "Quiz Hukum Gas":
+    elif pilihan == "Quiz Hukum Gas":
     
             st.markdown("## 📝 Quiz Hukum Gas")
             
