@@ -21,41 +21,42 @@ st.markdown("---")
 # =========================
 # BACKGROUND PARTIKEL
 # =========================
-st.markdown("""
+import streamlit.components.v1 as components
+
+components.html("""
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <style>
-.stApp {
-    background: #020617;
-    overflow: hidden;
-}
-
-.stApp::before {
-    content: "";
-    position: fixed;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-
-    background-image:
-        radial-gradient(circle, rgba(0,255,255,0.7) 2px, transparent 3px),
-        radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 2px);
-
-    background-size: 120px 120px, 80px 80px;
-
-    animation: bergerak 40s linear infinite;
-    z-index: -1;
-}
-
-@keyframes bergerak {
-    from {
-        transform: translate(0,0);
-    }
-    to {
-        transform: translate(200px,100px);
-    }
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+z-index:-1;
+background:#020617;
 }
 </style>
-""", unsafe_allow_html=True)
+</head>
+<body>
+<div id="particles-js"></div>
+
+<script>
+particlesJS("particles-js",{
+  particles:{
+    number:{value:80},
+    color:{value:"#00ffff"},
+    shape:{type:"circle"},
+    move:{speed:2}
+  }
+});
+</script>
+
+</body>
+</html>
+""", height=0)
 
 # =========================
 # KALKULATOR CEPAT
