@@ -487,18 +487,18 @@ elif menu == "📘 Hukum Boyle":
     col1, col2 = st.columns(2)
 
     with col1:
-        Tekanan1 = st.number_input(
+        P1 = st.number_input(
             "P1", value=0.0, disabled=(dicari == "P1")
         )
-        Volume1 = st.number_input(
+        V1 = st.number_input(
             "V1", value=0.0, disabled=(dicari == "V1")
         )
 
     with col2:
-        Tekanan2 = st.number_input(
+        P2 = st.number_input(
             "P2", value=0.0, disabled=(dicari == "P2")
         )
-        Volume2 = st.number_input(
+        V2 = st.number_input(
             "V2", value=0.0, disabled=(dicari == "V2")
         )
 
@@ -579,23 +579,23 @@ elif menu == "📘 Hukum Charles":
     col1, col2 = st.columns(2)
 
     with col1:
-        Volume1 = st.number_input(
+        V1 = st.number_input(
             "V1 (L)", value=0.0,
             disabled=(dicari == "V1")
         )
 
-        Suhu1 = st.number_input(
+        T1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        Volume2 = st.number_input(
+        V2 = st.number_input(
             "V2 (L)", value=0.0,
             disabled=(dicari == "V2")
         )
 
-        Suhu2 = st.number_input(
+        T2 = st.number_input(
             "T2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
@@ -678,23 +678,23 @@ elif menu == "📘 Hukum Gay-Lussac":
     col1, col2 = st.columns(2)
 
     with col1:
-        Tekanan1 = st.number_input(
+        P1 = st.number_input(
             "P1 (atm)", value=0.0,
             disabled=(dicari == "P1")
         )
 
-        Suhu1 = st.number_input(
+        T1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        Tekanan2 = st.number_input(
+        P2 = st.number_input(
             "P2 (atm)", value=0.0,
             disabled=(dicari == "P2")
         )
 
-        Suhu2 = st.number_input(
+        T2 = st.number_input(
             "Suhu 2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
@@ -913,8 +913,8 @@ elif menu == "📈 Regresi Linear":
 
                 # DataFrame
                 df = pd.DataFrame({
-                    "P": x,
-                    "V (data asli)": y,
+                    "x": x,
+                    "y (data asli)": y,
                     "V (regresi)": y_pred
                 })
 
