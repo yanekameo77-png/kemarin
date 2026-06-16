@@ -91,35 +91,8 @@ elif menu == "🧪 Studi Kasus":
 
     pilihan = st.selectbox(
         "Pilih Studi Kasus",
-        ["Analisis Gas Ideal", "Simulasi Massa Jenis Gas"]
+        ["Simulasi Massa Jenis Gas","Quiz Hukum Gas"]
     )
-
-    # ===================================
-    # ANALISIS GAS IDEAL
-    # ===================================
-    if pilihan == "Analisis Gas Ideal":
-
-        st.subheader("🧪 Studi Kasus Gas Ideal")
-
-        P = st.number_input("Tekanan (atm)", value=1.0)
-        V = st.number_input("Volume (L)", value=10.0)
-        n = st.number_input("Mol gas", value=1.0)
-        T = st.number_input("Suhu (K)", value=300.0)
-
-        R = 0.0821
-
-        if st.button("Analisis"):
-
-            PV = P * V
-            nRT = n * R * T
-
-            st.write(f"PV = {PV:.3f}")
-            st.write(f"nRT = {nRT:.3f}")
-
-            if abs(PV - nRT) < 1:
-                st.success("Sistem sesuai Gas Ideal ✅")
-            else:
-                st.warning("Ada deviasi dari gas ideal ⚠️")
 
     # ===================================
     # SIMULASI MASSA JENIS GAS
@@ -465,6 +438,199 @@ elif menu == "🧪 Studi Kasus":
 
         assert hasil > 0, "Hasil tidak boleh negatif"
 
+    elif pilihan == "Quiz Hukum Gas":
+
+        st.markdown("## 📝 Quiz Hukum Gas")
+    st.write("Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas.")
+
+    # =========================
+    # SOAL TEORI
+    # =========================
+
+    st.markdown("## 📚 Soal Teori")
+
+    q1 = st.radio(
+        "1. Hukum Boyle menyatakan hubungan antara...",
+        [
+            "Tekanan dan Volume",
+            "Volume dan Suhu",
+            "Tekanan dan Suhu",
+            "Mol dan Volume"
+        ],
+        key="q1"
+    )
+
+    q2 = st.radio(
+        "2. Jika suhu gas meningkat pada tekanan tetap, maka volumenya akan...",
+        [
+            "Tetap",
+            "Menurun",
+            "Meningkat",
+            "Menjadi nol"
+        ],
+        key="q2"
+    )
+
+    q3 = st.radio(
+        "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
+        [
+            "Tekanan dan Suhu",
+            "Volume dan Suhu",
+            "Volume dan Mol",
+            "Massa dan Volume"
+        ],
+        key="q3"
+    )
+
+    q4 = st.radio(
+        "4. Satuan suhu yang digunakan dalam hukum-hukum gas adalah...",
+        [
+            "Celcius",
+            "Kelvin",
+            "Fahrenheit",
+            "Rankine"
+        ],
+        key="q4"
+    )
+
+    q5 = st.radio(
+        "5. Persamaan gas ideal adalah...",
+        [
+            "PV = nRT",
+            "F = ma",
+            "P = m/V",
+            "V = IR"
+        ],
+        key="q5"
+    )
+
+    st.markdown("---")
+
+    # =========================
+    # SOAL HITUNGAN
+    # =========================
+
+    st.markdown("## 🧮 Soal Hitungan")
+
+    jawab6 = st.number_input(
+        "6. P1 = 2 atm, V1 = 4 L, P2 = 4 atm. Berapa V2 (L)?",
+        min_value=0.0,
+        key="q6"
+    )
+
+    jawab7 = st.number_input(
+        "7. V1 = 2 L, T1 = 300 K, T2 = 450 K. Berapa V2 (L)?",
+        min_value=0.0,
+        key="q7"
+    )
+
+    jawab8 = st.number_input(
+        "8. P1 = 1 atm, T1 = 300 K, T2 = 600 K. Berapa P2 (atm)?",
+        min_value=0.0,
+        key="q8"
+    )
+
+    jawab9 = st.number_input(
+        "9. P = 1 atm, V = 24,63 L, T = 300 K, R = 0,0821. Berapa n (mol)?",
+        min_value=0.0,
+        key="q9"
+    )
+
+    jawab10 = st.number_input(
+        "10. P = 2 atm, V = 10 L, n = 1 mol, R = 0,0821. Berapa T (K)?",
+        min_value=0.0,
+        key="q10"
+    )
+
+    # =========================
+    # TOMBOL CEK JAWABAN
+    # =========================
+
+    if st.button("✅ Periksa Jawaban"):
+
+        skor = 0
+
+        # Teori
+        if q1 == "Tekanan dan Volume":
+            skor += 10
+
+        if q2 == "Meningkat":
+            skor += 10
+
+        if q3 == "Tekanan dan Suhu":
+            skor += 10
+
+        if q4 == "Kelvin":
+            skor += 10
+
+        if q5 == "PV = nRT":
+            skor += 10
+
+        # Hitungan
+        if abs(jawab6 - 2) < 0.01:
+            skor += 10
+
+        if abs(jawab7 - 3) < 0.01:
+            skor += 10
+
+        if abs(jawab8 - 2) < 0.01:
+            skor += 10
+
+        if abs(jawab9 - 1) < 0.05:
+            skor += 10
+
+        if abs(jawab10 - 243.61) < 0.1:
+            skor += 10
+
+        # =========================
+        # HASIL
+        # =========================
+
+        st.markdown("---")
+        st.subheader("🏆 Hasil Quiz")
+
+        st.success(f"Skor Anda: {skor}/100")
+
+        if skor == 100:
+            st.balloons()
+            st.success("🎉 Sempurna! Semua jawaban benar.")
+
+        elif skor >= 80:
+            st.info("👍 Sangat baik!")
+
+        elif skor >= 60:
+            st.warning("🙂 Cukup baik, masih bisa ditingkatkan.")
+
+        else:
+            st.error("📚 Pelajari kembali materi hukum-hukum gas.")
+
+        # =========================
+        # PEMBAHASAN
+        # =========================
+
+        st.markdown("---")
+        st.subheader("📖 Pembahasan")
+
+        st.write("**6. Hukum Boyle**")
+        st.latex(r"V_2=\frac{P_1V_1}{P_2}")
+        st.write("V₂ = (2 × 4) / 4 = 2 L")
+
+        st.write("**7. Hukum Charles**")
+        st.latex(r"V_2=\frac{V_1T_2}{T_1}")
+        st.write("V₂ = (2 × 450) / 300 = 3 L")
+
+        st.write("**8. Hukum Gay-Lussac**")
+        st.latex(r"P_2=\frac{P_1T_2}{T_1}")
+        st.write("P₂ = (1 × 600) / 300 = 2 atm")
+
+        st.write("**9. Persamaan Gas Ideal**")
+        st.latex(r"n=\frac{PV}{RT}")
+        st.write("n = (1 × 24,63)/(0,0821 × 300) = 1 mol")
+
+        st.write("**10. Persamaan Gas Ideal**")
+        st.latex(r"T=\frac{PV}{nR}")
+        st.write("T = (2 × 10)/(1 × 0,0821) = 243,61 K")
+    
 # =========================
 # BOYLE
 # =========================
