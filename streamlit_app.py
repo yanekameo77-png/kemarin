@@ -24,70 +24,83 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# Tambahkan CSS ini untuk memaksa iframe komponen menjadi full screen di latar belakang
+# Hilangkan padding default Streamlit
 st.markdown("""
 <style>
-/* Membuat background utama Streamlit transparan agar partikel terlihat */
-.stApp {
-    background: transparent !important;
+[data-testid="stAppViewContainer"] {
+    background-color: #0e1117;
 }
 
-/* Memaksa iframe pembungkus tsParticles menjadi fixed full screen di paling bawah */
+.block-container {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+}
+
 iframe {
-    position: fixed;
+    position: fixed !important;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw !important;
+    height: 100vh !important;
     z-index: -1;
-    border: none;
 }
 </style>
 """, unsafe_allow_html=True)
 
-# Panggil komponen HTML tsParticles
+# Particle background
 st.components.v1.html(
     """
-    <div id="tsparticles"></div>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    </head>
+    <body style="margin:0; overflow:hidden; background:#0e1117;">
+        <div id="tsparticles"
+             style="position:fixed;
+                    top:0;
+                    left:0;
+                    width:100vw;
+                    height:100vh;">
+        </div>
 
-    <style>
-    html, body, #tsparticles {
-        width: 100%;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #0e1117;
-        overflow: hidden;
-    }
-    </style>
+        <script>
+        tsParticles.load("tsparticles", {
+            background: {
+                color: "#0e1117"
+            },
 
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+            particles: {
+                color: {
+                    value: "#00acee"
+                },
 
-    <script>
-    tsParticles.load("tsparticles", {
-        fullScreen: { enable: true, zIndex: -1 },
-        particles: {
-            color: { value: "#00acee" },
-            links: {
-                color: "#00acee",
-                distance: 150,
-                enable: true,
-                opacity: 0.4
-            },
-            move: {
-                enable: true,
-                speed: 1.5
-            },
-            number: {
-                value: 80
-            },
-            size: {
-                value: 2
+                links: {
+                    color: "#00acee",
+                    enable: true,
+                    distance: 150,
+                    opacity: 0.4
+                },
+
+                move: {
+                    enable: true,
+                    speed: 1.5
+                },
+
+                number: {
+                    value: 80
+                },
+
+                size: {
+                    value: 2
+                }
             }
-        }
-    });
-    </script>
+        });
+        </script>
+    </body>
+    </html>
     """,
+    height=0,
 )
 # =========================
 # KALKULATOR CEPAT
