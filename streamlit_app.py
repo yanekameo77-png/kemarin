@@ -51,15 +51,27 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
     color:white !important;
 }
 
-/* Semua teks dalam selectbox */
-[data-baseweb="select"] * {
+/* Semua input box */
+.stTextInput input,
+.stNumberInput input,
+.stTextArea textarea {
+    background-color: white !important;
     color: black !important;
 }
 
-/* Tombol saat mouse diarahkan */
-.stButton button:hover{
-    background-color:#1d4ed8;
-    color:white !important;
+/* Selectbox */
+[data-baseweb="select"] > div {
+    background-color: white !important;
+    color: black !important;
+}
+
+/* Dropdown option */
+div[role="listbox"] {
+    background-color: white !important;
+}
+
+div[role="listbox"] * {
+    color: black !important;
 }
 
 </style>
