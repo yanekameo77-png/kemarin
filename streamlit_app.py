@@ -46,6 +46,11 @@ st.markdown("""
     background: rgba(0,0,0,0.5);
 }
 
+/* Semua tulisan putih */
+h1,h2,h3,h4,h5,h6,p,label,span,div{
+    color:white !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
