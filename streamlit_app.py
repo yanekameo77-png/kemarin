@@ -23,23 +23,41 @@ st.markdown("---")
 # =========================
 import streamlit as st
 
-st.set_page_config(page_title="App Baby Blue", layout="wide")
+st.set_page_config(page_title="Full Background", layout="wide")
 
 st.markdown("""
 <style>
-.stApp {
-    background-color: #a7d8ff;  /* baby blue */
+
+/* Hilangkan margin default */
+html, body, .stApp {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* opsional: bikin teks lebih rapi */
-h1, h2, h3, p {
-    color: #0b2e4a;
+/* Full background */
+.stApp {
+    background-color: #a7d8ff;  /* baby blue */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
+
+/* Hilangkan padding container Streamlit */
+.block-container {
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0rem;
+    padding-right: 0rem;
+    max-width: 100%;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Halo 👋")
-st.write("Ini background baby blue di Streamlit")
+st.title("Full Screen Background 🎨")
+st.write("Background sudah full layar tanpa pinggiran putih")
 # =========================
 # KALKULATOR CEPAT
 # =========================
