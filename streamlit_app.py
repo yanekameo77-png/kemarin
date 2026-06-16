@@ -23,27 +23,23 @@ st.markdown("---")
 # =========================
 import streamlit as st
 
-st.set_page_config(page_title="App", layout="wide")
+st.set_page_config(page_title="App Baby Blue", layout="wide")
 
 st.markdown("""
 <style>
 .stApp {
-    background-image: url("data/WhatsApp Image 2026-06-16 at 13.22.14.jpeg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-color: #a7d8ff;  /* baby blue */
 }
 
-.overlay {
-    background-color: rgba(0,0,0,0.5);
-    height: 100vh;
+/* opsional: bikin teks lebih rapi */
+h1, h2, h3, p {
+    color: #0b2e4a;
 }
 </style>
 """, unsafe_allow_html=True)
 
-st.title("Halo Streamlit")
-st.write("Background sudah berhasil dipasang")
+st.title("Halo 👋")
+st.write("Ini background baby blue di Streamlit")
 # =========================
 # KALKULATOR CEPAT
 # =========================
