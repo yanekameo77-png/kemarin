@@ -21,48 +21,29 @@ st.markdown("---")
 # =========================
 # BACKGROUND 
 # =========================
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>My Website</title>
+import streamlit as st
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
+st.set_page_config(page_title="App", layout="wide")
 
-      /* background dari GitHub repo */
-      background-image: url("data/WhatsApp Image 2026-06-16 at 13.22.14.jpeg");
+st.markdown("""
+<style>
+.stApp {
+    background-image: url("https://raw.githubusercontent.com/USERNAME/REPO/main/images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+.overlay {
+    background-color: rgba(0,0,0,0.5);
+    height: 100vh;
+}
+</style>
+""", unsafe_allow_html=True)
 
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
-
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-  </style>
-</head>
-
-<body>
-  <div class="overlay">
-    <h1>Halo GitHub Pages</h1>
-    <p>Background sudah dari file di GitHub repo</p>
-  </div>
-</body>
-</html>
-
+st.title("Halo Streamlit")
+st.write("Background sudah berhasil dipasang")
 # =========================
 # KALKULATOR CEPAT
 # =========================
