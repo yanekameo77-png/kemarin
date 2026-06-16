@@ -51,6 +51,20 @@ h1,h2,h3,h4,h5,h6,p,label,span,div{
     color:white !important;
 }
 
+/* Tombol */
+.stButton button{
+    background-color:#2563eb;
+    color:white !important;
+    border-radius:10px;
+    border:none;
+}
+
+/* Tombol saat mouse diarahkan */
+.stButton button:hover{
+    background-color:#1d4ed8;
+    color:white !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
