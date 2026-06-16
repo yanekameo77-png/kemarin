@@ -25,14 +25,12 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-# CSS untuk background dan partikel
 st.markdown("""
 <style>
 .stApp {
     background: transparent;
 }
 
-/* Pastikan body dan html penuh */
 html, body, .stApp {
     width: 100%;
     height: 100%;
@@ -52,7 +50,6 @@ html, body, .stApp {
 </style>
 """, unsafe_allow_html=True)
 
-# Sisipkan HTML dan JavaScript untuk tsparticles
 st.markdown("""
 <div id="tsparticles"></div>
 
