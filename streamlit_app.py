@@ -28,7 +28,7 @@ st.set_page_config(page_title="App", layout="wide")
 st.markdown("""
 <style>
 .stApp {
-    background-image: url("https://raw.githubusercontent.com/USERNAME/REPO/main/images/background.jpg");
+    background-image: url("data/WhatsApp Image 2026-06-16 at 13.22.14.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
