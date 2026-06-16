@@ -445,7 +445,7 @@ elif menu == "🧪 Studi Kasus":
     
     elif pilihan == "Quiz Hukum Gas":
     
-            st.markdown("## 📝 Quiz Hukum Gas")
+        st.markdown("## 📝 Quiz Hukum Gas")
             
         st.write(
             "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
