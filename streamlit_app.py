@@ -25,13 +25,22 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+# CSS untuk background dan partikel
 st.markdown("""
 <style>
 .stApp {
     background: transparent;
 }
 
-/* background canvas */
+/* Pastikan body dan html penuh */
+html, body, .stApp {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
 #tsparticles {
     position: fixed;
     width: 100%;
@@ -43,44 +52,46 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-st.components.v1.html(
-"""
+# Sisipkan HTML dan JavaScript untuk tsparticles
+st.markdown("""
 <div id="tsparticles"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
-
 <script>
-tsParticles.load("tsparticles", {
-    fullScreen: { enable: false },  // PENTING: matikan fullscreen
-
-    background: {
-        color: "#0e1117"
-    },
-
-    particles: {
-        color: { value: "#00acee" },
-        links: {
-            color: "#00acee",
-            distance: 150,
-            enable: true,
-            opacity: 0.4
+// Tunggu DOM selesai
+window.addEventListener("load", function() {
+    tsParticles.load("tsparticles", {
+        fullScreen: { enable: true },  // Aktifkan fullscreen
+        background: {
+            color: "#0e1117"
         },
-        move: {
-            enable: true,
-            speed: 1.5
+        particles: {
+            color: { value: "#00acee" },
+            links: {
+                color: "#00acee",
+                distance: 150,
+                enable: true,
+                opacity: 0.4
+            },
+            move: {
+                enable: true,
+                speed: 1.5
+            },
+            number: {
+                value: 80
+            },
+            size: {
+                value: 2
+            },
+            shape: {
+                type: "circle"
+            }
         },
-        number: {
-            value: 80
-        },
-        size: {
-            value: 2
-        }
-    }
+        detectRetina: true
+    });
 });
 </script>
-""",
-height=600
-)
+""", unsafe_allow_html=True)
 # =========================
 # KALKULATOR CEPAT
 # =========================
