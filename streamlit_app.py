@@ -487,18 +487,18 @@ elif menu == "📘 Hukum Boyle":
     col1, col2 = st.columns(2)
 
     with col1:
-        Tekanan 1 = st.number_input(
+        Tekanan1 = st.number_input(
             "P1", value=0.0, disabled=(dicari == "P1")
         )
-        Volume 1 = st.number_input(
+        Volume1 = st.number_input(
             "V1", value=0.0, disabled=(dicari == "V1")
         )
 
     with col2:
-        Tekanan 2 = st.number_input(
+        Tekanan2 = st.number_input(
             "P2", value=0.0, disabled=(dicari == "P2")
         )
-        Volume 2 = st.number_input(
+        Volume2 = st.number_input(
             "V2", value=0.0, disabled=(dicari == "V2")
         )
 
@@ -579,23 +579,23 @@ elif menu == "📘 Hukum Charles":
     col1, col2 = st.columns(2)
 
     with col1:
-        Volume 1 = st.number_input(
+        Volume1 = st.number_input(
             "V1 (L)", value=0.0,
             disabled=(dicari == "V1")
         )
 
-        Suhu 1 = st.number_input(
+        Suhu1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        Volume 2 = st.number_input(
+        Volume2 = st.number_input(
             "V2 (L)", value=0.0,
             disabled=(dicari == "V2")
         )
 
-        Suhu 2 = st.number_input(
+        Suhu2 = st.number_input(
             "T2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
@@ -678,23 +678,23 @@ elif menu == "📘 Hukum Gay-Lussac":
     col1, col2 = st.columns(2)
 
     with col1:
-        Tekanan 1 = st.number_input(
+        Tekanan1 = st.number_input(
             "P1 (atm)", value=0.0,
             disabled=(dicari == "P1")
         )
 
-        Suhu 1 = st.number_input(
+        Suhu1 = st.number_input(
             "T1 (K)", value=0.0,
             disabled=(dicari == "T1")
         )
 
     with col2:
-        Tekanan 2 = st.number_input(
+        Tekanan2 = st.number_input(
             "P2 (atm)", value=0.0,
             disabled=(dicari == "P2")
         )
 
-        T2 = st.number_input(
+        Suhu2 = st.number_input(
             "Suhu 2 (K)", value=0.0,
             disabled=(dicari == "T2")
         )
