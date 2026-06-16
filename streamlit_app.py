@@ -165,623 +165,623 @@ elif menu == "🧪 Studi Kasus":
 
     with kiri:
 
-    pilihan = st.selectbox(
-        "Pilih Studi Kasus",
-        ["Simulasi Massa Jenis Gas","Quiz Hukum Gas"]
-    )
-
-    # ===================================
-    # SIMULASI MASSA JENIS GAS
-    # ===================================
-    if pilihan == "Simulasi Massa Jenis Gas":
-
-        st.title("Simulasi Gas Ideal Interaktif")
-
-        st.write("""
-        Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
-
-        Pengguna dapat mengubah:
-        - tekanan (atm)
-        - suhu (K)
-        - Bobot Molekul gas (g/mol)
-        """)
-
-        st.subheader("Input Variabel")
-
-        P = st.slider(
-            "Tekanan Gas (atm)",
-            0.1,
-            10.0,
-            2.0,
-            0.1
+        pilihan = st.selectbox(
+            "Pilih Studi Kasus",
+            ["Simulasi Massa Jenis Gas","Quiz Hukum Gas"]
         )
-
-        T = st.slider(
-            "Suhu Gas (K)",
-            100,
-            1000,
-            298
-        )
-
-        n = st.number_input(
-            "Bobot Molekul Gas (g/mol)",
-            value=32.0
-        )
-
-        R = 0.082
-        
-        #===================
-        #KECEPATAN ANIMASI
-        #===================
-
-        kecepatan = max(0.5, 8 - (T / 150))
-
-        # =======================
-        # PENJELASAN
-        # =======================
-
-        st.info(
-            f"""
-            Tekanan = {P} atm
-
-            Suhu = {T} K
-
-            Bobot Molekul = {n} g/mol
-
-            Semakin tinggi suhu, partikel bergerak semakin cepat.
-            """
-        )
-        #====================
-        #HTML + CSS ANIMASI
-        #=====================
-
-        html_code = f"""
-        <!DOCTYPE html>
-
-        <head>
-
-        <style>
-
-        body {{
-            margin:0;
-            overflow:hidden;
-            background-color:transparent;
-        }}
-
-        .kotak {{
-            width:100%;
-            height:420px;
-
-            position:relative;
-            overflow:hidden;
-
-            border-radius:20px;
-
-            background:
-            radial-gradient(circle,
-            #1e3a8a,
-            #020617);
-
-            border:2px solid cyan;
-
-            box-shadow:
-            0px 0px 25px rgba(0,255,255,0.4);
-        }}
-
-        .bola{{
-        
-            width:18px;
-            height:18px;
-
-            position:absolute;
-
-            border-radius:50%;
-
-            background:cyan;
-
-            box-shadow:
-            0 0 15px cyan,
-            0 0 30px cyan;
-        }}
-        
-        .b1 {{
-            animation: gerak1 {kecepatan}s linear infinite alternate;
-        }}
-
-        .b2 {{
-            animation: gerak2 {kecepatan*0.8}s linear infinite alternate;
-        }}
-
-        .b3 {{
-            animation:gerak3 {kecepatan*1.2}s linear infinite alternate;
-        }}
-
-        .b4 {{
-            animation: gerak4 {kecepatan*0.6}s linear infinite alternate;
-        }}
-        @keyframes gerak1 {{
-
-            from {{
-                transform: translate(0px,0px);
-            }}
-
-            to {{
-                transform: translate(320px,240px);
-            }}
-        }}
-
-        @keyframes gerak2 {{
-        
-            from {{
-                transform: translate(0px,200px);
-            }}
-            to {{
-                transform: translate(280px,-60px);
-            }}
-        }}
-
-        @keyframes gerak3 {{
-        
-            from {{
-                transform: translate(150px,0px);
-            }}
-        
-            to {{
-                transform: translate(-120px,250px);
-            }}
-        }}
-
-        @keyframes gerak4 {{
-        
-            0% {{
-                transform: translate(0px,0px);
-            }}
-        
-            25% {{
-                transform: translate(220px,50px);
-            }}
-
-            50% {{
-                transform: translate(100px,220px);
-            }}
-        
-            75% {{
-                transform: translate(260px,130px);
-            }}
-
-            100% {{
-                transform: translate(50px,260px);
-            }}
-        }}
-
-        </style>
-
-        </head>
-
-        <body>
-
-        <div class="kotak">
-
-            <div class="bola b1"
-            style="left:20px; top:20px;">
-            </div>
-
-            <div class="bola b2"
-            style="left:80px; top:100px;">
-            </div>
-
-            <div class="bola b3"
-            style="left:180px; top:150px;">
-            </div>
-
-            <div class="bola b4"
-            style="left:300px; top:80px;">
-            </div>
-
-            <div class="bola b1"
-            style="left:400px; top:200px;">
-            </div>
-
-            <div class="bola b2"
-            style="left:520px; top:140px;">
-            </div>
-
-            <div class="bola b3"
-            style="left:620px; top:240px;">
-            </div>
-
-            <div class="bola b4"
-            style="left:700px; top:100px;">
-            </div>
-
-        </div>
-
-        </body>
-        </html>
-        """
-        #==================
-        #TAMPILAN ANIMASI
-        #==================
-
-        st.subheader("🌌 Simulasi Pergerakan Partikel")
-
-        components.html(
-            html_code,
-            height=430
-        )
-
-        #======================
-        # PERSAMAAN GAS IDEAL
-        #======================
-        st.subheader("Persamaan Gas Ideal")
-
-        st.latex(r"PV=nRT")
-
-        st.write("Untuk mencari massa jenis gas:")
-
-        st.latex(r"\rho=\frac{Pn}{RT}")
-
-        #=======================
-        # PERHITUNGAN OTOMATIS
-        #=======================
-
-        hasil = (P * n) / (R * T)
-
-        #====================
-        # LANGKAH PERHITUNGAN
-        #====================
-
-        st.subheader("Langkah Perhitungan")
-
-        st.latex(
-            rf"\rho=\frac{{({P})({n})}}{{({R})({T})}}"
-        )
-
-
-        #==========================
-        # TOMBOL HASIL + KESIMPULAN
-        #===========================
-
-        if st.button("✨ Tampilkan Hasil"):
-
-            with st.spinner("Menghitung massa jenis gas..."):
-
-                progress = st.progress(0)
-
-                for i in range(100):
-                    time.sleep(0.01)
-                    progress.progress(i + 1)
-
-            st.success("Perhitungan berhasil✨!")
-            st.balloons()
-
-            st.markdown(
+    
+        # ===================================
+        # SIMULASI MASSA JENIS GAS
+        # ===================================
+        if pilihan == "Simulasi Massa Jenis Gas":
+    
+            st.title("Simulasi Gas Ideal Interaktif")
+    
+            st.write("""
+            Aplikasi ini menghitung massa jenis gas menggunakan persamaan gas ideal.
+    
+            Pengguna dapat mengubah:
+            - tekanan (atm)
+            - suhu (K)
+            - Bobot Molekul gas (g/mol)
+            """)
+    
+            st.subheader("Input Variabel")
+    
+            P = st.slider(
+                "Tekanan Gas (atm)",
+                0.1,
+                10.0,
+                2.0,
+                0.1
+            )
+    
+            T = st.slider(
+                "Suhu Gas (K)",
+                100,
+                1000,
+                298
+            )
+    
+            n = st.number_input(
+                "Bobot Molekul Gas (g/mol)",
+                value=32.0
+            )
+    
+            R = 0.082
+            
+            #===================
+            #KECEPATAN ANIMASI
+            #===================
+    
+            kecepatan = max(0.5, 8 - (T / 150))
+    
+            # =======================
+            # PENJELASAN
+            # =======================
+    
+            st.info(
                 f"""
-                <div style="
-                background:linear-gradient(to right,#BFEFFF,#87CEFA);
-                padding:30px;
+                Tekanan = {P} atm
+    
+                Suhu = {T} K
+    
+                Bobot Molekul = {n} g/mol
+    
+                Semakin tinggi suhu, partikel bergerak semakin cepat.
+                """
+            )
+            #====================
+            #HTML + CSS ANIMASI
+            #=====================
+    
+            html_code = f"""
+            <!DOCTYPE html>
+    
+            <head>
+    
+            <style>
+    
+            body {{
+                margin:0;
+                overflow:hidden;
+                background-color:transparent;
+            }}
+    
+            .kotak {{
+                width:100%;
+                height:420px;
+    
+                position:relative;
+                overflow:hidden;
+    
                 border-radius:20px;
-                color:black;
-                box-shadow:0px 0px 25px rgba(137,207,240,0.6);
-                animation: fadein 1s;
-                ">
-
-                <h1 style="
-                text-align:center;
-                font-size:40px;
-                ">
-                Massa Jenis Gas
-                </h1>
-
-                <hr>
-
-                <h2 style="
-                text-align:center;
-                font-size:35px;
-                ">
-                {hasil:.2f} g/mL
-                </h2>
-
-                <br>
-
-                <h3> Kesimpulan</h3>
-
-                <p style="font-size;20px; line-height:1.8;">
-
-                Dengan:
-                <br>
-                • tekanan = {P} atm
-                <br>
-                • suhu = {T} K
-                <br>
-                • Bobot Molekul = {n} g/mol
-                <br><br>
-
-                Maka massa jenis gas adalah:
-
-                <b>{hasil:.2f} g/mL</b>
-
-                </p>
-
+    
+                background:
+                radial-gradient(circle,
+                #1e3a8a,
+                #020617);
+    
+                border:2px solid cyan;
+    
+                box-shadow:
+                0px 0px 25px rgba(0,255,255,0.4);
+            }}
+    
+            .bola{{
+            
+                width:18px;
+                height:18px;
+    
+                position:absolute;
+    
+                border-radius:50%;
+    
+                background:cyan;
+    
+                box-shadow:
+                0 0 15px cyan,
+                0 0 30px cyan;
+            }}
+            
+            .b1 {{
+                animation: gerak1 {kecepatan}s linear infinite alternate;
+            }}
+    
+            .b2 {{
+                animation: gerak2 {kecepatan*0.8}s linear infinite alternate;
+            }}
+    
+            .b3 {{
+                animation:gerak3 {kecepatan*1.2}s linear infinite alternate;
+            }}
+    
+            .b4 {{
+                animation: gerak4 {kecepatan*0.6}s linear infinite alternate;
+            }}
+            @keyframes gerak1 {{
+    
+                from {{
+                    transform: translate(0px,0px);
+                }}
+    
+                to {{
+                    transform: translate(320px,240px);
+                }}
+            }}
+    
+            @keyframes gerak2 {{
+            
+                from {{
+                    transform: translate(0px,200px);
+                }}
+                to {{
+                    transform: translate(280px,-60px);
+                }}
+            }}
+    
+            @keyframes gerak3 {{
+            
+                from {{
+                    transform: translate(150px,0px);
+                }}
+            
+                to {{
+                    transform: translate(-120px,250px);
+                }}
+            }}
+    
+            @keyframes gerak4 {{
+            
+                0% {{
+                    transform: translate(0px,0px);
+                }}
+            
+                25% {{
+                    transform: translate(220px,50px);
+                }}
+    
+                50% {{
+                    transform: translate(100px,220px);
+                }}
+            
+                75% {{
+                    transform: translate(260px,130px);
+                }}
+    
+                100% {{
+                    transform: translate(50px,260px);
+                }}
+            }}
+    
+            </style>
+    
+            </head>
+    
+            <body>
+    
+            <div class="kotak">
+    
+                <div class="bola b1"
+                style="left:20px; top:20px;">
                 </div>
-                """,
-                unsafe_allow_html=True
+    
+                <div class="bola b2"
+                style="left:80px; top:100px;">
+                </div>
+    
+                <div class="bola b3"
+                style="left:180px; top:150px;">
+                </div>
+    
+                <div class="bola b4"
+                style="left:300px; top:80px;">
+                </div>
+    
+                <div class="bola b1"
+                style="left:400px; top:200px;">
+                </div>
+    
+                <div class="bola b2"
+                style="left:520px; top:140px;">
+                </div>
+    
+                <div class="bola b3"
+                style="left:620px; top:240px;">
+                </div>
+    
+                <div class="bola b4"
+                style="left:700px; top:100px;">
+                </div>
+    
+            </div>
+    
+            </body>
+            </html>
+            """
+            #==================
+            #TAMPILAN ANIMASI
+            #==================
+    
+            st.subheader("🌌 Simulasi Pergerakan Partikel")
+    
+            components.html(
+                html_code,
+                height=430
+            )
+    
+            #======================
+            # PERSAMAAN GAS IDEAL
+            #======================
+            st.subheader("Persamaan Gas Ideal")
+    
+            st.latex(r"PV=nRT")
+    
+            st.write("Untuk mencari massa jenis gas:")
+    
+            st.latex(r"\rho=\frac{Pn}{RT}")
+    
+            #=======================
+            # PERHITUNGAN OTOMATIS
+            #=======================
+    
+            hasil = (P * n) / (R * T)
+    
+            #====================
+            # LANGKAH PERHITUNGAN
+            #====================
+    
+            st.subheader("Langkah Perhitungan")
+    
+            st.latex(
+                rf"\rho=\frac{{({P})({n})}}{{({R})({T})}}"
+            )
+    
+    
+            #==========================
+            # TOMBOL HASIL + KESIMPULAN
+            #===========================
+    
+            if st.button("✨ Tampilkan Hasil"):
+    
+                with st.spinner("Menghitung massa jenis gas..."):
+    
+                    progress = st.progress(0)
+    
+                    for i in range(100):
+                        time.sleep(0.01)
+                        progress.progress(i + 1)
+    
+                st.success("Perhitungan berhasil✨!")
+                st.balloons()
+    
+                st.markdown(
+                    f"""
+                    <div style="
+                    background:linear-gradient(to right,#BFEFFF,#87CEFA);
+                    padding:30px;
+                    border-radius:20px;
+                    color:black;
+                    box-shadow:0px 0px 25px rgba(137,207,240,0.6);
+                    animation: fadein 1s;
+                    ">
+    
+                    <h1 style="
+                    text-align:center;
+                    font-size:40px;
+                    ">
+                    Massa Jenis Gas
+                    </h1>
+    
+                    <hr>
+    
+                    <h2 style="
+                    text-align:center;
+                    font-size:35px;
+                    ">
+                    {hasil:.2f} g/mL
+                    </h2>
+    
+                    <br>
+    
+                    <h3> Kesimpulan</h3>
+    
+                    <p style="font-size;20px; line-height:1.8;">
+    
+                    Dengan:
+                    <br>
+                    • tekanan = {P} atm
+                    <br>
+                    • suhu = {T} K
+                    <br>
+                    • Bobot Molekul = {n} g/mol
+                    <br><br>
+    
+                    Maka massa jenis gas adalah:
+    
+                    <b>{hasil:.2f} g/mL</b>
+    
+                    </p>
+    
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+                
+            #===================
+            # Test
+            #===================
+    
+            assert hasil > 0, "Hasil tidak boleh negatif"
+    
+        #==================
+        # Quiz
+        #==================
+        
+        elif pilihan == "Quiz Hukum Gas":
+        
+            st.markdown("## 📝 Quiz Hukum Gas")
+                
+            st.write(
+                "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
             )
             
-        #===================
-        # Test
-        #===================
-
-        assert hasil > 0, "Hasil tidak boleh negatif"
-
-    #==================
-    # Quiz
-    #==================
-    
-    elif pilihan == "Quiz Hukum Gas":
-    
-        st.markdown("## 📝 Quiz Hukum Gas")
+            # =========================
+            # SESSION STATE
+            # =========================
+            if "soal" not in st.session_state:
+                st.session_state.soal = 1
             
-        st.write(
-            "Jawab pertanyaan berikut untuk menguji pemahamanmu tentang hukum-hukum gas."
-        )
-        
-        # =========================
-        # SESSION STATE
-        # =========================
-        if "soal" not in st.session_state:
-            st.session_state.soal = 1
-        
-        if "skor" not in st.session_state:
-            st.session_state.skor = 0
-        
-        st.progress((st.session_state.soal-1)/10)
-        
-        # =========================
-        # SOAL 1
-        # =========================
-        if st.session_state.soal == 1:
-        
-            jawaban = st.radio(
-                "1. Hukum Boyle menyatakan hubungan antara...",
-                [
-                    "Tekanan dan Volume",
-                    "Volume dan Suhu",
-                    "Tekanan dan Suhu",
-                    "Mol dan Volume"
-                ],
-                index=None
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban == "Tekanan dan Volume":
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 2
-                st.rerun()
-        
-        # =========================
-        # SOAL 2
-        # =========================
-        elif st.session_state.soal == 2:
-        
-            jawaban = st.radio(
-                "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
-                [
-                    "Tetap",
-                    "Menurun",
-                    "Meningkat",
-                    "Menjadi nol"
-                ],
-                index=None
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban == "Meningkat":
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 3
-                st.rerun()
-        
-        # =========================
-        # SOAL 3
-        # =========================
-        elif st.session_state.soal == 3:
-        
-            jawaban = st.radio(
-                "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
-                [
-                    "Tekanan dan Suhu",
-                    "Volume dan Suhu",
-                    "Volume dan Mol",
-                    "Massa dan Volume"
-                ],
-                index=None
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban == "Tekanan dan Suhu":
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 4
-                st.rerun()
-        
-        # =========================
-        # SOAL 4
-        # =========================
-        elif st.session_state.soal == 4:
-        
-            jawaban = st.radio(
-                "4. Satuan suhu dalam hukum gas adalah...",
-                [
-                    "Celcius",
-                    "Kelvin",
-                    "Fahrenheit",
-                    "Rankine"
-                ],
-                index=None
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban == "Kelvin":
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 5
-                st.rerun()
-        
-        # =========================
-        # SOAL 5
-        # =========================
-        elif st.session_state.soal == 5:
-        
-            jawaban = st.radio(
-                "5. Persamaan gas ideal adalah...",
-                [
-                    "PV = nRT",
-                    "P = m/V",
-                    "F = ma",
-                    "V = IR"
-                ],
-                index=None
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban == "PV = nRT":
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 6
-                st.rerun()
-        
-        # =========================
-        # SOAL 6
-        # =========================
-        elif st.session_state.soal == 6:
-        
-            jawaban = st.number_input(
-                "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
-                value=None,
-                placeholder="Masukkan jawaban"
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban is not None and abs(jawaban - 2) < 0.01:
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 7
-                st.rerun()
-        
-        # =========================
-        # SOAL 7
-        # =========================
-        elif st.session_state.soal == 7:
-        
-            jawaban = st.number_input(
-                "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
-                value=None,
-                placeholder="Masukkan jawaban"
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban is not None and abs(jawaban - 3) < 0.01:
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 8
-                st.rerun()
-        
-        # =========================
-        # SOAL 8
-        # =========================
-        elif st.session_state.soal == 8:
-        
-             jawaban = st.number_input(
-                "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
-                value=None,
-                placeholder="Masukkan jawaban"
-            )
-        
-             if st.button("➡️ Berikutnya"):
-        
-                if jawaban is not None and abs(jawaban - 2) < 0.01:
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 9
-                st.rerun()
-        
-        # =========================
-        # SOAL 9
-        # =========================
-        elif st.session_state.soal == 9:
-        
-            jawaban = st.number_input(
-                "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
-                value=None,
-                placeholder="Masukkan jawaban"
-            )
-        
-            if st.button("➡️ Berikutnya"):
-        
-                if jawaban is not None and abs(jawaban - 1) < 0.05:
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 10
-                st.rerun()
-        
-        # =========================
-        # SOAL 10
-        # =========================
-        elif st.session_state.soal == 10:
-        
-            jawaban = st.number_input(
-                "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
-                value=None,
-                placeholder="Masukkan jawaban"
-            )
-        
-            if st.button("🏁 Selesai"):
-        
-                if jawaban is not None and abs(jawaban - 243.61) < 0.1:
-                    st.session_state.skor += 10
-        
-                st.session_state.soal = 11
-                st.rerun()
-        
-        # =========================
-        # HASIL AKHIR
-        # =========================
-        elif st.session_state.soal == 11:
-        
-            st.balloons()
-        
-            st.subheader("🏆 Hasil Quiz")
-        
-            st.success(
-                f"Skor Akhir Anda = {st.session_state.skor}/100"
-            )
-        
-            if st.session_state.skor == 100:
-                st.success("🎉 Luar biasa! Semua jawaban benar.")
-        
-            elif st.session_state.skor >= 80:
-                st.info("👍 Sangat baik.")
-        
-            elif st.session_state.skor >= 60:
-                st.warning("🙂 Cukup baik.")
-        
-            else:
-                st.error("📚 Pelajari kembali materi hukum gas.")
-        
-                if st.button("🔄 Ulangi Quiz"):
-        
-                    st.session_state.soal = 1
-                    st.session_state.skor = 0
+            if "skor" not in st.session_state:
+                st.session_state.skor = 0
+            
+            st.progress((st.session_state.soal-1)/10)
+            
+            # =========================
+            # SOAL 1
+            # =========================
+            if st.session_state.soal == 1:
+            
+                jawaban = st.radio(
+                    "1. Hukum Boyle menyatakan hubungan antara...",
+                    [
+                        "Tekanan dan Volume",
+                        "Volume dan Suhu",
+                        "Tekanan dan Suhu",
+                        "Mol dan Volume"
+                    ],
+                    index=None
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban == "Tekanan dan Volume":
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 2
                     st.rerun()
+            
+            # =========================
+            # SOAL 2
+            # =========================
+            elif st.session_state.soal == 2:
+            
+                jawaban = st.radio(
+                    "2. Jika suhu gas meningkat pada tekanan tetap maka volumenya...",
+                    [
+                        "Tetap",
+                        "Menurun",
+                        "Meningkat",
+                        "Menjadi nol"
+                    ],
+                    index=None
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban == "Meningkat":
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 3
+                    st.rerun()
+            
+            # =========================
+            # SOAL 3
+            # =========================
+            elif st.session_state.soal == 3:
+            
+                jawaban = st.radio(
+                    "3. Hukum Gay-Lussac menjelaskan hubungan antara...",
+                    [
+                        "Tekanan dan Suhu",
+                        "Volume dan Suhu",
+                        "Volume dan Mol",
+                        "Massa dan Volume"
+                    ],
+                    index=None
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban == "Tekanan dan Suhu":
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 4
+                    st.rerun()
+            
+            # =========================
+            # SOAL 4
+            # =========================
+            elif st.session_state.soal == 4:
+            
+                jawaban = st.radio(
+                    "4. Satuan suhu dalam hukum gas adalah...",
+                    [
+                        "Celcius",
+                        "Kelvin",
+                        "Fahrenheit",
+                        "Rankine"
+                    ],
+                    index=None
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban == "Kelvin":
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 5
+                    st.rerun()
+            
+            # =========================
+            # SOAL 5
+            # =========================
+            elif st.session_state.soal == 5:
+            
+                jawaban = st.radio(
+                    "5. Persamaan gas ideal adalah...",
+                    [
+                        "PV = nRT",
+                        "P = m/V",
+                        "F = ma",
+                        "V = IR"
+                    ],
+                    index=None
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban == "PV = nRT":
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 6
+                    st.rerun()
+            
+            # =========================
+            # SOAL 6
+            # =========================
+            elif st.session_state.soal == 6:
+            
+                jawaban = st.number_input(
+                    "6. P1=2 atm, V1=4 L, P2=4 atm. Berapa V2?",
+                    value=None,
+                    placeholder="Masukkan jawaban"
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban is not None and abs(jawaban - 2) < 0.01:
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 7
+                    st.rerun()
+            
+            # =========================
+            # SOAL 7
+            # =========================
+            elif st.session_state.soal == 7:
+            
+                jawaban = st.number_input(
+                    "7. V1=2 L, T1=300 K, T2=450 K. Berapa V2?",
+                    value=None,
+                    placeholder="Masukkan jawaban"
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban is not None and abs(jawaban - 3) < 0.01:
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 8
+                    st.rerun()
+            
+            # =========================
+            # SOAL 8
+            # =========================
+            elif st.session_state.soal == 8:
+            
+                 jawaban = st.number_input(
+                    "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
+                    value=None,
+                    placeholder="Masukkan jawaban"
+                )
+            
+                 if st.button("➡️ Berikutnya"):
+            
+                    if jawaban is not None and abs(jawaban - 2) < 0.01:
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 9
+                    st.rerun()
+            
+            # =========================
+            # SOAL 9
+            # =========================
+            elif st.session_state.soal == 9:
+            
+                jawaban = st.number_input(
+                    "9. P=1 atm, V=24,63 L, T=300 K, R=0,0821. Berapa n?",
+                    value=None,
+                    placeholder="Masukkan jawaban"
+                )
+            
+                if st.button("➡️ Berikutnya"):
+            
+                    if jawaban is not None and abs(jawaban - 1) < 0.05:
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 10
+                    st.rerun()
+            
+            # =========================
+            # SOAL 10
+            # =========================
+            elif st.session_state.soal == 10:
+            
+                jawaban = st.number_input(
+                    "10. P=2 atm, V=10 L, n=1 mol, R=0,0821. Berapa T?",
+                    value=None,
+                    placeholder="Masukkan jawaban"
+                )
+            
+                if st.button("🏁 Selesai"):
+            
+                    if jawaban is not None and abs(jawaban - 243.61) < 0.1:
+                        st.session_state.skor += 10
+            
+                    st.session_state.soal = 11
+                    st.rerun()
+            
+            # =========================
+            # HASIL AKHIR
+            # =========================
+            elif st.session_state.soal == 11:
+            
+                st.balloons()
+            
+                st.subheader("🏆 Hasil Quiz")
+            
+                st.success(
+                    f"Skor Akhir Anda = {st.session_state.skor}/100"
+                )
+            
+                if st.session_state.skor == 100:
+                    st.success("🎉 Luar biasa! Semua jawaban benar.")
+            
+                elif st.session_state.skor >= 80:
+                    st.info("👍 Sangat baik.")
+            
+                elif st.session_state.skor >= 60:
+                    st.warning("🙂 Cukup baik.")
+            
+                else:
+                    st.error("📚 Pelajari kembali materi hukum gas.")
+            
+                    if st.button("🔄 Ulangi Quiz"):
+            
+                        st.session_state.soal = 1
+                        st.session_state.skor = 0
+                        st.rerun()
 
     with kanan:
         kalkulator_samping()
