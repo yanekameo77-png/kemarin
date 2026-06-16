@@ -21,30 +21,41 @@ st.markdown("---")
 # =========================
 # BACKGROUND PARTIKEL
 # =========================
-st.markdown(
-    """
-    <style>
-    @keyframes gradientAnimation {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
+st.markdown("""
+<style>
+.stApp {
+    background: #020617;
+    overflow: hidden;
+}
 
-    .stApp {
-        background: linear-gradient(-45deg,
-             #dbeafe,
-             #bfdbfe,
-             #c7d2fe,
-             #e0e7ff
-         );
-        background-size: 400% 400%;
-        animation: gradientAnimation 15s ease infinite;
+.stApp::before {
+    content: "";
+    position: fixed;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+
+    background-image:
+        radial-gradient(circle, rgba(0,255,255,0.7) 2px, transparent 3px),
+        radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 2px);
+
+    background-size: 120px 120px, 80px 80px;
+
+    animation: bergerak 40s linear infinite;
+    z-index: -1;
+}
+
+@keyframes bergerak {
+    from {
+        transform: translate(0,0);
     }
-    
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+    to {
+        transform: translate(200px,100px);
+    }
+}
+</style>
+""", unsafe_allow_html=True)
 
 # =========================
 # KALKULATOR CEPAT
