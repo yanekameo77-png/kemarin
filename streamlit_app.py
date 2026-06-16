@@ -55,9 +55,6 @@ html, body, .stApp {
 
 </style>
 """, unsafe_allow_html=True)
-
-st.title("Full Screen Background 🎨")
-st.write("Background sudah full layar tanpa pinggiran putih")
 # =========================
 # KALKULATOR CEPAT
 # =========================
