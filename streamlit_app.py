@@ -21,8 +21,6 @@ st.markdown("---")
 # =========================
 # BACKGROUND PARTIKEL
 # =========================
-import streamlit.components.v1 as components
-
 components.html("""
 <!DOCTYPE html>
 <html>
