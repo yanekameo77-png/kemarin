@@ -821,8 +821,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[2] = jawaban
+                    st.session_state.jawaban_user[2] = jawaban
             
                     if jawaban == "Meningkat":
                         st.session_state.skor += 10
@@ -847,8 +846,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[3] = jawaban
+                    st.session_state.jawaban_user[3] = jawaban
             
                     if jawaban == "Tekanan dan Suhu":
                         st.session_state.skor += 10
@@ -873,8 +871,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[4] = jawaban
+                    st.session_state.jawaban_user[4] = jawaban
             
                     if jawaban == "Kelvin":
                         st.session_state.skor += 10
@@ -899,8 +896,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[5] = jawaban
+                    st.session_state.jawaban_user[5] = jawaban
             
                     if jawaban == "PV = nRT":
                         st.session_state.skor += 10
@@ -920,8 +916,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[6] = jawaban
+                    st.session_state.jawaban_user[6] = jawaban
             
                     if jawaban is not None and abs(jawaban - 2) < 0.01:
                         st.session_state.skor += 10
@@ -941,8 +936,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[7] = jawaban
+                    st.session_state.jawaban_user[7] = jawaban
             
                     if jawaban is not None and abs(jawaban - 3) < 0.01:
                         st.session_state.skor += 10
@@ -962,8 +956,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                  if st.button("➡️ Berikutnya"):
-
-                      st.session_state.jawaban_user[8] = jawaban
+                     st.session_state.jawaban_user[8] = jawaban
             
                     if jawaban is not None and abs(jawaban - 2) < 0.01:
                         st.session_state.skor += 10
@@ -983,8 +976,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[9] = jawaban
+                    st.session_state.jawaban_user[9] = jawaban
             
                     if jawaban is not None and abs(jawaban - 1) < 0.05:
                         st.session_state.skor += 10
@@ -1004,8 +996,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("🏁 Selesai"):
-
-                     st.session_state.jawaban_user[10] = jawaban
+                    st.session_state.jawaban_user[10] = jawaban
             
                     if jawaban is not None and abs(jawaban - 243.61) < 0.1:
                         st.session_state.skor += 10
