@@ -1425,12 +1425,12 @@ elif menu == "📈 Regresi Linear":
     st.subheader("📈 Regresi Linear")
 
     x_input = st.text_input(
-        "Data x (Tekanan (P)) (pisahkan koma)",
+        "Data x (Tekanan) (pisahkan koma)",
         "1,2,3,4,5"
     )
 
     y_input = st.text_input(
-        "Data y (Volume(V)) (pisahkan koma)",
+        "Data y (Volume) (pisahkan koma)",
         "10,8,6,4,2"
     )
 
