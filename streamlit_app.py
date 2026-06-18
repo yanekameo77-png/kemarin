@@ -796,8 +796,7 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
-
-                     st.session_state.jawaban_user[1] = jawaban
+                    st.session_state.jawaban_user[1] = jawaban
             
                     if jawaban == "Tekanan dan Volume":
                         st.session_state.skor += 10
