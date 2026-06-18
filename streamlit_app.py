@@ -1072,16 +1072,29 @@ elif menu == "🧪 Studi Kasus":
             
                     # pengecekan untuk soal numerik
                     if i in [6, 7, 8]:
-                        status = abs(float(user) - float(benar)) < 0.01
-            
+
+                        if user is None:
+                            status = False
+                        else:
+                            status = abs(float(user) - float(benar)) < 0.01
+                    
                     elif i == 9:
-                        status = abs(float(user) - float(benar)) < 0.05
-            
+                    
+                        if user is None:
+                            status = False
+                        else:
+                            status = abs(float(user) - float(benar)) < 0.05
+                    
                     elif i == 10:
-                        status = abs(float(user) - float(benar)) < 0.1
-            
+                    
+                        if user is None:
+                            status = False
+                        else:
+                            status = abs(float(user) - float(benar)) < 0.1
+                    
                     else:
                         status = user == benar
+                   
             
                     if status:
                         st.success(f"Soal {i} ✔ Benar")
