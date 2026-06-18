@@ -948,22 +948,23 @@ elif menu == "🧪 Studi Kasus":
             # SOAL 8
             # =========================
             elif st.session_state.soal == 8:
-            
-                 jawaban = st.number_input(
+
+                jawaban = st.number_input(
                     "8. P1=1 atm, T1=300 K, T2=600 K. Berapa P2?",
                     value=None,
                     placeholder="Masukkan jawaban"
                 )
             
-                 if st.button("➡️ Berikutnya"):
-                     st.session_state.jawaban_user[8] = jawaban
+                if st.button("➡️ Berikutnya"):
+            
+                    st.session_state.jawaban_user[8] = jawaban
             
                     if jawaban is not None and abs(jawaban - 2) < 0.01:
                         st.session_state.skor += 10
             
                     st.session_state.soal = 9
                     st.rerun()
-            
+           
             # =========================
             # SOAL 9
             # =========================
