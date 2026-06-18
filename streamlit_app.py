@@ -148,6 +148,31 @@ def kalkulator_samping():
         ""
     )
 
+    with st.expander("📖 Contoh Penggunaan"):
+    st.write("""
+    **Operasi dasar**
+    - 2+3
+    - 10-4
+    - 5*6
+    - 20/4
+
+    **Pangkat**
+    - 2^3
+    - 5^2
+
+    **Akar**
+    - sqrt(9)
+    - sqrt(25)
+
+    **Logaritma**
+    - log(100)
+
+    **Trigonometri**
+    - sin(pi/2)
+    - cos(0)
+    - tan(pi/4)
+    """)
+
     if st.button("Hitung", key="btn_sidebar"):
 
         try:
