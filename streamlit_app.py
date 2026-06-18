@@ -20,176 +20,120 @@ st.markdown("---")
 #=========================
 # Background
 #=========================
+import streamlit as st
+
+st.set_page_config(
+    page_title="CalcuGas",
+    page_icon="⚗️",
+    layout="wide"
+)
+
+# =========================
+# NAVY GLASS THEME
+# =========================
 st.markdown("""
 <style>
 
-/* =========================
-   BACKGROUND UTAMA
-========================= */
+/* Background utama */
 .stApp{
-    background:
-    linear-gradient(
+    background: linear-gradient(
         135deg,
-        #020617 0%,
-        #0f172a 20%,
-        #1e3a8a 50%,
-        #2563eb 75%,
-        #38bdf8 100%
+        #071426 0%,
+        #0B1E35 35%,
+        #102B4E 70%,
+        #163A63 100%
     );
-
-    background-size: 400% 400%;
-    animation: gradientMove 15s ease infinite;
+    background-attachment: fixed;
 }
 
-/* Animasi Gradient */
-@keyframes gradientMove{
-    0%{
-        background-position:0% 50%;
-    }
-    50%{
-        background-position:100% 50%;
-    }
-    100%{
-        background-position:0% 50%;
-    }
+/* Sidebar Glass */
+section[data-testid="stSidebar"]{
+    background: rgba(10, 25, 47, 0.70);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255,255,255,0.1);
 }
 
-/* =========================
-   SEMUA TEXT
-========================= */
-h1,h2,h3,h4,h5,h6,
-p,label,span{
-    color:white !important;
+/* Header sidebar */
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3{
+    color: white !important;
+    font-weight: 700;
 }
 
-/* =========================
-   GLASS CARD
-========================= */
-.glass-card{
-
-    background:rgba(255,255,255,0.10);
-
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,0.15);
-
-    border-radius:25px;
-
-    padding:25px;
-
-    box-shadow:
-    0 8px 32px rgba(0,0,0,0.25);
-
-    margin-bottom:20px;
+/* Radio Menu */
+div[role="radiogroup"]{
+    background: rgba(255,255,255,0.05);
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
-/* =========================
-   MENU ATAS
-========================= */
-.menu-container{
-
-    background:rgba(255,255,255,0.08);
-
-    backdrop-filter:blur(20px);
-
-    border-radius:20px;
-
-    padding:12px;
-
-    border:1px solid rgba(255,255,255,0.15);
-
-    margin-bottom:20px;
+/* Setiap pilihan menu */
+div[role="radiogroup"] label{
+    background: rgba(255,255,255,0.04);
+    border-radius: 15px;
+    padding: 12px 15px;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
 }
 
-/* =========================
-   INPUT BOX
-========================= */
-.stTextInput input,
-.stNumberInput input,
-.stTextArea textarea{
-
-    background:rgba(255,255,255,0.12) !important;
-
-    color:white !important;
-
-    border-radius:15px !important;
-
-    border:1px solid rgba(255,255,255,0.15) !important;
+/* Hover */
+div[role="radiogroup"] label:hover{
+    background: rgba(59,130,246,0.20);
+    transform: translateX(5px);
 }
 
-/* =========================
-   SELECTBOX
-========================= */
-.stSelectbox > div > div{
-
-    background:rgba(255,255,255,0.12);
-
-    color:white;
-
-    border-radius:15px;
+/* Tulisan menu */
+div[role="radiogroup"] p{
+    color: white !important;
+    font-weight: 600;
 }
 
-/* =========================
-   BUTTON
-========================= */
+/* Tombol */
 .stButton > button{
-
-    background:
-    linear-gradient(
-        135deg,
-        #2563eb,
-        #38bdf8
-    );
-
-    color:white;
-
+    width:100%;
     border:none;
-
     border-radius:15px;
-
+    background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb
+    );
+    color:white;
     font-weight:bold;
-
-    height:50px;
-
+    padding:12px;
     transition:0.3s;
 }
 
 .stButton > button:hover{
-
     transform:translateY(-2px);
-
-    box-shadow:
-    0 8px 20px rgba(56,189,248,0.4);
+    box-shadow:0 8px 20px rgba(37,99,235,0.4);
 }
 
-/* =========================
-   SUCCESS
-========================= */
-.stSuccess{
-
-    border-radius:15px;
+/* Card Glass */
+.glass-card{
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(15px);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:20px;
+    margin-bottom:15px;
 }
 
-/* =========================
-   ERROR
-========================= */
-.stError{
-
-    border-radius:15px;
+/* Hilangkan warna putih bawaan */
+[data-testid="stHeader"]{
+    background: transparent;
 }
 
-/* =========================
-   WARNING
-========================= */
-.stWarning{
-
-    border-radius:15px;
+/* Footer */
+footer{
+    visibility:hidden;
 }
 
 </style>
 """, unsafe_allow_html=True)
-
 # =========================
 # KALKULATOR CEPAT
 # =========================
