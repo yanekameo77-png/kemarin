@@ -773,6 +773,9 @@ elif menu == "🧪 Studi Kasus":
             
             if "skor" not in st.session_state:
                 st.session_state.skor = 0
+
+            if "jawaban_user" not in st.session_state:
+                st.session_state.jawaban_user = {}
             
             st.progress((st.session_state.soal-1)/10)
             
@@ -793,6 +796,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[1] = jawaban
             
                     if jawaban == "Tekanan dan Volume":
                         st.session_state.skor += 10
@@ -817,6 +822,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[2] = jawaban
             
                     if jawaban == "Meningkat":
                         st.session_state.skor += 10
@@ -841,6 +848,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[3] = jawaban
             
                     if jawaban == "Tekanan dan Suhu":
                         st.session_state.skor += 10
@@ -865,6 +874,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[4] = jawaban
             
                     if jawaban == "Kelvin":
                         st.session_state.skor += 10
@@ -889,6 +900,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[5] = jawaban
             
                     if jawaban == "PV = nRT":
                         st.session_state.skor += 10
@@ -908,6 +921,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[6] = jawaban
             
                     if jawaban is not None and abs(jawaban - 2) < 0.01:
                         st.session_state.skor += 10
@@ -927,6 +942,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[7] = jawaban
             
                     if jawaban is not None and abs(jawaban - 3) < 0.01:
                         st.session_state.skor += 10
@@ -946,6 +963,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                  if st.button("➡️ Berikutnya"):
+
+                      st.session_state.jawaban_user[8] = jawaban
             
                     if jawaban is not None and abs(jawaban - 2) < 0.01:
                         st.session_state.skor += 10
@@ -965,6 +984,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("➡️ Berikutnya"):
+
+                     st.session_state.jawaban_user[9] = jawaban
             
                     if jawaban is not None and abs(jawaban - 1) < 0.05:
                         st.session_state.skor += 10
@@ -984,6 +1005,8 @@ elif menu == "🧪 Studi Kasus":
                 )
             
                 if st.button("🏁 Selesai"):
+
+                     st.session_state.jawaban_user[10] = jawaban
             
                     if jawaban is not None and abs(jawaban - 243.61) < 0.1:
                         st.session_state.skor += 10
@@ -995,7 +1018,7 @@ elif menu == "🧪 Studi Kasus":
             # HASIL AKHIR
             # =========================
             elif st.session_state.soal == 11:
-            
+
                 st.balloons()
             
                 st.subheader("🏆 Hasil Quiz")
@@ -1016,12 +1039,78 @@ elif menu == "🧪 Studi Kasus":
                 else:
                     st.error("📚 Pelajari kembali materi hukum gas.")
             
-                    if st.button("🔄 Ulangi Quiz"):
-            
-                        st.session_state.soal = 1
-                        st.session_state.skor = 0
-                        st.rerun()
+                # =========================
+                # KUNCI JAWABAN
+                # =========================
+                kunci = {
+                    1: "Tekanan dan Volume",
+                    2: "Meningkat",
+                    3: "Tekanan dan Suhu",
+                    4: "Kelvin",
+                    5: "PV = nRT",
+                    6: 2,
+                    7: 3,
+                    8: 2,
+                    9: 1,
+                    10: 243.61
+                }
 
+                # =========================
+                # PEMBAHASAN
+                # =========================
+                pembahasan = {
+                    1: "Hukum Boyle: tekanan berbanding terbalik dengan volume pada suhu tetap.",
+                    2: "Hukum Charles: volume berbanding lurus dengan suhu mutlak.",
+                    3: "Hukum Gay-Lussac: tekanan berbanding lurus dengan suhu mutlak.",
+                    4: "Perhitungan hukum gas harus menggunakan suhu Kelvin.",
+                    5: "Persamaan gas ideal adalah PV = nRT.",
+                    6: "P₁V₁ = P₂V₂ → (2×4)/(4) = 2 L.",
+                    7: "V₁/T₁ = V₂/T₂ → (2×450)/300 = 3 L.",
+                    8: "P₁/T₁ = P₂/T₂ → (1×600)/300 = 2 atm.",
+                    9: "n = PV/(RT) = (1×24.63)/(0.0821×300) = 1 mol.",
+                    10: "T = PV/(nR) = (2×10)/(1×0.0821) = 243.61 K."
+                }
+            
+                st.markdown("---")
+                st.subheader("📖 Pembahasan Soal")
+            
+                for i in range(1, 11):
+            
+                    user = st.session_state.jawaban_user.get(i, "-")
+                    benar = kunci[i]
+            
+                    # pengecekan untuk soal numerik
+                    if i in [6, 7, 8]:
+                        status = abs(float(user) - float(benar)) < 0.01
+            
+                    elif i == 9:
+                        status = abs(float(user) - float(benar)) < 0.05
+            
+                    elif i == 10:
+                        status = abs(float(user) - float(benar)) < 0.1
+            
+                    else:
+                        status = user == benar
+            
+                    if status:
+                        st.success(f"Soal {i} ✔ Benar")
+                    else:
+                        st.error(f"Soal {i} ✘ Salah")
+                        st.write(f"**Jawaban Anda:** {user}")
+                        st.write(f"**Jawaban Benar:** {benar}")
+            
+                    with st.expander(f"Lihat Pembahasan Soal {i}"):
+                        st.write(pembahasan[i])
+            
+                st.markdown("---")
+            
+                if st.button("🔄 Ulangi Quiz"):
+            
+                    st.session_state.soal = 1
+                    st.session_state.skor = 0
+                    st.session_state.jawaban_user = {}
+            
+                    st.rerun()
     with kanan:
         kalkulator_samping()
     
