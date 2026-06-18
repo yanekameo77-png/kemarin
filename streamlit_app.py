@@ -134,103 +134,6 @@ footer{
 
 </style>
 """, unsafe_allow_html=True)
-
-#========================
-# ICON 
-#========================
-st.markdown("""
-<style>
-
-/* ==========================
-   FLOATING CALCULATOR ICONS
-   ========================== */
-
-.floating-bg{
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
-    pointer-events:none;
-}
-
-.floating-bg span{
-    position:absolute;
-    display:block;
-    color:rgba(255,255,255,0.05);
-    font-size:40px;
-    animation:floatCalc linear infinite;
-}
-
-.floating-bg span:nth-child(1){
-    left:10%;
-    animation-duration:20s;
-    font-size:50px;
-}
-
-.floating-bg span:nth-child(2){
-    left:25%;
-    animation-duration:25s;
-    animation-delay:-5s;
-}
-
-.floating-bg span:nth-child(3){
-    left:45%;
-    animation-duration:18s;
-    font-size:60px;
-}
-
-.floating-bg span:nth-child(4){
-    left:65%;
-    animation-duration:22s;
-    animation-delay:-10s;
-}
-
-.floating-bg span:nth-child(5){
-    left:85%;
-    animation-duration:28s;
-}
-
-@keyframes floatCalc{
-
-    0%{
-        transform:
-        translateY(110vh)
-        rotate(0deg);
-
-        opacity:0;
-    }
-
-    15%{
-        opacity:0.08;
-    }
-
-    85%{
-        opacity:0.08;
-    }
-
-    100%{
-        transform:
-        translateY(-120px)
-        rotate(360deg);
-
-        opacity:0;
-    }
-}
-
-</style>
-
-<div class="floating-bg">
-    <span>🧮</span>
-    <span>⚗️</span>
-    <span>📈</span>
-    <span>🧮</span>
-    <span>📊</span>
-</div>
-
-""", unsafe_allow_html=True)
 # =========================
 # KALKULATOR CEPAT
 # =========================
@@ -322,25 +225,142 @@ menu = st.sidebar.radio(
 # =========================
 # HOME
 # =========================
+# =========================
+# HOME
+# =========================
 if menu == "🏠 Home":
 
-    st.subheader("👋 Selamat Datang")
+    st.markdown("""
+    <div style="
+        padding:30px;
+        border-radius:25px;
+        background:rgba(255,255,255,0.08);
+        border:1px solid rgba(255,255,255,0.15);
+        backdrop-filter:blur(15px);
+        box-shadow:0 8px 32px rgba(0,0,0,0.15);
+    ">
+        <h1 style="
+            color:white;
+            margin-bottom:10px;
+            text-align:center;
+        ">
+            ⚗️ CalcuGas Dashboard
+        </h1>
+
+        <p style="
+            color:#e6f0ff;
+            text-align:center;
+            font-size:18px;
+        ">
+            Kalkulator Hukum Gas Ideal Interaktif
+            <br>
+            Simulasi • Regresi Linear • Quiz • Perhitungan Gas
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("")
+    st.write("")
+
+    # =========================
+    # KARTU FITUR
+    # =========================
+
+    col1, col2, col3 = st.columns(3)
+
+    with col1:
+        st.markdown("""
+        <div style="
+            background:rgba(255,255,255,0.08);
+            padding:25px;
+            border-radius:20px;
+            border:1px solid rgba(255,255,255,0.1);
+            text-align:center;
+            backdrop-filter:blur(12px);
+        ">
+            <h2>🧪</h2>
+            <h3 style="color:white;">Studi Kasus</h3>
+            <p style="color:#d6e6ff;">
+            Simulasi massa jenis gas dan quiz interaktif.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("""
+        <div style="
+            background:rgba(255,255,255,0.08);
+            padding:25px;
+            border-radius:20px;
+            border:1px solid rgba(255,255,255,0.1);
+            text-align:center;
+            backdrop-filter:blur(12px);
+        ">
+            <h2>⚗️</h2>
+            <h3 style="color:white;">Gas Ideal</h3>
+            <p style="color:#d6e6ff;">
+            Hitung tekanan, volume, mol, dan suhu.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("""
+        <div style="
+            background:rgba(255,255,255,0.08);
+            padding:25px;
+            border-radius:20px;
+            border:1px solid rgba(255,255,255,0.1);
+            text-align:center;
+            backdrop-filter:blur(12px);
+        ">
+            <h2>📈</h2>
+            <h3 style="color:white;">Regresi Linear</h3>
+            <p style="color:#d6e6ff;">
+            Analisis data dan grafik regresi otomatis.
+            </p>
+        </div>
+        """, unsafe_allow_html=True)
+
+    st.write("")
+    st.write("")
+
+    # =========================
+    # FITUR APLIKASI
+    # =========================
 
     st.markdown("""
-    ### 🔬 Fitur:
-    - Studi Kasus
-    - Quiz Hukum Gas
-    - Hukum Boyle
-    - Hukum Charles
-    - Hukum Gay-Lussac
-    - Gas Ideal 
-    - Regresi Linear
-    - Tentang aplikasi
-    - Kotak saran
-    """)
+    <div style="
+        background:rgba(255,255,255,0.08);
+        padding:25px;
+        border-radius:20px;
+        border:1px solid rgba(255,255,255,0.1);
+        backdrop-filter:blur(12px);
+    ">
+        <h2 style="color:white;">
+            🔬 Fitur Utama CalcuGas
+        </h2>
 
-    st.balloons()
+        <ul style="
+            color:#e6f0ff;
+            line-height:2;
+            font-size:17px;
+        ">
+            <li>🧪 Studi Kasus Interaktif</li>
+            <li>📘 Hukum Boyle</li>
+            <li>📘 Hukum Charles</li>
+            <li>📘 Hukum Gay-Lussac</li>
+            <li>⚗️ Persamaan Gas Ideal</li>
+            <li>📈 Regresi Linear</li>
+            <li>📝 Quiz Hukum Gas</li>
+            <li>📬 Kotak Saran</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
 
+    st.write("")
+
+    st.success("👈 Pilih menu pada sidebar untuk memulai.")
 # =========================
 # STUDI KASUS
 # =========================
