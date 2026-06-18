@@ -142,7 +142,7 @@ def kalkulator_samping():
 
     ekspresi = st.text_input(
         "Masukkan perhitungan",
-        "10+5*2-3"
+        ""
     )
 
     if st.button("Hitung"):
