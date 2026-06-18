@@ -3,20 +3,6 @@ import streamlit.components.v1 as components
 import numpy as np
 import pandas as pd
 import time 
-
-# =========================
-# CONFIG
-# =========================
-st.set_page_config(
-    page_title="Kalkulator Gas Ideal",page_icon="🧪",
-    layout="centered"
-)
-
-st.title("🧪 Kalkulator Gas Ideal")
-st.caption("Hukum Gas + Studi Kasus + Regresi Linear")
-
-st.markdown("---")
-
 #=========================
 # Background
 #=========================
