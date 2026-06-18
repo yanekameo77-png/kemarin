@@ -329,34 +329,35 @@ if menu == "🏠 Home":
     # FITUR APLIKASI
     # =========================
 
-    st.markdown("""
-    <div style="
-        background:rgba(255,255,255,0.08);
-        padding:25px;
-        border-radius:20px;
-        border:1px solid rgba(255,255,255,0.1);
-        backdrop-filter:blur(12px);
-    ">
-        <h2 style="color:white;">
-            🔬 Fitur Utama CalcuGas
-        </h2>
+   st.markdown("""
+<div style="
+    background:rgba(255,255,255,0.08);
+    padding:25px;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+">
 
-        <ul style="
-            color:#e6f0ff;
-            line-height:2;
-            font-size:17px;
-        ">
-            <li>🧪 Studi Kasus Interaktif</li>
-            <li>📘 Hukum Boyle</li>
-            <li>📘 Hukum Charles</li>
-            <li>📘 Hukum Gay-Lussac</li>
-            <li>⚗️ Persamaan Gas Ideal</li>
-            <li>📈 Regresi Linear</li>
-            <li>📝 Quiz Hukum Gas</li>
-            <li>📬 Kotak Saran</li>
-        </ul>
-    </div>
-    """, unsafe_allow_html=True)
+<h2 style="color:white;">
+🔬 Fitur Utama CalcuGas
+</h2>
+
+<ul style="
+    color:#e6f0ff;
+    line-height:2;
+    font-size:17px;
+">
+    <li>🧪 Studi Kasus Interaktif</li>
+    <li>📘 Hukum Boyle</li>
+    <li>📘 Hukum Charles</li>
+    <li>📘 Hukum Gay-Lussac</li>
+    <li>⚗️ Persamaan Gas Ideal</li>
+    <li>📈 Regresi Linear</li>
+    <li>📝 Quiz Hukum Gas</li>
+    <li>📬 Kotak Saran</li>
+</ul>
+
+</div>
+""", unsafe_allow_html=True)
 
     st.write("")
 
