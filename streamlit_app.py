@@ -136,19 +136,19 @@ footer{
 # =========================
 # KALKULATOR CEPAT
 # =========================
+import streamlit as st
+import math
+
 def kalkulator_samping():
 
     st.markdown("### 🧮 Kalkulator Cepat")
 
     ekspresi = st.text_input(
-        "Masukkan perhitungan (+,-,*,/,^, sqrt())",
+        "Masukkan perhitungan (+,-,*,/,^,sqrt())",
         ""
     )
 
-    if st.button(
-        "Hitung",
-        key="btn_sidebar"
-    ):
+    if st.button("Hitung", key="btn_sidebar"):
 
         try:
             ekspresi = ekspresi.replace("^", "**")
@@ -168,6 +168,9 @@ def kalkulator_samping():
             )
 
             st.success(f"Hasil = {hasil}")
+
+        except Exception as e:
+            st.error(f"Error: {e}")
 
         except:
             st.error("Format perhitungan salah")
