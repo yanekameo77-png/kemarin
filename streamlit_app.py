@@ -140,27 +140,19 @@ def kalkulator_samping():
 
     st.markdown("### 🧮 Kalkulator Cepat")
 
-    angka1 = st.number_input("Angka 1", key="k1")
-    operasi = st.selectbox(
-        "Operasi",
-        ["+", "-", "×", "÷"],
-        key="op"
+    ekspresi = st.text_input(
+        "Masukkan perhitungan",
+        "10+5*2-3"
     )
-    angka2 = st.number_input("Angka 2", key="k2")
 
-    if operasi == "+":
-        hasil = angka1 + angka2
-    elif operasi == "-":
-        hasil = angka1 - angka2
-    elif operasi == "×":
-        hasil = angka1 * angka2
-    else:
-        hasil = angka1 / angka2 if angka2 != 0 else "Error"
+    if st.button("Hitung"):
 
-    st.success(f"Hasil = {hasil}")
+        try:
+            hasil = eval(ekspresi)
+            st.success(f"Hasil = {hasil}")
 
-    st.markdown("---")
-
+        except:
+            st.error("Format perhitungan salah")
     st.markdown("### 🌡️ Konverter Suhu")
 
     suhu = st.number_input(
