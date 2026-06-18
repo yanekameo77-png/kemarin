@@ -145,7 +145,10 @@ def kalkulator_samping():
         ""
     )
 
-    if st.button("Hitung"):
+    if st.button(
+        "Hitung",
+        key="btn_sidebar"
+    ):
 
         try:
             hasil = eval(ekspresi)
@@ -1017,7 +1020,10 @@ elif menu == "📘 Hukum Boyle":
                 "V2", value=0.0, disabled=(dicari == "V2")
             )
     
-        if st.button("Hitung"):
+        if st.button(
+            "Hitung",
+            key="btn_boyle"
+        ):
     
             try:
     
@@ -1122,7 +1128,10 @@ elif menu == "📘 Hukum Charles":
                 disabled=(dicari == "T2")
             )
     
-        if st.button("Hitung"):
+        if st.button(
+            "Hitung",
+            key="btn_charles"
+        ):
     
             try:
     
@@ -1227,7 +1236,10 @@ elif menu == "📘 Hukum Gay-Lussac":
                 disabled=(dicari == "T2")
             )
     
-        if st.button("Hitung"):
+        if st.button(
+            "Hitung",
+            key="btn_gaylussac"
+        ):
     
             try:
     
@@ -1337,7 +1349,10 @@ elif menu == "⚗️ Gas Ideal":
     
         st.info(f"Konstanta gas (R) = {R} L·atm/mol·K")
     
-        if st.button("Hitung"):
+        if st.button(
+            "Hitung",
+            key="btn_gasideal"
+        ):
     
             try:
     
