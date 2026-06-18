@@ -193,12 +193,15 @@ def kalkulator_samping():
             )
 
             st.success(f"Hasil = {hasil}")
-
-        except Exception as e:
-            st.error(f"Error: {e}")
-
-        except:
-            st.error("Format perhitungan salah")
+            except ZeroDivisionError:
+                st.error("Tidak bisa membagi dengan nol.")
+            except SyntaxError:
+                st.error("Format perhitungan salah.")
+            except TypeError:
+                st.error("Gunakan titik (.) sebagai desimal, misalnya 24.63.")
+            except Exception:
+                st.error("Terjadi kesalahan pada perhitungan.")
+                
     st.markdown("### 🌡️ Konverter Suhu")
 
     suhu = st.number_input(
