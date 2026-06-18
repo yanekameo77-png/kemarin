@@ -54,6 +54,19 @@ section[data-testid="stSidebar"]{
     border-right: 1px solid rgba(255,255,255,0.1);
 }
 
+/* SEMUA TULISAN SIDEBAR PUTIH */
+section[data-testid="stSidebar"] *{
+    color:white !important;
+}
+
+/* Judul radio */
+div[data-testid="stRadio"] > label{
+    color:white !important;
+    font-weight:bold !important;
+    font-size:18px !important;
+}
+
+
 /* Header sidebar */
 section[data-testid="stSidebar"] h1,
 section[data-testid="stSidebar"] h2,
