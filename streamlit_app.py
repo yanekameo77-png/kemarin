@@ -141,7 +141,7 @@ def kalkulator_samping():
     st.markdown("### 🧮 Kalkulator Cepat")
 
     ekspresi = st.text_input(
-        "Masukkan perhitungan",
+        "Masukkan perhitungan (+,-,*,/,^, sqrt())",
         ""
     )
 
@@ -151,7 +151,22 @@ def kalkulator_samping():
     ):
 
         try:
-            hasil = eval(ekspresi)
+            ekspresi = ekspresi.replace("^", "**")
+
+            hasil = eval(
+                ekspresi,
+                {"__builtins__": None},
+                {
+                    "sqrt": math.sqrt,
+                    "sin": math.sin,
+                    "cos": math.cos,
+                    "tan": math.tan,
+                    "log": math.log10,
+                    "pi": math.pi,
+                    "e": math.e
+                }
+            )
+
             st.success(f"Hasil = {hasil}")
 
         except:
