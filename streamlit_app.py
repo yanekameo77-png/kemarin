@@ -144,7 +144,7 @@ def kalkulator_samping():
     st.markdown("### 🧮 Kalkulator Cepat")
 
     ekspresi = st.text_input(
-        "Masukkan perhitungan (+,-,*,/,^,sqrt())",
+        "Masukkan perhitungan",
         ""
     )
 
