@@ -234,30 +234,24 @@ if menu == "🏠 Home":
     <div style="
         padding:30px;
         border-radius:25px;
-        background:rgba(255,255,255,0.08);
-        border:1px solid rgba(255,255,255,0.15);
-        backdrop-filter:blur(15px);
-        box-shadow:0 8px 32px rgba(0,0,0,0.15);
     ">
-        <h1 style="
-            color:white;
-            margin-bottom:10px;
-            text-align:center;
-        ">
-            ⚗️ CalcuGas Dashboard
-        </h1>
-
-        <p style="
-            color:#e6f0ff;
-            text-align:center;
-            font-size:18px;
-        ">
-            Kalkulator Hukum Gas Ideal Interaktif
-            <br>
-            Simulasi • Regresi Linear • Quiz • Perhitungan Gas
-        </p>
+    
+    <h1>⚗️ CalcuGas Dashboard</h1>
+    
+    <p style="
+        color:#e6f0ff;
+        text-align:center;
+        font-size:18px;
+    ">
+        Kalkulator Hukum Gas Ideal Interaktif
+        <br>
+        Simulasi • Regresi Linear • Quiz • Perhitungan Gas
+    </p>
+    
     </div>
     """, unsafe_allow_html=True)
+
+   
 
     st.write("")
     st.write("")
