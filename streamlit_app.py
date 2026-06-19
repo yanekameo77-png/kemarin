@@ -458,18 +458,24 @@ elif menu == "🧪 Studi Kasus":
             # =======================
             # PENJELASAN
             # =======================
-    
-            st.info(
+            st.markdown(
                 f"""
-                Tekanan = {P} atm
-    
-                Suhu = {T} K
-    
-                Bobot Molekul = {n} g/mol
-    
-                Semakin tinggi suhu, partikel bergerak semakin cepat.
-                """
+                <div style="
+                    background-color: #dbeafe;
+                    padding: 15px;
+                    border-radius: 10px;
+                    color: black;
+                ">
+                    <b>Tekanan</b> = {P} atm<br><br>
+                    <b>Suhu</b> = {T} K<br><br>
+                    <b>Bobot Molekul</b> = {n} g/mol<br><br>
+                    Semakin tinggi suhu, partikel bergerak semakin cepat.
+                </div>
+                """,
+                unsafe_allow_html=True
             )
+    
+           
             #====================
             #HTML + CSS ANIMASI
             #=====================
