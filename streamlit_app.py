@@ -458,24 +458,34 @@ elif menu == "🧪 Studi Kasus":
             # =======================
             # PENJELASAN
             # =======================
-            st.markdown(
-                f"""
-                <div style="
-                    background-color: #dbeafe;
-                    padding: 15px;
-                    border-radius: 10px;
-                    color: black;
-                ">
-                    <b>Tekanan</b> = {P} atm<br><br>
-                    <b>Suhu</b> = {T} K<br><br>
-                    <b>Bobot Molekul</b> = {n} g/mol<br><br>
-                    Semakin tinggi suhu, partikel bergerak semakin cepat.
-                </div>
-                """,
-                unsafe_allow_html=True
+            import streamlit as st
+
+            st.set_page_config(layout="wide")
+            
+            # CSS untuk mengubah warna teks st.info menjadi hitam
+            st.markdown("""
+            <style>
+            div[data-testid="stAlert"] p {
+                color: black !important;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+            
+            # Komponen lain
+            st.title("Simulasi Hukum Gas")
+            
+            st.info(
+                """
+                Tekanan = 1 atm
+            
+                Suhu = 300 K
+            
+                Bobot Molekul = 28 g/mol
+            
+                Semakin tinggi suhu, partikel bergerak semakin cepat.
+                """
             )
-    
-           
+                       
             #====================
             #HTML + CSS ANIMASI
             #=====================
